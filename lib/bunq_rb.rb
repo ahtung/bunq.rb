@@ -1,5 +1,5 @@
-require "bunq_rb/version"
+require_relative "bunq_rb/version"
+require_relative "bunq_rb/client"
 
 module BunqRb
-  # Your code goes here...
 end
