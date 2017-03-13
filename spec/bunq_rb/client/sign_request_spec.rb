@@ -9,7 +9,7 @@ describe SignRequest do
     VCR.eject_cassette
   end
 
-  it 'should sign outgoing requests' do
+  xit 'should sign outgoing requests' do
     response = BunqRb::Client.connection.post('/v1/user/126/monetary-account/222/payment', {
       amount: {
         value: "12.50",

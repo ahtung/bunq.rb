@@ -4,7 +4,7 @@ describe 'Create Session' do
 
   let(:key) { OpenSSL::PKey::RSA.new 2048 }
 
-  it '' do
+  xit '' do
     KEY = key
     api_key = "fe7d4dd1fe31bb585fd86ab6febbf96f978e14f630660865840b5f611d42da9a"
     # 1. POST installation
