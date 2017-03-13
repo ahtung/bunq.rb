@@ -9,7 +9,7 @@ describe SignRequest do
     VCR.eject_cassette
   end
 
-  xit 'should sign outgoing requests' do
+  it 'should sign outgoing requests' do
     response = BunqRb::Client.connection.post('/v1/user/126/monetary-account/222/payment', {
       amount: {
         value: "12.50",
@@ -28,8 +28,6 @@ describe SignRequest do
       request.headers["X-Bunq-Language"] = "en_US"
       request.headers["X-Bunq-Region"] = "en_US"
     end
-    puts response.request_headers
-    puts 'expect'
     expect(response.headers['X-Bunq-Client-Signature']).to eq("ee9sDfzEhQ2L6Rquyh2XmJyNWdSBOBo6Z2eUYuM4bAOBCn9N5vjs6k6RROpagxXFXdGI9sT15tYCaLe5FS9aciIuJmrVW/SZCDWq/nOvSThi7+BwD9JFdG7zfR4afC8qfVABmjuMrtjaUFSrthyHS/5wEuDuax9qUZn6sVXcgZEq49hy4yHrV8257I4sSQIHRmgds4BXcGhPp266Z6pxjzAJbfyzt5JgJ8/suxgKvm/nYhnOfsgIIYCgcyh4DRrQltohiSon6x1ZsRIfQnCDlDDghaIxbryLfinT5Y4eU1eiCkFB4D69S4HbFXYyAxlqtX2W6Tvax6rIM2MMPNOh4Q==")
   end
 end

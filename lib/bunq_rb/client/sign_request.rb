@@ -12,14 +12,10 @@ require 'base64'
           sorted_headers = env[:request_headers].sort.to_h.map { |k, v| "#{k}: #{v}" }
           string << sorted_headers.join("\n") << "\n\n"
           string << env.body.to_json if env[:method] == :post
-          puts '---'
-          puts string
-          puts '---'
           digest = OpenSSL::Digest::SHA256.new
           signature = KEY.sign(digest, string)
           env[:request_headers]["X-Bunq-Client-Signature"] = Base64.strict_encode64(signature)
         end
-        puts env
         @app.call(env)
       end
 

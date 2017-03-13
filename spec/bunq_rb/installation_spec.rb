@@ -14,7 +14,7 @@ describe BunqRb::Installation do
     end
 
     it 'returns an :id' do
-      expect(object.id).to be(5464)
+      expect(object.id).to be(5612)
     end
 
     it 'returns a :token object' do

@@ -4,7 +4,7 @@ describe 'Create Session' do
 
   let(:key) { OpenSSL::PKey::RSA.new 2048 }
 
-  fit '' do
+  it '' do
     KEY = key
     api_key = "fe7d4dd1fe31bb585fd86ab6febbf96f978e14f630660865840b5f611d42da9a"
     # 1. POST installation
@@ -20,12 +20,10 @@ describe 'Create Session' do
         '94.210.58.254'
       ]
     )
-    puts device_server
 
     # 3. POST session-server
     session_server = BunqRb::SessionServer.create(
       secret: api_key
     )
-    puts session_server
   end
 end

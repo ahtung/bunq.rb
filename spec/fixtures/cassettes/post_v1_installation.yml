@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.public.api.bunq.com/v1/installation
+    body:
+      encoding: UTF-8
+      string: '{"client_public_key":"-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqEdgjsTW03GuiwkjmXyx\noJvs2ZD7zvsrQW+DCXpTe1an92G8sKYitnplpXegb4NwoUcS9rfxnAlmdLUyR6pv\n3f7eQIHPiweHAwTeaGokV/PCY2XyAGServf62mluFcVqJFAhLmRmvT907dDt1Q6N\nfKChlRxYxP1gQNMWAFesYo+ZTGHiM9RZF/ZqByYCb9QL/DEv/H/0jx273RBZIGrw\nCUvKu7q4Ahd6h4y4c8hrLeOBDjChi7dYBrIPvdXrI4NMv+A7fUnLMPY4WcZs3maA\n0/V9L7+dzXcGW/w9SBS+KsMMP0hAfNHJ7pzHkhLhSX1pUWMC2RT8q4JtqODiK4Z5\nDwIDAQAB\n-----END
+        PUBLIC KEY-----\n"}'
+    headers:
+      User-Agent:
+      - bunq_rb/1.00
+      Cache-Control:
+      - no-cache
+      X-Bunq-Language:
+      - nl_NL
+      X-Bunq-Region:
+      - nl_NL
+      X-Bunq-Geolocation:
+      - 0 0 0 0 NL
+      X-Bunq-Client-Request-Id:
+      - 389e6f8a-3650-46c6-b00e-98e5d1d88ec8
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 13 Mar 2017 22:39:01 GMT
+      Server:
+      - Apache
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Bunq-Client-Response-Id:
+      - 0663080b-86cc-4600-a092-4d4d5b22b843
+      X-Bunq-Client-Request-Id:
+      - 389e6f8a-3650-46c6-b00e-98e5d1d88ec8
+      X-Bunq-Server-Signature:
+      - A9Q4utAPPC1VnRxg+Mop10XULuQpY+bJWuM44JatVzHrnmDnHeJjwUAayIei7VtGWvDHyrzKTu8sbxGbSxwX06mLLlDPbF7ZAmCsTXenYGZHg8E95SnN3jL4jjaqlExWnebempOn4fWOkLbpVS6ZL6uYjU+SCero7mz43wuOqidWXOay8YWOOTMTrjn5+Ljs9xr1ilhUfmgigP5KgQTO2sIZgAxonlyRATHHttUFEKPzkGEItedA2mj3QUtfrbkDSsKZlRT9lQqeDIV0p7xk8HIAHMpIiV572x90ICj7IeIqGwey1jRb/PfWtXvQFx3xxXaFTPJpTI3so88omDlPzA==
+      X-Frame-Options:
+      - SAMEORIGIN
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: '{"Response":[{"Id":{"id":5612}},{"Token":{"id":12793,"created":"2017-03-13
+        22:39:01.629564","updated":"2017-03-13 22:39:01.629564","token":"404ada1d02b6e5963da9b88c6ac6a9c6a6f6b23b9b9c79b502f782eb2abb3abb"}},{"ServerPublicKey":{"server_public_key":"-----BEGIN
+        PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAy0KuXLdadedH8mcE9fzJ\nNNr2EpRXV0InczPQGdaip9lZpoFqtM2jyklzh65J2SXSlxAXCuiqRN\/lOXwnnwox\n0bwI1Bwk1ns3MYC4SKpIHDxpO9oj0435og+vi91Y4SqRk\/X3GfvSpqIB10XV6Klg\n725rLKVoSAeGoTJ7xvz7EeTZo4CdEkt6kFPyolsLNQQZ17lnzqID+HrZG2JqnL6q\noUA6urgF41o4Qq+BPz\/oiFL7o7qVDRp7KttK5\/Keee5f6lWdtp3A7cYrYyiHQG9t\nAxZJwmZ3nYY2EtYp8UCGlLssof+GINFUJsXK\/x1dDZUkv9kZjOfWJfwCfTxxCLz3\nTwIDAQAB\n-----END
+        PUBLIC KEY-----\n"}}]}'
+    http_version: 
+  recorded_at: Mon, 13 Mar 2017 22:39:02 GMT
+recorded_with: VCR 3.0.3
