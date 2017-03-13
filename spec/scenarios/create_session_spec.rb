@@ -7,16 +7,17 @@ describe 'Create Session' do
   before :each do
     BunqRb.configure do |config|
       config.api_key = "fe7d4dd1fe31bb585fd86ab6febbf96f978e14f630660865840b5f611d42da9a"
+      config.key = key
     end
   end
 
   it '' do
     VCR.turned_off do
       WebMock.allow_net_connect!
-      KEY = key
+
       # 1. POST installation
       installation = BunqRb::Installation.create(
-        client_public_key: key.public_key
+        client_public_key: BunqRb.configuration.key.public_key
       )
 
       # 2. POST device-server

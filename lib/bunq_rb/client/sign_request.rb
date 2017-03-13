@@ -11,7 +11,7 @@ class SignRequest < Faraday::Middleware
       string << sorted_headers.join("\n") << "\n\n"
       string << env.body.to_json if env[:method] == :post
       digest = OpenSSL::Digest::SHA256.new
-      signature = KEY.sign(digest, string)
+      signature = BunqRb.configuration.key.sign(digest, string)
       env[:request_headers]["X-Bunq-Client-Signature"] = Base64.strict_encode64(signature)
     end
     @app.call(env)
