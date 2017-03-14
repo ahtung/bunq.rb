@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Create Session" do
+describe "Scenario" do
   let(:key) { OpenSSL::PKey::RSA.new 2048 }
 
   before :each do
@@ -10,14 +10,16 @@ describe "Create Session" do
     end
   end
 
-  it "" do
+  it "Create Session" do
     VCR.turned_off do
       WebMock.allow_net_connect!
 
       # 1. POST installation
-      installation, token, _server_public_key = BunqRb::Installation.create(
+      _installation, token, _server_public_key = BunqRb::Installation.create(
         client_public_key: BunqRb.configuration.key.public_key
       )
+
+      # Set session_token
       BunqRb.configuration.session_token = token["token"]
 
       # 2. POST device-server

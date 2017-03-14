@@ -1,6 +1,7 @@
 module BunqRb
+  # Installation
   class Installation
-    URI = "/v1/installation"
+    URI = "/v1/installation".freeze
 
     attr_reader :id
 
@@ -16,7 +17,7 @@ module BunqRb
     end
 
     def self.find(id)
-      uri =  [URI, id].join("/")
+      uri = [URI, id].join("/")
       faraday_response = Client.connection.get(uri)
       json_response = JSON.parse(faraday_response.body)
       raise json_response["Error"].first["error_description"] if json_response.key?("Error")

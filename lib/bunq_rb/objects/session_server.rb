@@ -1,6 +1,7 @@
 module BunqRb
+  # SessionServer
   class SessionServer
-    URI = "/v1/session-server"
+    URI = "/v1/session-server".freeze
 
     def initialize(hsh = {})
       @id = hsh["id"]

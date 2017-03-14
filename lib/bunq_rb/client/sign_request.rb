@@ -1,6 +1,7 @@
 require "openssl"
 require "base64"
 
+# SignRequest
 class SignRequest < Faraday::Middleware
   def call(env)
     if sign?(env)
@@ -18,6 +19,6 @@ class SignRequest < Faraday::Middleware
   end
 
   def sign?(env)
-    (env[:method] == :post && env[:url].to_s.match(/v1\/installation/)) ? false : true
+    env[:method] == :post && env[:url].to_s.match(/v1\/installation/) ? false : true
   end
 end

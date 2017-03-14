@@ -10,7 +10,8 @@ describe SignRequest do
   end
 
   xit "should sign outgoing requests" do
-    response = BunqRb::Client.connection.post("/v1/user/126/monetary-account/222/payment", {
+    response = BunqRb::Client.connection.post(
+      "/v1/user/126/monetary-account/222/payment",
       amount: {
         value: "12.50",
         currency: "EUR"
@@ -20,7 +21,7 @@ describe SignRequest do
         value: "bravo@bunq.com"
       },
       description: "Payment for drinks."
-    }) do |request|
+    ) do |request|
       request.headers["User-Agent"] = "bunq-TestServer/1.00 sandbox/0.17b3"
       request.headers["X-Bunq-Client-Authentication"] = "f15f1bbe1feba25efb00802fa127042b54101c8ec0a524c36464f5bb143d3b8b"
       request.headers["X-Bunq-Client-Request-Id"] = "57061b04b67ef"

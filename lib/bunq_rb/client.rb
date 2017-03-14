@@ -11,6 +11,7 @@ require_relative "objects/installation"
 require_relative "objects/session_server"
 
 module BunqRb
+  # Client
   class Client
     BASE_URL = "https://sandbox.public.api.bunq.com".freeze
 

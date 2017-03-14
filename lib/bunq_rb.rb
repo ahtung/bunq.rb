@@ -3,6 +3,7 @@ require_relative "bunq_rb/configuration"
 require_relative "bunq_rb/client"
 
 module BunqRb
+  # BunqRb
   class << self
     attr_accessor :configuration
   end
