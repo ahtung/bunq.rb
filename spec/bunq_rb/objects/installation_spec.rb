@@ -7,29 +7,29 @@ describe BunqRb::Installation do
   let(:token) { results[1] }
   let(:server_public_key) { results[2] }
 
-  describe 'POST /v1/installation' do
+  describe "POST /v1/installation" do
     before do
-      VCR.insert_cassette 'post_v1_installation', record: :new_episodes
+      VCR.insert_cassette "post_v1_installation", record: :new_episodes
     end
 
     after do
       VCR.eject_cassette
     end
 
-    it 'returns an :id' do
+    it "returns an :id" do
       expect(installation.id).to be(5623)
     end
 
-    it 'returns a :token object' do
+    it "returns a :token object" do
       expect(token).not_to be_nil
     end
 
-    it 'returns a :server_public_key object' do
+    it "returns a :server_public_key object" do
       expect(server_public_key).not_to be_nil
     end
   end
 
-  describe 'GET /v1/installation/:id' do
+  describe "GET /v1/installation/:id" do
     before :each do
       BunqRb.configure do |config|
         config.api_key = "c08bbdb62e1d1795ae7e933bc833452fda9c317b4b9d717baeabbc17f8190df9"
@@ -38,15 +38,15 @@ describe BunqRb::Installation do
     end
 
     before do
-      VCR.insert_cassette 'get_v1_installation', record: :new_episodes
+      VCR.insert_cassette "get_v1_installation", record: :new_episodes
     end
 
     after do
       VCR.eject_cassette
     end
 
-    it 'returns an :id' do
-      BunqRb.configuration.session_token = token['token']
+    it "returns an :id" do
+      BunqRb.configuration.session_token = token["token"]
       described_class.find(5448)
       expect(object.id).to be(12)
     end
