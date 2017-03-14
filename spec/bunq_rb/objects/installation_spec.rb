@@ -1,6 +1,6 @@
 require "spec_helper"
 
-fdescribe BunqRb::Installation do
+describe BunqRb::Installation do
   let(:key) { OpenSSL::PKey::RSA.new 2048 }
   let(:results) { described_class.create(client_public_key: key.public_key) }
   let(:installation) { results[0] }
