@@ -1,7 +1,6 @@
 require "spec_helper"
 
 describe "Create Session" do
-
   let(:key) { OpenSSL::PKey::RSA.new 2048 }
 
   before :each do

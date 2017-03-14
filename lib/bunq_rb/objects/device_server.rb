@@ -1,6 +1,7 @@
 module BunqRb
+  # DeviceServer
   class DeviceServer
-    URI = '/v1/device-server'
+    URI = "/v1/device-server".freeze
 
     def initialize(hsh = {})
       @id = hsh["id"]

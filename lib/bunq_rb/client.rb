@@ -12,7 +12,7 @@ require_relative "objects/session_server"
 
 module BunqRb
   class Client
-    BASE_URL = 'https://sandbox.public.api.bunq.com'.freeze
+    BASE_URL = "https://sandbox.public.api.bunq.com".freeze
 
     def self.connection
       @connection ||= Faraday.new(url: BASE_URL) do |config|

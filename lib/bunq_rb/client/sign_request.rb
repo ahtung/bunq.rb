@@ -1,5 +1,5 @@
-require 'openssl'
-require 'base64'
+require "openssl"
+require "base64"
 
 class SignRequest < Faraday::Middleware
   def call(env)

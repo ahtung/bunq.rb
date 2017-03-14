@@ -13,7 +13,6 @@ describe BunqRb::DeviceServer do
   end
 
   describe "POST /v1/device-server" do
-
     before do
       VCR.insert_cassette "post_v1_device-server", record: :new_episodes
     end
