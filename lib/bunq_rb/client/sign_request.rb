@@ -4,7 +4,7 @@ require 'base64'
 class SignRequest < Faraday::Middleware
   def call(env)
     if sign?(env)
-      env[:request_headers]["X-Bunq-Client-Authentication"] = BunqRb::Installation.token["token"]
+      env[:request_headers]["X-Bunq-Client-Authentication"] = BunqRb.configuration.session_token
       uri = Addressable::URI.parse(env[:url])
       string = "#{env[:method].upcase} #{uri.path}\n"
       sorted_headers = env[:request_headers].sort.to_h.map { |k, v| "#{k}: #{v}" }

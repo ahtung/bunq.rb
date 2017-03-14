@@ -16,13 +16,14 @@ describe 'Create Session' do
       WebMock.allow_net_connect!
 
       # 1. POST installation
-      installation = BunqRb::Installation.create(
+      installation, token, server_public_key = BunqRb::Installation.create(
         client_public_key: BunqRb.configuration.key.public_key
       )
+      BunqRb.configuration.session_token = token['token']
 
       # 2. POST device-server
       device_server = BunqRb::DeviceServer.create(
-        description: "DK",
+        description: "Dunya",
         secret: BunqRb.configuration.api_key,
         permitted_ips: []
       )

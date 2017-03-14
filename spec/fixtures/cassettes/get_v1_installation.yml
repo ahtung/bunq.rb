@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.public.api.bunq.com/v1/installation
+    body:
+      encoding: UTF-8
+      string: '{"client_public_key":"-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAshHiozWXASXPKVg6zQaq\nv5z9ShvydRnfdKeY+VnaJp1CMhDbTaX/tgFvgkNivsnuorWkkdrQ4D724vf8nQgZ\nw6U3K6jDMO36N5RtGz8vX8gXoiIDPHUyx1n1MBkX7NbDXK5WeV+vTvmgn5xwkNlu\nsoR3AT0JIrM9q1r6HyaOETLNdXBQFif+03Teeb9II90jEU3JqfLAU74g8xeKVjxh\nBJa+Z7ikBj3W2NycHvBZiTemQhrpVlZD1jlBW9a6H/lxXg2TbU8p3stW9f2ynxph\nRdu/OpKm/fYfhZONnmRlLjI2hnWe/f+yB/FRBEvE2gUluiwUmTkVsIBpDypqD3gO\nywIDAQAB\n-----END
+        PUBLIC KEY-----\n"}'
+    headers:
+      User-Agent:
+      - bunq_rb/1.00
+      Cache-Control:
+      - no-cache
+      X-Bunq-Language:
+      - nl_NL
+      X-Bunq-Region:
+      - nl_NL
+      X-Bunq-Geolocation:
+      - 0 0 0 0 NL
+      X-Bunq-Client-Request-Id:
+      - 28d034e7-8ead-4955-a780-a017ff295eb3
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 491
+      message: ''
+    headers:
+      Date:
+      - Tue, 14 Mar 2017 22:18:45 GMT
+      Server:
+      - Apache
+      X-Bunq-Client-Response-Id:
+      - 9d1ead80-4ab5-45de-8a72-5247d0130673
+      X-Bunq-Client-Request-Id:
+      - ''
+      X-Frame-Options:
+      - SAMEORIGIN
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: '{"Error":[{"error_description":"We''re currently down for maintenance.
+        We will use Twitter and our blog to keep you updated. If you have any questions
+        or issues, you can reach us at support@bunq.com.","error_description_translated":"We''re
+        currently down for maintenance. We will use Twitter and our blog to keep you
+        updated. If you have any questions or issues, you can reach us at support@bunq.com."}]}'
+    http_version: 
+  recorded_at: Tue, 14 Mar 2017 22:18:47 GMT
+recorded_with: VCR 3.0.3

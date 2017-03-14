@@ -2,7 +2,15 @@ require "spec_helper"
 
 describe BunqRb::DeviceServer do
   let(:key) { OpenSSL::PKey::RSA.new 2048 }
-  let(:installation) { BunqRb::Installation.create(client_public_key: key.public_key) }
+  let(:results) { BunqRb::Installation.create(client_public_key: key.public_key) }
+  let(:installation) { results[0] }
+
+  before :each do
+    BunqRb.configure do |config|
+      config.api_key = "c08bbdb62e1d1795ae7e933bc833452fda9c317b4b9d717baeabbc17f8190df9"
+      config.key = key
+    end
+  end
 
   describe 'POST /v1/device-server' do
 
@@ -17,13 +25,17 @@ describe BunqRb::DeviceServer do
     before :each do
       @response = described_class.create(
         "description": "Mainframe23 in Amsterdam",
-        "secret": "e359370ebb0cf7e6923014aa8bee1f7df67245e3bfcb557faea0fee6e27192e1",
-        "permitted_ips": [{}]
+        "secret": BunqRb.configuration.api_key,
+        "permitted_ips": []
       )
     end
 
     xit 'returns an :id object' do
       expect(@response.id).to be('')
+    end
+
+    it 'returns an :id' do
+      expect(object.id).to be(12)
     end
   end
 end
