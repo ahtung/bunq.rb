@@ -2,6 +2,7 @@ require_relative "bunq_rb/version"
 require_relative "bunq_rb/configuration"
 require_relative "bunq_rb/client"
 
+# BunqRb
 module BunqRb
   # BunqRb
   class << self

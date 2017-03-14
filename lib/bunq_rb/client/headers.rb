@@ -1,3 +1,4 @@
+# Headers
 class Headers < Faraday::Middleware
   def call(env)
     env[:request_headers]["Cache-Control"] = "no-cache"
