@@ -41,6 +41,6 @@ class SignRequest < Faraday::Middleware
   end
 
   def sign?
-    @env[:method] == :post && @env[:url].to_s.match(/v1\/installation/) ? false : true
+    @env[:method] == :post && @env[:url].to_s.match(%r{v1\/installation}) ? false : true
   end
 end
