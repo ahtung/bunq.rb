@@ -6,7 +6,7 @@ describe 'Create Session' do
 
   before :each do
     BunqRb.configure do |config|
-      config.api_key = "fe7d4dd1fe31bb585fd86ab6febbf96f978e14f630660865840b5f611d42da9a"
+      config.api_key = "c08bbdb62e1d1795ae7e933bc833452fda9c317b4b9d717baeabbc17f8190df9"
       config.key = key
     end
   end
@@ -24,9 +24,7 @@ describe 'Create Session' do
       device_server = BunqRb::DeviceServer.create(
         description: "DK",
         secret: BunqRb.configuration.api_key,
-        permitted_ips: [
-          '94.210.58.254'
-        ]
+        permitted_ips: []
       )
       puts device_server
 
