@@ -31,16 +31,18 @@ module BunqRb
 
     def self.create(hash = {})
       faraday_response = Client.connection.post(URI, hash)
-      json_response = JSON.parse(faraday_response.body)['Response'] # TODO: (dunyakirkali) error handling
-      new(json_response[0]['Id'], json_response[1]['Token'], json_response[1]['ServerPublicKey'])
+      json_response = JSON.parse(faraday_response.body) # TODO: (dunyakirkali) error handling
+      raise json_response["Error"].first["error_description"] if json_response.key?("Error")
+      new(json_response['Response'][0]['Id'], json_response['Response'][1]['Token'], json_response['Response'][1]['ServerPublicKey'])
     end
 
     def self.find(id)
       return if @@token.nil?
       uri =  [URI, id].join('/')
       faraday_response = Client.connection.get(uri)
-      json_response = JSON.parse(faraday_response.body)['Response'] # TODO: (dunyakirkali) error handling
-      new(json_response['Id'])
+      json_response = JSON.parse(faraday_response.body) # TODO: (dunyakirkali) error handling
+      raise json_response["Error"].first["error_description"] if json_response.key?("Error")
+      new(json_response['Response']['Id'])
     end
   end
 end
