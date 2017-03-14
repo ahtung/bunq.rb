@@ -15,11 +15,11 @@ class SignRequest < Faraday::Middleware
   private
 
   def set_signature_header
-    env[:request_headers]["X-Bunq-Client-Signature"] = Base64.strict_encode64(signature)
+    @env[:request_headers]["X-Bunq-Client-Signature"] = Base64.strict_encode64(signature)
   end
 
   def set_client_authentication_header
-    env[:request_headers]["X-Bunq-Client-Authentication"] = BunqRb.configuration.session_token
+    @env[:request_headers]["X-Bunq-Client-Authentication"] = BunqRb.configuration.session_token
   end
 
   def signature
