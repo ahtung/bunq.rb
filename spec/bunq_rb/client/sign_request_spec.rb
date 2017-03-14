@@ -1,15 +1,7 @@
 require "spec_helper"
 
-describe SignRequest do
-  before do
-    VCR.insert_cassette "post_v1_payment", record: :new_episodes
-  end
-
-  after do
-    VCR.eject_cassette
-  end
-
-  xit "should sign outgoing requests" do
+describe SignRequest, valid_session: true, vcr: true do
+  it "should sign outgoing requests" do
     response = BunqRb::Client.connection.post(
       "/v1/user/126/monetary-account/222/payment",
       amount: {
