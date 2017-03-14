@@ -12,10 +12,10 @@ describe BunqRb::DeviceServer do
     end
   end
 
-  describe 'POST /v1/device-server' do
+  describe "POST /v1/device-server" do
 
     before do
-      VCR.insert_cassette 'post_v1_device-server', record: :new_episodes
+      VCR.insert_cassette "post_v1_device-server", record: :new_episodes
     end
 
     after do
@@ -24,17 +24,17 @@ describe BunqRb::DeviceServer do
 
     before :each do
       @response = described_class.create(
-        "description": "Mainframe23 in Amsterdam",
-        "secret": BunqRb.configuration.api_key,
-        "permitted_ips": []
+        description: "Mainframe23 in Amsterdam",
+        secret: BunqRb.configuration.api_key,
+        permitted_ips: []
       )
     end
 
-    xit 'returns an :id object' do
-      expect(@response.id).to be('')
+    xit "returns an :id object" do
+      expect(@response.id).to be("")
     end
 
-    it 'returns an :id' do
+    it "returns an :id" do
       expect(object.id).to be(12)
     end
   end
