@@ -10,7 +10,7 @@ module BunqRb
       faraday_response = Client.connection.post(URI, hash)
       json_response = JSON.parse(faraday_response.body) # TODO: (dunyakirkali) error handling
       raise json_response["Error"].first["error_description"] if json_response.key?("Error")
-      new(json_response["Response"]['Id'])
+      new(json_response["Response"].first['Id'])
     end
   end
 end
