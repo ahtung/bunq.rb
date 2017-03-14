@@ -10,18 +10,19 @@ module BunqRb
     end
 
     def self.create(hash = {})
-      faraday_response = Client.connection.post(URI, hash)
-      json_response = JSON.parse(faraday_response.body)
-      raise json_response["Error"].first["error_description"] if json_response.key?("Error")
-      [new(json_response["Response"][0]["Id"]), json_response["Response"][1]["Token"], json_response["Response"][2]["ServerPublicKey"]]
+      response = Client.send_method(:post, URI, hash)
+      [new(response[0]["Id"]), response[1]["Token"], response[2]["ServerPublicKey"]]
     end
 
     def self.find(id)
       uri = [URI, id].join("/")
-      faraday_response = Client.connection.get(uri)
-      json_response = JSON.parse(faraday_response.body)
-      raise json_response["Error"].first["error_description"] if json_response.key?("Error")
-      new(json_response["Response"]["Id"])
+      response = Client.send_method(:get, uri)
+      new(response["Id"])
+    end
+
+    def self.all
+      _response = Client.send_method(:get, URI)
+      []
     end
   end
 end

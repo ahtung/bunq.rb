@@ -23,5 +23,12 @@ module BunqRb
         config.adapter Faraday.default_adapter
       end
     end
+
+    def self.send_method(method, url, payload = {})
+      faraday_response = connection.send(method, url, payload)
+      json_response = JSON.parse(faraday_response.body)
+      raise json_response["Error"].first["error_description"] if json_response.key?("Error")
+      json_response["Response"]
+    end
   end
 end
