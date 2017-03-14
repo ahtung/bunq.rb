@@ -23,18 +23,16 @@ describe "Scenario" do
       BunqRb.configuration.session_token = token["token"]
 
       # 2. POST device-server
-      device_server = BunqRb::DeviceServer.create(
+      _device_server = BunqRb::DeviceServer.create(
         description: "Dunya",
         secret: BunqRb.configuration.api_key,
         permitted_ips: []
       )
-      puts device_server
 
       # 3. POST session-server
-      session_server = BunqRb::SessionServer.create(
+      _session_server = BunqRb::SessionServer.create(
         secret: BunqRb.configuration.api_key
       )
-      puts session_server
     end
   end
 end
