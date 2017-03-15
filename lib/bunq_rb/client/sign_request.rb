@@ -9,7 +9,6 @@ class SignRequest < Faraday::Middleware
       set_client_authentication_header
       set_image_header if image?
       set_signature_header
-      puts @env[:request_headers]
     end
     @app.call(@env)
   end
@@ -39,6 +38,7 @@ class SignRequest < Faraday::Middleware
     str = request_string
     str << sorted_headers.join("\n") << "\n\n"
     str << body
+    str
   end
 
   def body
