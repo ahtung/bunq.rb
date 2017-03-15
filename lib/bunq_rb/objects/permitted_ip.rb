@@ -9,7 +9,7 @@ module BunqRb
       @status = hsh["status"]
     end
 
-    def uri(user_id, credential_password_id)
+    def self.uri(user_id, credential_password_id)
       "/v1/user/#{user_id}/credential-password-ip/#{credential_password_id}/ip"
     end
 
