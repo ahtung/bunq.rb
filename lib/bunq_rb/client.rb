@@ -25,6 +25,7 @@ module BunqRb
         config.use Headers
         config.use SignRequest
         config.request :json
+        config.request :multipart
         config.adapter Faraday.default_adapter
       end
     end
