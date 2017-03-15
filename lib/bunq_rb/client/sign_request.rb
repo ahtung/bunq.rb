@@ -7,7 +7,9 @@ class SignRequest < Faraday::Middleware
     @env = env
     if sign?
       set_client_authentication_header
+      set_image_header if image?
       set_signature_header
+      puts @env[:request_headers]
     end
     @app.call(@env)
   end
@@ -16,6 +18,11 @@ class SignRequest < Faraday::Middleware
 
   def set_signature_header
     @env[:request_headers]["X-Bunq-Client-Signature"] = Base64.strict_encode64(signature)
+  end
+
+  def set_image_header
+    @env[:request_headers]["X-Bunq-Attachment-Description"] = "BAZ"
+    @env[:request_headers]["Content-Type"] = "image/jpeg"
   end
 
   def set_client_authentication_header
@@ -31,8 +38,19 @@ class SignRequest < Faraday::Middleware
     sorted_headers = @env[:request_headers].sort.to_h.map { |k, v| "#{k}: #{v}" }
     str = request_string
     str << sorted_headers.join("\n") << "\n\n"
-    str << @env.body.to_json if [:post, :put].include?(@env[:method])
-    str
+    str << body
+  end
+
+  def body
+    if image?
+      @env.body.to_s
+    else
+      [:post, :put].include?(@env[:method]) ? @env.body.to_json : ""
+    end
+  end
+
+  def image?
+    @env[:url].to_s.match(%r{v1\/user\/.*\/monetary-account\/.*\/attachment})
   end
 
   def request_string
