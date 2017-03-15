@@ -3,6 +3,8 @@ module BunqRb
   class DeviceServer
     URI = "/v1/device-server".freeze
 
+    attr_reader :id
+
     def initialize(hsh = {})
       @id = hsh["id"]
     end

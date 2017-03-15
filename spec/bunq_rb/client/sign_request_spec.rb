@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe SignRequest, valid_session: true, vcr: true do
-  it "should sign outgoing requests" do
+describe SignRequest, active_session: true do
+  xit "should sign outgoing requests" do
     response = BunqRb::Client.connection.post(
       "/v1/user/126/monetary-account/222/payment",
       amount: {

@@ -1,23 +1,17 @@
 require "spec_helper"
 
-describe BunqRb::SessionServer, valid_session: true do
+describe BunqRb::SessionServer, active_session: true do
   describe "POST /v1/session-server" do
-    before do
-      VCR.insert_cassette "post_v1_session-server"
-    end
-
-    after do
+    before :each do
+      VCR.insert_cassette "v1/post_session-server"
+      @response = described_class.create(
+        secret: BunqRb.configuration.api_key
+      ).first
       VCR.eject_cassette
     end
 
-    before :each do
-      @response = described_class.create(
-        secret: BunqRb.configuration.api_key
-      )
-    end
-
     it "returns an :id object" do
-      expect(@response.id).to be(23)
+      expect(@response.id).to be(6038)
     end
   end
 end
