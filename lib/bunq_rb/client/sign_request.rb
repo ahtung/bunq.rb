@@ -9,6 +9,7 @@ class SignRequest < Faraday::Middleware
       set_client_authentication_header
       set_image_header if image?
       set_signature_header
+      puts @env[:request_headers]
     end
     @app.call(@env)
   end
@@ -44,7 +45,7 @@ class SignRequest < Faraday::Middleware
     if image?
       @env.body.to_s
     else
-      @env[:method] == :post ? @env.body.to_json : ""
+      [:post, :put].include?(@env[:method]) ? @env.body.to_json : ""
     end
   end
 

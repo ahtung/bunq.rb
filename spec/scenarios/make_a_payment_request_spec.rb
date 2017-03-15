@@ -40,9 +40,15 @@ describe "Scenario" do
       puts BunqRb::MonetaryAccount.all.inspect
 
       # 5. POST monetary-account attachment (optional)
+<<<<<<< 1041653423ed43a7adf26c597be860c50e5d7e64
       # config_path = File.expand_path(File.join(File.dirname(__FILE__), "../fixtures/images/baz.jpg"))
       # image = Faraday::UploadIO.new(config_path, 'image/jpeg')
       # attachment = BunqRb::AttachmentMonetaryAccount.create(image)
+=======
+      path = File.join(File.dirname(__FILE__), "../fixtures/images/baz.jpg")
+      image = Faraday::UploadIO.new(path, 'image/jpeg')
+      # attachment_id = BunqRb::AttachmentMonetaryAccount.create(image)
+>>>>>>> Implement second scenario
 
       # 6. POST request-inquiry
       request_inqury = BunqRb::RequestInquiry.create(
@@ -57,7 +63,11 @@ describe "Scenario" do
         },
         description: "Enjoy the concert!",
         attachment: [
+<<<<<<< 1041653423ed43a7adf26c597be860c50e5d7e64
           # id: attachment.id
+=======
+          # attachment_id
+>>>>>>> Implement second scenario
         ]
       )
 
