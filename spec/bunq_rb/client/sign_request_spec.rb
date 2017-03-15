@@ -1,26 +1,35 @@
 require "spec_helper"
 
-describe SignRequest, active_session: true do
-  xit "should sign outgoing requests" do
-    response = BunqRb::Client.connection.post(
-      "/v1/user/126/monetary-account/222/payment",
-      amount: {
-        value: "12.50",
-        currency: "EUR"
-      },
-      counterparty_alias: {
-        type: "EMAIL",
-        value: "bravo@bunq.com"
-      },
-      description: "Payment for drinks."
-    ) do |request|
-      request.headers["User-Agent"] = "bunq-TestServer/1.00 sandbox/0.17b3"
-      request.headers["X-Bunq-Client-Authentication"] = "f15f1bbe1feba25efb00802fa127042b54101c8ec0a524c36464f5bb143d3b8b"
-      request.headers["X-Bunq-Client-Request-Id"] = "57061b04b67ef"
-      request.headers["X-Bunq-Geolocation"] = "en_US"
-      request.headers["X-Bunq-Language"] = "en_US"
-      request.headers["X-Bunq-Region"] = "en_US"
+RSpec.describe SignRequest do
+  let(:middleware) { described_class.new(lambda { |env| env }) }
+
+  before :each do
+    BunqRb.configure do |bunqrb_config|
+      bunqrb_config.api_key = "key"
+      bunqrb_config.key = OpenSSL::PKey::RSA.new 2048
     end
-    expect(response.headers["X-Bunq-Client-Signature"]).to eq("ee9sDfzEhQ2L6Rquyh2XmJyNWdSBOBo6Z2eUYuM4bAOBCn9N5vjs6k6RROpagxXFXdGI9sT15tYCaLe5FS9aciIuJmrVW/SZCDWq/nOvSThi7+BwD9JFdG7zfR4afC8qfVABmjuMrtjaUFSrthyHS/5wEuDuax9qUZn6sVXcgZEq49hy4yHrV8257I4sSQIHRmgds4BXcGhPp266Z6pxjzAJbfyzt5JgJ8/suxgKvm/nYhnOfsgIIYCgcyh4DRrQltohiSon6x1ZsRIfQnCDlDDghaIxbryLfinT5Y4eU1eiCkFB4D69S4HbFXYyAxlqtX2W6Tvax6rIM2MMPNOh4Q==")
+  end
+
+  def process(method, url, body)
+    env = { body: body, request_headers: Faraday::Utils::Headers.new, method: method, url: url }
+    middleware.call(env)
+  end
+
+  def request_headers() result[:request_headers] end
+
+  context "sing? = true" do
+    let(:result) { process(:get, "v1/installation", {}) }
+
+    it "include 'X-Bunq-Client-Signature' header" do
+      expect(request_headers["X-Bunq-Client-Signature"]).not_to be_nil
+    end
+  end
+
+  context "sing? = false" do
+    let(:result) { process(:post, "v1/installation", {}) }
+
+    it "not include 'X-Bunq-Client-Signature' header" do
+      expect(request_headers["X-Bunq-Client-Signature"]).to be_nil
+    end
   end
 end
