@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.public.api.bunq.com/v1/user/42
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - bunq_rb/1.00
+      Cache-Control:
+      - no-cache
+      X-Bunq-Language:
+      - nl_NL
+      X-Bunq-Region:
+      - nl_NL
+      X-Bunq-Geolocation:
+      - 0 0 0 0 NL
+      X-Bunq-Client-Request-Id:
+      - 4a046eb5-edc4-4d48-98db-3637e3ed4799
+      X-Bunq-Client-Authentication:
+      - f86df6c183d30385da73a66c114e50c705b0d752ccf48f541377b9f844a0f14c
+      X-Bunq-Client-Signature:
+      - YnthKblb7h/Sb77vNdv/StTRVE6+WfGFvsch+PTnJMrywTlUnaAPLyF4p//7FOnSSJJWLsgRcPd+sUlXbZr6b1JK6+CuuBHnbsSi1v3+VeDB/GuWrqt+8YvKOBDXDmiM1ZWEtL2PtfVSSGhHa4KewnPD5HVqiVUs+SJsUwUtMDn0dyTpoFUmOLDfGbT+84EBRmLr/DjpmALxv4aIvIUOC+Pc4NpGajwvnRmF0by6y/vBn0dyOmZpQvsaUs9l9u00SW9TBvWCDwmAWjDqcn/zgdXpTmHt0u/u+6bhdbMF9veHYndb+GQR6l1Buk1R0klDS3YN+2oT5Xc+ccJWvNLvOA==
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Wed, 15 Mar 2017 19:46:10 GMT
+      Server:
+      - Apache
+      X-Bunq-Client-Response-Id:
+      - 9aec9f97-ab0a-499c-bf75-6ad921cfbb2e
+      X-Bunq-Client-Request-Id:
+      - 4a046eb5-edc4-4d48-98db-3637e3ed4799
+      X-Bunq-Server-Signature:
+      - sckjgfU2+PZ3468xzPvD248NZKrf/XvLi2of3s65VIRq4wbCbY1gdjC2TEGtdAZn1bj4wnw6cT+u6n5wUkj2XIWA7Z9HvV8ytRDFLqQKZbKeEjWdlvC9U+a18pAzOijOKTMpJWVlqOoVEbCbZhOoYHekVaJ3e9ppTkWkvEwYzAMqjgFauUBUm72GkoNlRk/tUBJiQYoXkFpUnUgGFxh4cLNSEJoT9ovFJ+E+ID7KwNYRu6xUFGPgGMjptqYBlxNB/vu0YWpphzIrQG7I0XtYPVh/ozOJmir4dcU0nMNGYAZRjP7p5ow8LEhC6zvzZtG558nfQGtr+RP1a4KLSSi+4w==
+      X-Frame-Options:
+      - SAMEORIGIN
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: '{"Error":[{"error_description":"The request signature is invalid.","error_description_translated":"The
+        request signature is invalid."}]}'
+    http_version: 
+  recorded_at: Wed, 15 Mar 2017 19:46:10 GMT
+recorded_with: VCR 3.0.3
