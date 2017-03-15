@@ -3,10 +3,11 @@ module BunqRb
   class User
     URI = "/v1/user".freeze
 
-    attr_reader :id
+    attr_reader :id, :display_name
 
     def initialize(hsh = {})
       @id = hsh["id"]
+      @display_name = hsh["display_name"]
     end
 
     def self.find(id)
