@@ -1,0 +1,115 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.public.api.bunq.com/v1/user/12/credential-password-ip/12/ip
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - bunq_rb/1.00
+      Cache-Control:
+      - no-cache
+      X-Bunq-Language:
+      - nl_NL
+      X-Bunq-Region:
+      - nl_NL
+      X-Bunq-Geolocation:
+      - 0 0 0 0 NL
+      X-Bunq-Client-Request-Id:
+      - eefbbe80-e74a-4766-94bb-583f110c25e6
+      X-Bunq-Client-Authentication:
+      - f86df6c183d30385da73a66c114e50c705b0d752ccf48f541377b9f844a0f14c
+      X-Bunq-Client-Signature:
+      - VuKkHsedpXySjVsP+uuR1EfNZgBPcFS8KYKDxMZb6q8Q7wz5nFxfsQs7BF2tPqcVWr2r0mCZqAcK1bdhtG9mj6nYlDCSAalN8WDL5mZU7xv050BFEHS/rShGxKSIzKgZ6ZoVhwUCn1YGpiPgx1U3dewP3VdeG4QxE28SQQOAauEmLERNaLTOWAzjM80F30AR5ooK0vKxvc+57wLjxCIXGa3ZAWupA6SuJVUK05SXeo68/1JA6LCUuXY2sDBY7raBiK9AFk0YF0WFbEwTPj+d8fhuc8OiQTfUhOOD2+mplekyunM3KrP6bBQilVCVmFrMQOdXnqnmZOMY14ZBImSXRA==
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Wed, 15 Mar 2017 21:12:01 GMT
+      Server:
+      - Apache
+      X-Bunq-Client-Response-Id:
+      - ffca2b75-4fc5-4542-86e6-75d1c2c1a5b6
+      X-Bunq-Client-Request-Id:
+      - eefbbe80-e74a-4766-94bb-583f110c25e6
+      X-Bunq-Server-Signature:
+      - rOC4uJHeiUWsUVlHNSS/+IcRpxXJpoHVQhEeQl1xUQoBG7gsbLPDONLf6eHh1MyH/zeR7vZ3whjJDu+St5yR0ghiVYt1MC/PC2J96wSoN/YkGm9kTRgx9bQcZvOYPADHwr1+plbhT0uL0T1ANTn9EW6mWmsscZQTNo+kDFzxj7pC7sSvB2sg8dlCsl1hLwwLhWbIIM3aJ3JpmtHmu5HUN0gS2zoOe0nVSnS5l+uQjpnPPB0syhIgCsi3fOo/6YhPJmj4mvhhsJU1JYYQeL/9wCN5795u5VmigyM68pv4odY5rC9i1O8xEQrVflg7/afGomnxUcr5dAsHmcoidsX/UA==
+      X-Frame-Options:
+      - SAMEORIGIN
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: '{"Error":[{"error_description":"The request signature is invalid.","error_description_translated":"The
+        request signature is invalid."}]}'
+    http_version: 
+  recorded_at: Wed, 15 Mar 2017 21:12:01 GMT
+- request:
+    method: get
+    uri: https://sandbox.public.api.bunq.com/v1/user/1913/credential-password-ip/12/ip
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - bunq_rb/1.00
+      Cache-Control:
+      - no-cache
+      X-Bunq-Language:
+      - nl_NL
+      X-Bunq-Region:
+      - nl_NL
+      X-Bunq-Geolocation:
+      - 0 0 0 0 NL
+      X-Bunq-Client-Request-Id:
+      - 5f73ef5f-b646-42ac-89a4-42cb8d62136b
+      X-Bunq-Client-Authentication:
+      - f86df6c183d30385da73a66c114e50c705b0d752ccf48f541377b9f844a0f14c
+      X-Bunq-Client-Signature:
+      - Y2LWfpt91fk9otXa/i1q72FbqZjECk9SAHBq/VqkiRK2SWs+WLVZ6LjLhhEFp8PSUAXNaz56v9xEom0xgY8il9B6k539I13drxebuwzdGvH9BTf9S6jJlfEgzzhh0dDQmBCPnpqA/B2BnJpww3rvV1tYfhwpiP05w+hEydlHwXWN9x2XgioLGh80gzeC7FBLDxQvDLXDzM93IwgjJkzSVl+DNYzEXbA7s5nw4pa0uz/2OeLcl0uVCAztAfBxMDO9J3RCcrYYDzYt3AunIO/bYwWhDtTE/cIGVhGl++CQvLACQQcfbeNn211xi8au7Jv/drIkkwQBAZLh4p8kYAEbyQ==
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Wed, 15 Mar 2017 21:13:05 GMT
+      Server:
+      - Apache
+      X-Bunq-Client-Response-Id:
+      - aa632499-7fd5-40b4-8a57-9e81fcb6fb5d
+      X-Bunq-Client-Request-Id:
+      - 5f73ef5f-b646-42ac-89a4-42cb8d62136b
+      X-Bunq-Server-Signature:
+      - GszxzC9eMdmdJ3Bk+3zAR/N3TQ1XfaEBV1RjCA8PzKNpkDoMLVFZXPz1mfnDhTqi/TR/6r+cZbatIE6XH3orD9PZ85x6E+1EmxqCg6Nw5HWZA4rVqxquH+XYpvPGesLwFzdhSMR1Vxwioz0smoqn9gUUzg2XINFROypbl1wttXgAUdWs0trbaUjI2ggXjstAK50VNtej7TiCgABfi/EZLmyVerbvHsESuCckU8xOGkEzevBkQPsX4zncS+ZvKGwsJV8+76w44MehPLbjNXPAQYhnkSIXAqJCr09VrOyd4hQUAlJgdQSNECxJYNb0ELXn/TiQ+pXQd2dlXKdIS1rPJw==
+      X-Frame-Options:
+      - SAMEORIGIN
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: '{"Error":[{"error_description":"The request signature is invalid.","error_description_translated":"The
+        request signature is invalid."}]}'
+    http_version: 
+  recorded_at: Wed, 15 Mar 2017 21:13:05 GMT
+recorded_with: VCR 3.0.3
