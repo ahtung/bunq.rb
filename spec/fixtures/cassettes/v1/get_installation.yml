@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.public.api.bunq.com/v1/installation/42
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - bunq_rb/1.00
+      Cache-Control:
+      - no-cache
+      X-Bunq-Language:
+      - nl_NL
+      X-Bunq-Region:
+      - nl_NL
+      X-Bunq-Geolocation:
+      - 0 0 0 0 NL
+      X-Bunq-Client-Request-Id:
+      - efebfee4-a549-4958-bc1c-19beb7746136
+      X-Bunq-Client-Authentication:
+      - f86df6c183d30385da73a66c114e50c705b0d752ccf48f541377b9f844a0f14c
+      X-Bunq-Client-Signature:
+      - M1oFZ5JWd6NfPpqMyg7lO/rzp+XZ/R0CjwvH3E/HXuPN6Bq2/GFs87BV7AVhuH3J2k/YrYi4/OMJeZ3N+ncDVpOl4e86QqUuZ4/FnsJPybwxX53QmNlauGOsEokBjVtEfETX6xnyH8sHff9BM5VypfLXIIcghV9nUJ+TMHt8X4JhEeqFVKvT0XnVDsJhhMChsFd3t/uo6m+nO9wtxfYoKOmFKGET2hJZFKAkYnLWoQMZCIbDU+2lsrISm8/XK6d1vHE/iDQHHNzVFSjDBWQ4vFlltnUdDUi7/cFynMxx/NSSnaDEDW7jNmWUmx+XD4l+u0paRdOWHF4E1uR5tI1mXw==
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Wed, 15 Mar 2017 14:16:47 GMT
+      Server:
+      - Apache
+      X-Bunq-Client-Response-Id:
+      - 13a5b697-9d53-4e26-a120-f2f58c355842
+      X-Bunq-Client-Request-Id:
+      - efebfee4-a549-4958-bc1c-19beb7746136
+      X-Bunq-Server-Signature:
+      - rXJutenda6ij+LBOpW54sU42+jHuCzs9maUKEFgEJXjSpLnX2SrDYysyG/3ajFlCshysNDOOqQGwzqNwzI0uScyc2c5AJkoAvCMJf9JfQgrZeOzenU5t4GYl8xgrC+j6Z3qu4+CSPKjVEP6RkT/01co7Wts2Xn8HSHRZwIdetfLawMD/OdmFFwArUKNbXy39D9AHkpRj/mEzTTIs1B5U8yOBTOW4wjWj9iSG2/rkBIfX/UmyP60T+dwE10cJiHR7VHlfJEuSZkhVsQxfzK74OP9yJiCV7MgQz/dq2UMVzAbstzySz/2Mpiin6PuFu2uVkHXenzXPpZ4jMvTnaIxOWA==
+      X-Frame-Options:
+      - SAMEORIGIN
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: '{"Response":[{"Id":{"id":3739}}]}'
+    http_version:
+  recorded_at: Wed, 15 Mar 2017 14:16:47 GMT
+recorded_with: VCR 3.0.3

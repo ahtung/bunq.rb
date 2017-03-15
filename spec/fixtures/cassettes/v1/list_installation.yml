@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.public.api.bunq.com/v1/installation
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - bunq_rb/1.00
+      Cache-Control:
+      - no-cache
+      X-Bunq-Language:
+      - nl_NL
+      X-Bunq-Region:
+      - nl_NL
+      X-Bunq-Geolocation:
+      - 0 0 0 0 NL
+      X-Bunq-Client-Request-Id:
+      - 9ce0f8ab-9fa9-4a57-883b-6e7d1699f198
+      X-Bunq-Client-Authentication:
+      - f86df6c183d30385da73a66c114e50c705b0d752ccf48f541377b9f844a0f14c
+      X-Bunq-Client-Signature:
+      - ntb6pSZtfXV3zVkqne5gUGSHFv25cs9OzpgrwPUUOSOTeebhxtyPejViXKDNeM2/ladEX1WPoVlHuSXMK1PEbMc2g0t3hhfZlIDH8uTQiOMsuW35xiKm82nMly459AKMByrlkslljGoFZ1EHgN8WIasHEbqmeZO610JkY9F34mJc6lDyAvGvF/zTSucuSwwAmprF/2A5u80zhGWA0anjZFcfJUmbUwRForCladr6VSFPoo2SvBhlt2aNqAtd0TeRVBwr9b6wpJEQNr0w0Pvd0FsRN91BiWuuRCp2/OcW69c5DbW7gYlWobaxn8GaTbEzxUtN9H9j5PVaqBFTZ6rBZQ==
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Wed, 15 Mar 2017 14:16:46 GMT
+      Server:
+      - Apache
+      X-Bunq-Client-Response-Id:
+      - e2a1de68-8492-4497-8d3a-dce0658d23db
+      X-Bunq-Client-Request-Id:
+      - 9ce0f8ab-9fa9-4a57-883b-6e7d1699f198
+      X-Bunq-Server-Signature:
+      - GMQFfBIsrrCEeCpFyzPziZxf65za5/IVsoQDHhz1+I7U2B0EoPlZWpTFbEHQVCT960DLoyR13RrmtVWU8BIsNipAH58i8xwA3dXMPW0wuo2oBScMBSRN/B+WK/m3awT7fs1yshjXBOdeUuGDABGHsLe/oSWQzzbyck0cOUuz/GfD6lVDR06mW36jIutLDPblEU7t/vIKm18D5iWm1rgcyRvnj4ciXLb+BRQPVVz0U9tB1Gg9eISFeN8Q1he7i9nB6rowmmS9IX9EjuwnjEIVMmIs7c/eop+OdhX2hCidcWZ44+e1O8AAm2KmKamcpw3eTdNVJY8EbWRtz+0ZaFP7gg==
+      X-Frame-Options:
+      - SAMEORIGIN
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: '{"Response":[{"Id":{"id":40}},{"Id":{"id":41}}]}'
+    http_version:
+  recorded_at: Wed, 15 Mar 2017 14:16:46 GMT
+recorded_with: VCR 3.0.3

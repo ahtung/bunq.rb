@@ -20,7 +20,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First configure the gem
+
+```
+BunqRb.configure do |config|
+  config.api_key = ENV.fetch("API_KEY")
+  config.key     = key                  # OpenSSL::PKey::RSA.new 2048
+end
+```
 
 ## Development
 
@@ -36,4 +43,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
