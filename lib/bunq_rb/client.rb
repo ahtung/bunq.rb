@@ -9,6 +9,9 @@ require_relative "client/sign_request"
 require_relative "objects/device_server"
 require_relative "objects/installation"
 require_relative "objects/session_server"
+require_relative "objects/monetary_account"
+require_relative "objects/attachment_monetary_account"
+require_relative "objects/request_inquiry"
 
 module BunqRb
   # Client
