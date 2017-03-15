@@ -52,8 +52,7 @@ http_interactions:
       - max-age=31536000;
     body:
       encoding: UTF-8
-      string: '{"Error":[{"error_description":"The request signature is invalid.","error_description_translated":"The
-        request signature is invalid."}]}'
-    http_version: 
+      string: '{"Response":[{"Id":{"id":3739}}]}'
+    http_version:
   recorded_at: Wed, 15 Mar 2017 14:16:47 GMT
 recorded_with: VCR 3.0.3

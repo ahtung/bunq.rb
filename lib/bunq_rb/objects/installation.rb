@@ -17,12 +17,12 @@ module BunqRb
     def self.find(id)
       uri = [URI, id].join("/")
       response = Client.send_method(:get, uri)
-      new(response["Id"])
+      new(response[0]["Id"])
     end
 
     def self.all
-      _response = Client.send_method(:get, URI)
-      []
+      response = Client.send_method(:get, URI)
+      response.map { |resp| new(resp["Id"]) }
     end
   end
 end

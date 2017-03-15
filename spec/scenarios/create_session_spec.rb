@@ -10,9 +10,9 @@ describe "Scenario" do
     end
   end
 
-  xit "Create Session" do
-    # VCR.turned_off do
-    #   WebMock.allow_net_connect!
+  it "Create Session" do
+    VCR.turned_off do
+      WebMock.allow_net_connect!
 
       # 1. POST installation
       _installation, token, _server_public_key = BunqRb::Installation.create(
@@ -35,6 +35,6 @@ describe "Scenario" do
       )
 
       expect(@token).not_to be_nil
-    # end
+    end
   end
 end
