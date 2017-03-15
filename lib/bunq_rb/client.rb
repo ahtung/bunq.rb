@@ -15,6 +15,7 @@ require_relative "objects/attachment_monetary_account"
 require_relative "objects/request_inquiry"
 require_relative "objects/attachment_public"
 require_relative "objects/avatar"
+require_relative "objects/permitted_ip"
 
 module BunqRb
   # Client
