@@ -29,6 +29,23 @@ BunqRb.configure do |config|
 end
 ```
 
+## ToDo
+
+- Installation
+  - ~~Installation~~
+  - Installation server public key
+  - Device
+  - Device server
+  - ~~Permitted IP~~
+  - User credential password IP
+- Session
+  - Session
+  - ~~SessionServer~~
+- Monetary Accounts
+  - Monetary account
+  - Monetary account bank
+- ...
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -37,7 +54,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bunq_rb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ahtung/bunq_rb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
