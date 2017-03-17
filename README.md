@@ -31,6 +31,10 @@ end
 
 ## ToDo
 
+- Use Cases
+  - ~~Create Session~~
+  - Making a payment request
+  - Creating a tab payment
 - Installation
   - ~~Installation~~
   - Installation server public key
@@ -44,7 +48,10 @@ end
 - Monetary Accounts
   - Monetary account
   - Monetary account bank
-- ...
+- Payments
+  - Request inquiry
+- Attachments
+  - Attachment monetary account
 
 ## Development
 
