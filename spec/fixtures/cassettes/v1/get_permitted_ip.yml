@@ -62,4 +62,66 @@ http_interactions:
         21:29:21.941632","ip":"94.210.58.254","status":"ACTIVE"}}]}'
     http_version: 
   recorded_at: Fri, 17 Mar 2017 22:27:35 GMT
+- request:
+    method: get
+    uri: https://sandbox.public.api.bunq.com/v1/user/1913/credential-password-ip/3088/ip/877
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - bunq_rb/1.00
+      Cache-Control:
+      - no-cache
+      X-Bunq-Language:
+      - nl_NL
+      X-Bunq-Region:
+      - nl_NL
+      X-Bunq-Geolocation:
+      - 0 0 0 0 NL
+      X-Bunq-Client-Request-Id:
+      - 8964d16a-9290-4f7f-aff3-13536469207b
+      X-Bunq-Client-Authentication:
+      - a420d7783a27533fc8ef4f5b79ddf090ac16ec2725007c64c520fd17ffe3cebe
+      X-Bunq-Client-Signature:
+      - e+uElD46d/TCy3Pg2KjnSuZdk+J9+XoM/UlW18CRIjR/BrcL9haxyAuiTS64tmuAi9sgOdvdqtM8CDVTykOvAIGAYeN9sW3mUj6GT7egYMNVm7evWpLW30XwCl94pH+uWK5qIqJzVEdXRhAP0VYFCFiE125BtLKs5oIhBKPk9YoQJSHvFjoYb/gB29K7PdvL/3zWrSKxB3J2ueNUcqCgAAonV0BP608uacPvIZMhZwd0NL5ys+xgFWBLA1rHrp0mUsbXpxYW8mzoy4POUXWMH1bhdC79Qvqbg87y/+XzuBPnJsaXkOzFphtLU6jkSR1Sfd2bb8+/zZwo39q70MCabA==
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 17 Mar 2017 22:35:48 GMT
+      Server:
+      - Apache
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - max-age=31536000
+      X-Bunq-Client-Response-Id:
+      - 6cf7ad9a-edf7-4bb6-878d-d0353c6bfad9
+      X-Bunq-Client-Request-Id:
+      - 8964d16a-9290-4f7f-aff3-13536469207b
+      X-Bunq-Server-Signature:
+      - rszxfIr+DaDC/+KIcbBVavaVBy1TgOb50BVX/8KatefQOe8ZjpdHYq9lX1WdV0o3ec4Ad3C4rUQxgABYx6vFvSd9iTVBrNR7GNbN1GDt8xOdLi78/VhANs94ZkkqvgEVeYDxlSYOFJBrLFLPgCJkT2rfel0TusdlGCyY4dMaeKAZLI8DsiTIiF1D6w1xuDmJXdD7ogPTK6zoAgLwAjdISvmBTfbdkKpXdwRvCulUoHA5NPsX4WVQBM5nNFMk5iBjny8l6JTkaKUzg2+Fq0IvuNnL6TvByeGvtSOxdsQCi5Yy/MLoy6he7AY3fhKDJlG0olP45nlVD4ZbAw/rfWf/hQ==
+      X-Frame-Options:
+      - SAMEORIGIN
+      Etag:
+      - 235c382903f28534e7572afa27127266ad6da33e044a76350cfcfc0b25944096
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: '{"Response":[{"PermittedIp":{"id":877,"created":"2017-03-15 08:02:41.533606","updated":"2017-03-15
+        08:02:41.533606","ip":"83.162.195.229","status":"ACTIVE"}}]}'
+    http_version: 
+  recorded_at: Fri, 17 Mar 2017 22:35:49 GMT
 recorded_with: VCR 3.0.3
