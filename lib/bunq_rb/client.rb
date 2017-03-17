@@ -12,6 +12,8 @@ require_relative "objects/session_server"
 require_relative "objects/attachment_public"
 require_relative "objects/avatar"
 require_relative "objects/permitted_ip"
+require_relative "objects/attachment_public"
+require_relative "objects/avatar"
 
 module BunqRb
   # Client
