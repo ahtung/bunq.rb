@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.public.api.bunq.com/v1/user/1913/credential-password-ip/3088/ip
+    body:
+      encoding: UTF-8
+      string: '{"ip":"84.168.43.28","status":"INACTIVE"}'
+    headers:
+      User-Agent:
+      - bunq_rb/1.00
+      Cache-Control:
+      - no-cache
+      X-Bunq-Language:
+      - nl_NL
+      X-Bunq-Region:
+      - nl_NL
+      X-Bunq-Geolocation:
+      - 0 0 0 0 NL
+      X-Bunq-Client-Request-Id:
+      - a97c89a6-8815-425c-ac9b-815520a2cef2
+      X-Bunq-Client-Authentication:
+      - f6cf1f112bd427ffb05808ade7c94d2063c777d0df29b3473ca6a434e0e37a7e
+      X-Bunq-Client-Signature:
+      - YFft7nnV1ruX8h5k3iL10Ct1OrnuIkas90zw4RlvyoKJH3+3CfrTivXsVfPxHQ7EkNfW6zKZxzkNgdDT3J/T3G4mc1Cf460byGQgl7HOix01ar2ASaSQ1oyebPSdk8of9cFh+ZV3Q5n54wN6JuKXoDiiz+pDs5YiaKJ+Eopi9NWsyP82sciyD+/coW1TqynIMoNMSXgfd3Mh81V/JYKcLtJOP06NJM3eSfzwbhiW5bRY5yYbnkuw1Cm4+lgt0jc3p5G/Mq5mPHSQSQdgqht7ZOX7/EMeuI7BdQRnorWgYRF7Xl46eyRVsY3Qc0rdv1mmKjK1CQTB9IhnrawAMs93fw==
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 17 Mar 2017 23:07:08 GMT
+      Server:
+      - Apache
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Bunq-Client-Response-Id:
+      - 236965a3-e1ec-450d-9a25-fad185103522
+      X-Bunq-Client-Request-Id:
+      - a97c89a6-8815-425c-ac9b-815520a2cef2
+      X-Bunq-Server-Signature:
+      - EIw+Va9XV0NW3AD9uLdezr4YDBR0z0V4z4EvzJgkAQ/thqLgNxtB7oJCVynkSixq/SryVCwI/l29BRyh9Bz3zfUiy809ukObaFw6V6BTPuN2IeePvpOiPayoxTApqE3JJHxXFVcr/yUEYndZ2pvdHDdlxqbzCxjx4rxJlx2Dqhk4Q1AWTSXeMheBdRkA756zNtieZd6a6iq8HtuV4X63vDh5kWP/ZjXnPq5XcES1g5RLQdtHaY4xSaZtPNGUVgrhHpioxu85cz1AA0uBuuw84VfFDLA+V+EFluzn8/XZSk1SHOIydi36G1QuThWBnBqF6u2srfcbIy+ukACV7A/yqQ==
+      X-Frame-Options:
+      - SAMEORIGIN
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: '{"Response":[{"Id":{"id":925}}]}'
+    http_version: 
+  recorded_at: Fri, 17 Mar 2017 23:07:09 GMT
+recorded_with: VCR 3.0.3
