@@ -21,4 +21,16 @@ RSpec.describe BunqRb::PermittedIp, active_session: true do
       end
     end
   end
+
+  describe "PUT /v1/user/:user_id/credential-password-ip/:credential_password_id/ip/:id" do
+    it "returns PermittedIp hash" do
+      VCR.insert_cassette "v1/get_permitted_ip"
+      permitted_ip = described_class.find(877, user_id, credential_password_id)
+      VCR.eject_cassette
+      VCR.insert_cassette "v1/put_permitted_ip"
+      response = permitted_ip.update({ status: 'INACTIVE' }, user_id, credential_password_id)
+      expect(response["id"]).to eq(877)
+      VCR.eject_cassette
+    end
+  end
 end

@@ -2,9 +2,10 @@ module BunqRb
   # PermittedIp
   class PermittedIp
 
-    attr_reader :ip, :status
+    attr_reader :ip, :status, :id
 
     def initialize(hsh = {})
+      @id = hsh["id"]
       @ip = hsh["ip"]
       @status = hsh["status"]
     end
@@ -24,6 +25,13 @@ module BunqRb
       full_path = [url, id].join("/")
       response = Client.send_method(:get, full_path)
       new(response[0]["PermittedIp"])
+    end
+
+    def update(hsh = {}, user_id, credential_password_id)
+      url = self.class.uri(user_id, credential_password_id)
+      full_path = [url, id].join("/")
+      response = Client.send_method(:put, full_path, hsh)
+      response[0]["Id"]
     end
   end
 end
