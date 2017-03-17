@@ -38,7 +38,6 @@ class SignRequest < Faraday::Middleware
     str = request_string
     str << sorted_headers.join("\n") << "\n\n"
     str << body
-    str
   end
 
   def body
