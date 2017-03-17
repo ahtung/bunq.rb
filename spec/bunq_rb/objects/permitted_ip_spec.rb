@@ -33,4 +33,13 @@ RSpec.describe BunqRb::PermittedIp, active_session: true do
       VCR.eject_cassette
     end
   end
+
+  describe "POST /v1/user/:user_id/credential-password-ip/:credential_password_id/ip" do
+    it "returns PermittedIp hash" do
+      VCR.use_cassette "v1/post_permitted_ip" do
+        response = described_class.create({ ip: "84.168.43.28", status: 'INACTIVE' }, user_id, credential_password_id)
+        expect(response["id"]).to eq(925)
+      end
+    end
+  end
 end
