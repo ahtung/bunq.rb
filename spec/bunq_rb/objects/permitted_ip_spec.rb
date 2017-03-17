@@ -2,7 +2,7 @@ require "spec_helper"
 
 RSpec.describe BunqRb::PermittedIp do
   describe "GET /v1/user/:user_id/credential-password-ip/:credential_password_id/ip", active_session: true do
-    fit "returns an array of :id's" do
+    it "returns an array of :id's" do
       user_id = 1913
       credential_password_id = 12
       VCR.use_cassette "v1/list_permitted_ips" do
