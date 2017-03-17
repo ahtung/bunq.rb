@@ -12,4 +12,13 @@ RSpec.describe BunqRb::PermittedIp, active_session: true do
       end
     end
   end
+
+  describe "GET /v1/user/:user_id/credential-password-ip/:credential_password_id/ip/:id" do
+    it "returns an PermittedIp" do
+      VCR.use_cassette "v1/get_permitted_ip" do
+        permitted_ip = described_class.find(906, user_id, credential_password_id)
+        expect(permitted_ip.status).to eq("ACTIVE")
+      end
+    end
+  end
 end

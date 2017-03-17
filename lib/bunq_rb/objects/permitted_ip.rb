@@ -18,5 +18,12 @@ module BunqRb
       response = Client.send_method(:get, url)
       response.map { |resp| new(resp["PermittedIp"]) }
     end
+
+    def self.find(id, user_id, credential_password_id)
+      url = uri(user_id, credential_password_id)
+      full_path = [url, id].join("/")
+      response = Client.send_method(:get, full_path)
+      new(response[0]["PermittedIp"])
+    end
   end
 end
