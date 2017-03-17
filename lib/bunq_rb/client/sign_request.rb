@@ -31,7 +31,7 @@ class SignRequest < Faraday::Middleware
     sorted_headers = @env[:request_headers].sort.to_h.map { |k, v| "#{k}: #{v}" }
     str = request_string
     str << sorted_headers.join("\n") << "\n\n"
-    str << @env.body.to_json if @env[:method] == :post
+    str << @env.body.to_json if [:post, :put].include?(@env[:method])
     str
   end
 
