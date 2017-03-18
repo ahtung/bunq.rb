@@ -19,7 +19,7 @@ module BunqRb
     end
 
     def user
-      BunqRb::User.find(@user_id)
+      BunqRb::User.find(user_id)
     end
 
     def request_inquiries
