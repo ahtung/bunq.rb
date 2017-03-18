@@ -35,11 +35,55 @@ end
   - ~~Create Session~~
   - Making a payment request
   - Creating a tab payment
+
+---
+
 - INSTALLATION
   - ~~Installation~~
-  - Installation server public key
+    - POST
+
+    ```ruby
+    installation, token, server_public_key = BunqRb::Installation.create(client_public_key: BunqRb.configuration.key.public_key)
+    ```
+
+    - GET
+
+    ```ruby
+    installation = BunqRb::Installation.find(2348)
+    ```
+
+    - LIST
+
+    ```ruby
+    installations = BunqRb::Installation.all
+    ```
+
+  - ~~Installation server public key~~
+
+    - LIST
+
+    ```ruby
+    installation = BunqRb::Installation.find(2348)
+    server_public_key = installation.server_public_key
+    ```
+
   - Device
+
+    - GET
+    - LIST
+
   - Device server
+
+    - POST
+
+    ```ruby
+    device_server = BunqRb::DeviceServer.create(
+      description: "Dunya",
+      secret: BunqRb.configuration.api_key,
+      permitted_ips: []
+    )
+    ```
+
   - ~~Permitted IP~~
   - User credential password IP
 - SESSION

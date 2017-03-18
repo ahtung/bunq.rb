@@ -8,6 +8,7 @@ require_relative "client/sign_request"
 
 require_relative "objects/device_server"
 require_relative "objects/installation"
+require_relative "objects/installation_server_public_key"
 require_relative "objects/session_server"
 require_relative "objects/permitted_ip"
 require_relative "objects/monetary_account"
