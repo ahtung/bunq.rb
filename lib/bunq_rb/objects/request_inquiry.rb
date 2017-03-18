@@ -2,6 +2,10 @@ module BunqRb
   # RequestInquiry
   class RequestInquiry
     include ActiveModel::Model
+    include ActiveModel::Validations
+
+    validates :user_id, presence: true
+    validates :monetary_account_id, presence: true
 
     attr_accessor :id, :status
 
