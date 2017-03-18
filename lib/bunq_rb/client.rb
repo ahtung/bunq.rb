@@ -49,6 +49,7 @@ require_relative "objects/session_server"
 require_relative "objects/user"
 require_relative "objects/permitted_ip"
 require_relative "objects/monetary_account"
+require_relative "objects/monetary_account_bank"
 require_relative "objects/attachment_monetary_account"
 require_relative "objects/request_inquiry"
 

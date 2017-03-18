@@ -17,6 +17,11 @@ module BunqRb
       @monetary_accounts.all
     end
 
+    def monetary_account_banks
+      @monetary_account_banks ||= BunqRb::MonetaryAccountBank.new(user_id: @id)
+      @monetary_account_banks.all
+    end
+
     def self.uri
       "/v1/user"
     end
