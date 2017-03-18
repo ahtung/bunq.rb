@@ -139,8 +139,38 @@ end
   - User company
   - Schedule user
 - MONETARY ACCOUNTS
-  - Monetary account
-  - Monetary account bank
+  - ~~Monetary account~~
+    - GET
+
+    ```ruby
+    user = BunqRb::User.find(1913)
+    monetary_account = user.monetary_accounts.find(1913)
+    ```
+
+    - LIST
+
+    ```ruby
+    user = BunqRb::User.find(1913)
+    monetary_accounts = user.monetary_accounts
+    ```
+
+  - ~~Monetary account bank~~
+    - POST
+    - PUT
+    - GET
+
+    ```ruby
+    user = BunqRb::User.find(1913)
+    monetary_account_banks = user.monetary_account_banks
+    ```
+
+    - LIST
+
+    ```ruby
+    user = BunqRb::User.find(1913)
+    monetary_account_bank = user.monetary_account_banks.find(1913)
+    ```
+
 - PAYMENTS
   - Payment
   - Draft payment

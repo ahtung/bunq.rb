@@ -3,7 +3,7 @@ module BunqRb
   class MonetaryAccountBank
     include ActiveModel::Model
     include BunqRb::Shared
-    implements :get, :list#, :post, :put
+    implements :get, :list, :post, :put
 
     attr_accessor :id, :created, :updated, :alias, :avatar, :balance, :country, :currency, :daily_limit, :daily_spent, :description, :public_uuid,
       :status, :sub_status, :timezone, :user_id, :monetary_account_profile, :notification_filters, :setting, :overdraft_limit

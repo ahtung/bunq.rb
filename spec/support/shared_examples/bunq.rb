@@ -34,16 +34,16 @@ shared_examples_for "post" do |attrs|
   end
 end
 
-# shared_examples_for "put" do |attrs|
-#   let(:item) { described_class.find(1913) }
-#   let(:attrs) { { status: "INACTIVE" }}
-#   let(:item) { described_class.update(attrs) }
-#
-#   it "returns instances of #{described_class}" do
-#     expect(item).to be_instance_of(described_class)
-#   end
-#
-#   it "returns an :id" do
-#     expect(item.id).not_to eq(0)
-#   end
-# end
+shared_examples_for "put" do |attrs|
+  let(:object) { described_class.find(1913) }
+  let(:attrs) { { status: "INACTIVE" } }
+  let(:item) { object.update(attrs) }
+
+  it "returns instances of #{described_class}" do
+    expect(item).to be_instance_of(described_class)
+  end
+
+  it "returns an :id" do
+    expect(item.id).not_to eq(0)
+  end
+end
