@@ -11,6 +11,13 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.order = "random"
 
+  config.before(:each, configured: true) do
+    BunqRb.configure do |config|
+      config.api_key = ENV.fetch("API_KEY")
+      config.key = OpenSSL::PKey::RSA.new 2048
+    end
+  end
+
   config.before(:each, active_session: true) do
     BunqRb.configure do |bunqrb_config|
       bunqrb_config.api_key = ENV.fetch("API_KEY")
