@@ -44,17 +44,7 @@ module BunqRb
   end
 end
 
-require_relative "objects/device"
-require_relative "objects/device_server"
-require_relative "objects/installation"
-require_relative "objects/installation_server_public_key"
-require_relative "objects/session_server"
-require_relative "objects/user"
-require_relative "objects/permitted_ip"
-require_relative "objects/monetary_account"
-require_relative "objects/monetary_account_bank"
-require_relative "objects/attachment_monetary_account"
-require_relative "objects/request_inquiry"
+Dir[File.dirname(__FILE__) + "/objects/**/*.rb"].each { |f| require f }
 
 module BunqRb
   # Client
