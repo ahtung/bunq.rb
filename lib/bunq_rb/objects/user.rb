@@ -1,7 +1,9 @@
 module BunqRb
   # Installation
   class User
-    URI = "/v1/user".freeze
+    include BunqRb::Shared
+
+    implements :get, :list
 
     attr_reader :id, :display_name
 
@@ -10,15 +12,8 @@ module BunqRb
       @display_name = hsh["display_name"]
     end
 
-    def self.find(id)
-      uri = [URI, id].join("/")
-      response = Client.send_method(:get, uri)
-      new(response[0]["UserCompany"])
-    end
-
-    def self.all
-      response = Client.send_method(:get, URI)
-      response.map { |resp| new(resp["UserCompany"]) }
+    def self.uri
+      "/v1/user"
     end
   end
 end
