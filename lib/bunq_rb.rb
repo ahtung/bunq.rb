@@ -1,4 +1,5 @@
 require "active_support/all"
+require "active_model"
 
 require_relative "bunq_rb/version"
 require_relative "bunq_rb/configuration"

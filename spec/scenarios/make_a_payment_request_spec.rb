@@ -10,7 +10,7 @@ describe "Scenario" do
     end
   end
 
-  it "Making a payment request" do
+  xit "Making a payment request" do
     # 1. POST installation
     _installation, token, _server_public_key = BunqRb::Installation.create(
       client_public_key: BunqRb.configuration.key.public_key

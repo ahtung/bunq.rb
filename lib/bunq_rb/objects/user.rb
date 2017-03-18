@@ -2,24 +2,15 @@ module BunqRb
   # Installation
   class User
     include BunqRb::Shared
-
     implements :get, :list
+    # has_many :monetary_accounts
+    # has_many :monetary_account_banks
 
     attr_reader :id, :display_name
 
     def initialize(hsh = {})
       @id = hsh["id"]
       @display_name = hsh["display_name"]
-    end
-
-    def monetary_accounts
-      @monetary_accounts ||= BunqRb::MonetaryAccount.new(user_id: @id)
-      @monetary_accounts.all
-    end
-
-    def monetary_account_banks
-      @monetary_account_banks ||= BunqRb::MonetaryAccountBank.new(user_id: @id)
-      @monetary_account_banks.all
     end
 
     def self.uri
