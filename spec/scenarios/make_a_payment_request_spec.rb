@@ -37,7 +37,7 @@ describe "Scenario", configured: true do
     # attachment = BunqRb::AttachmentMonetaryAccount.create(image)
 
     # 6. POST request-inquiry
-    request_inqury = a_account.request_inquiries.create(
+    request_inqury = a_account.request_inquiries.first.class.create(
       allow_bunqme: false,
       amount_inquired: {
         value: "9.95",
@@ -52,6 +52,8 @@ describe "Scenario", configured: true do
         # id: attachment.id
       ]
     )
+
+    puts request_inqury.inspect
 
     request_inqury = a_account.request_inquiries.find(request_inqury.id)
 

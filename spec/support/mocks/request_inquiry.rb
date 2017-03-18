@@ -1,6 +1,6 @@
 RSpec.configure do |config|
   config.before(:each) do
-    stub_request(:post, /\Ahttps:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/monetary-account\/.*\/request-inquiry\z/).
+    stub_request(:post, /\Ahttps:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/?monetary-account\/.*\/?request-inquiry\/?\z/).
       to_return(status: 200, body: {
         "Response" => [
           {
@@ -144,7 +144,7 @@ RSpec.configure do |config|
             "allow_chat" => false
             }
             }
-            ]        
+            ]
       }.to_json, headers: {})
 
     stub_request(:get, /\Ahttps:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/monetary-account\/.*\/request-inquiry\/.*\z/).
