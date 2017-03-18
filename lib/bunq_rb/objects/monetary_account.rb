@@ -3,10 +3,7 @@ module BunqRb
   class MonetaryAccount
     include ActiveModel::Model
     include BunqRb::Shared
-    include ActiveModel::Validations
     implements :get, :list
-
-    validates :user_id, presence: true
 
     attr_accessor :id, :currency, :created, :updated, :alias, :avatar, :balance, :country, :daily_limit, :daily_spent, :description, :public_uuid,
                   :status, :sub_status, :timezone, :user_id, :monetary_account_profile, :notification_filters, :setting, :overdraft_limit
