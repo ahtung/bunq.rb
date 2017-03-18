@@ -16,7 +16,7 @@ module BunqRb
     end
 
     def self.for_user(user_id)
-      full_uri = "/v1/user/#{user_id}/monetary-account"
+      full_uri = "/v1/user/#{user_id}/monetary-account-bank"
       response = Client.send_method(:get, full_uri)
       response.map { |resp| new(resp.values.first) }
     end
