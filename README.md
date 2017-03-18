@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ahtung/bunq_rb.svg?branch=master)](https://travis-ci.org/ahtung/bunq_rb)
+
 # BunqRb
 
 - [Documentation](https://doc.bunq.com/)
