@@ -533,6 +533,8 @@ RSpec.configure do |config|
           }
         ]
       }.to_json)
+
+
     stub_request(:post, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/monetary-account\/.*\/request-inquiry/).
       to_return(status: 200, body: {
         "Response" => [
@@ -688,7 +690,7 @@ RSpec.configure do |config|
           }
         ]
       }.to_json, headers: {})
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account").
+    stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*monetary-account/).
       to_return(status: 200, body: {
         "Response" => [
         {
