@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ahtung/bunq_rb.svg?branch=master)](https://travis-ci.org/ahtung/bunq_rb)
+
 # BunqRb
 
 - [Documentation](https://doc.bunq.com/)
@@ -108,8 +110,21 @@ end
 - SESSION
   - Session
   - ~~SessionServer~~
+
 - USER
-  - User
+  - ~~User~~
+    - GET
+
+    ```ruby
+    user = BunqRb::User.find(1913)
+    ```
+
+    - LIST
+
+    ```ruby
+    users = BunqRb::User.all
+    ```
+
   - User person
   - User company
   - Schedule user
