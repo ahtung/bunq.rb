@@ -11,43 +11,39 @@ RSpec.describe "Scenario" do
   end
 
   fit "Create a Tab Payment" do
-    VCR.turned_off do
-      WebMock.allow_net_connect!
+    # 1. POST installation
+    _installation, token, _server_public_key = BunqRb::Installation.create(
+      client_public_key: BunqRb.configuration.key.public_key
+    )
 
-      # 1. POST installation
-      _installation, token, _server_public_key = BunqRb::Installation.create(
-        client_public_key: BunqRb.configuration.key.public_key
-      )
+    # Set session_token
+    BunqRb.configuration.session_token = token["token"]
 
-      # Set session_token
-      BunqRb.configuration.session_token = token["token"]
+    # 2. POST device-server
+    _device_server = BunqRb::DeviceServer.create(
+      description: "Dunya",
+      secret: BunqRb.configuration.api_key,
+      permitted_ips: []
+    )
 
-      # 2. POST device-server
-      _device_server = BunqRb::DeviceServer.create(
-        description: "Dunya",
-        secret: BunqRb.configuration.api_key,
-        permitted_ips: []
-      )
+    # 3. POST session-server
+    _session_server, @token, _user_company = BunqRb::SessionServer.create(
+      secret: BunqRb.configuration.api_key
+    )
 
-      # 3. POST session-server
-      _session_server, @token, _user_company = BunqRb::SessionServer.create(
-        secret: BunqRb.configuration.api_key
-      )
+    # 4. POST attachment-public
+    image_path = File.expand_path(File.join(File.dirname(__FILE__), "../fixtures/images/baz.jpg"))
+    image = Faraday::UploadIO.new(image_path, 'image/jpeg')
+    attachment = BunqRb::AttachmentPublic.create(image)
 
-      # 4. POST attachment-public
-      image_path = File.expand_path(File.join(File.dirname(__FILE__), "../fixtures/images/baz.jpg"))
-      image = Faraday::UploadIO.new(image_path, 'image/jpeg')
-      attachment = BunqRb::AttachmentPublic.create(image)
+    # 5. POST avatar
+    avatar = BunqRb::Avatar.create(
+      attachment_public_uuid: "d93e07e3-d420-45e5-8684-fc0c09a63686"
+    )
 
-      # 5. POST avatar
-      avatar = BunqRb::Avatar.create(
-        attachment_public_uuid: "d93e07e3-d420-45e5-8684-fc0c09a63686"
-      )
+    # 6. LIST monetary-account
+    puts BunqRb::MonetaryAccount.all.inspect
 
-      # 6. LIST monetary-account
-      puts BunqRb::MonetaryAccount.all.inspect
-
-      expect(nil).not_to be_nil
-    end
+    expect(nil).not_to be_nil
   end
 end
