@@ -5,7 +5,7 @@ describe "Scenario" do
 
   before :each do
     BunqRb.configure do |config|
-      config.api_key = "c08bbdb62e1d1795ae7e933bc833452fda9c317b4b9d717baeabbc17f8190df9"
+      config.api_key = ENV.fetch("API_KEY")
       config.key = key
     end
   end
