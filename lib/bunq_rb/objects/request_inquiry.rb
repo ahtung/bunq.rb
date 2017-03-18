@@ -2,10 +2,6 @@ module BunqRb
   # RequestInquiry
   class RequestInquiry
     include ActiveModel::Model
-    include ActiveModel::Validations
-
-    validates :user_id, presence: true
-    validates :monetary_account_id, presence: true
 
     attr_accessor :id, :created, :updated, :time_responded, :time_expiry, :monetary_account_id, :amount_inquired, :amount_responded,
                   :user_alias_created, :user_alias_revoked, :counterparty_alias, :description, :merchant_reference, :attachment, :status, :batch_id,
