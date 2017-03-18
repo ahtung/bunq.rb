@@ -67,10 +67,19 @@ end
     server_public_key = installation.server_public_key
     ```
 
-  - Device
+  - ~~Device~~
 
     - GET
+
+    ```ruby
+    device = BunqRb::Device.find(2348)
+    ```
+
     - LIST
+
+    ```ruby
+    devices = BunqRb::Device.all
+    ```
 
   - Device server
 
