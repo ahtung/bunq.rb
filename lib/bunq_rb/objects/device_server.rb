@@ -1,7 +1,9 @@
 module BunqRb
   # DeviceServer
   class DeviceServer
-    URI = "/v1/device-server".freeze
+    include BunqRb::Shared
+
+    implements :post, :get, :list
 
     attr_reader :id
 
@@ -9,9 +11,8 @@ module BunqRb
       @id = hsh["id"]
     end
 
-    def self.create(hash = {})
-      response = Client.send_method(:post, URI, hash)
-      new(response[0]["Id"])
+    def self.uri
+      "/v1/device-server"
     end
   end
 end

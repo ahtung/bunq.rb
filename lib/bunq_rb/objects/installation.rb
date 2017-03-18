@@ -1,7 +1,9 @@
 module BunqRb
   # Installation
   class Installation
-    URI = "/v1/installation".freeze
+    include BunqRb::Shared
+
+    implements :get, :list
 
     attr_reader :id
 
@@ -15,19 +17,12 @@ module BunqRb
     end
 
     def self.create(hash = {})
-      response = Client.send_method(:post, URI, hash)
+      response = Client.send_method(:post, uri, hash)
       [new(response[0]["Id"]), response[1]["Token"], response[2]["ServerPublicKey"]]
     end
 
-    def self.find(id)
-      uri = [URI, id].join("/")
-      response = Client.send_method(:get, uri)
-      new(response[0]["Id"])
-    end
-
-    def self.all
-      response = Client.send_method(:get, URI)
-      response.map { |resp| new(resp["Id"]) }
+    def self.uri
+      "/v1/installation"
     end
   end
 end

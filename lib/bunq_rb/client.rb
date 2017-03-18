@@ -6,6 +6,41 @@ require "faraday_middleware"
 require_relative "client/headers"
 require_relative "client/sign_request"
 
+module BunqRb
+  # Shared
+  # TODO: (dunyakirkali) Extract to file
+  module Shared
+    extend ActiveSupport::Concern
+
+    module ClassMethods
+      def implements(*calls)
+        calls.each do |call|
+          case call
+          when :get
+            define_singleton_method(:find) do |*args|
+              full_uri = [uri, args.first].join("/")
+              response = Client.send_method(:get, full_uri)
+              new(response[0].values.first)
+            end
+          when :list
+            define_singleton_method(:all) do
+              response = Client.send_method(:get, uri)
+              response.map { |resp| new(resp.values.first) }
+            end
+          when :post
+            define_singleton_method(:create) do |*args|
+              response = Client.send_method(:post, uri, args)
+              new(response[0]["Id"])
+            end
+          else
+            puts "ERROR"
+          end
+        end
+      end
+    end
+  end
+end
+
 require_relative "objects/device"
 require_relative "objects/device_server"
 require_relative "objects/installation"

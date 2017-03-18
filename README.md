@@ -83,10 +83,20 @@ end
     devices = BunqRb::Device.all
     ```
 
-  - Device server
+  - ~~Device server~~
 
     - GET
+
+    ```ruby
+    device_server = BunqRb::DeviceServer.find(1913)
+    ```
+
     - LIST
+
+    ```ruby
+    device_servers = BunqRb::DeviceServer.all
+    ```
+
     - POST
 
     ```ruby

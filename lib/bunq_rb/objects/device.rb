@@ -1,7 +1,9 @@
 module BunqRb
   # Device
   class Device
-    URI = "/v1/device".freeze
+    include BunqRb::Shared
+
+    implements :get, :list
 
     attr_reader :id
 
@@ -9,14 +11,8 @@ module BunqRb
       @id = hsh["id"]
     end
 
-    def self.find(device_id)
-      response = Client.send_method(:get, [URI, device_id].join("/"))
-      new(response[0].values.first)
-    end
-
-    def self.all
-      response = Client.send_method(:get, URI)
-      response.map { |resp| new(resp.first.first) }
+    def self.uri
+      "/v1/device"
     end
   end
 end
