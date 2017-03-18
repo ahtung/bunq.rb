@@ -1,9 +1,9 @@
 require "spec_helper"
 
-RSpec.describe BunqRb::Installation do
-  describe "POST /v1/installation", active_session: true do
+RSpec.describe BunqRb::Installation, active_session: true do
+  describe "POST /v1/installation" do
     it "returns an :id" do
-      expect(@installation.id).to be(3739)
+      expect(@installation.id).not_to be_nil
     end
 
     it "returns a :token object" do
@@ -15,21 +15,24 @@ RSpec.describe BunqRb::Installation do
     end
   end
 
-  describe "GET /v1/installation/:id", active_session: true do
+  describe "GET /v1/installation/:id" do
     it "returns an :id" do
-      VCR.use_cassette "v1/get_installation" do
-        installation = described_class.find(42)
-        expect(installation.id).to be(3739)
-      end
+      installation = described_class.find(42)
+      expect(installation.id).not_to be_nil
     end
   end
 
-  describe "GET /v1/installation", active_session: true do
+  describe "GET /v1/installation" do
     it "returns an array of :id's" do
-      VCR.use_cassette "v1/list_installation" do
-        installations = described_class.all
-        expect(installations.count).to be(2)
-      end
+      installations = described_class.all
+      expect(installations.count).not_to eq(0)
+    end
+  end
+
+  describe "server_public_key" do
+    it "returns installation's server_public_key" do
+      installation_server_public_key = described_class.all.first
+      expect(installation_server_public_key.server_public_key).not_to be_nil
     end
   end
 end
