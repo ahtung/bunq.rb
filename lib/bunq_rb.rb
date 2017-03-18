@@ -1,3 +1,5 @@
+require "active_support/all"
+
 require_relative "bunq_rb/version"
 require_relative "bunq_rb/configuration"
 require_relative "bunq_rb/client"

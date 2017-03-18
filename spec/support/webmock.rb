@@ -3,8 +3,8 @@ WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   config.before(:each) do
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913").
-      to_return(status: 200, :body => {
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913")
+      .to_return(status: 200, body: {
         "Response" => [
 {
 "UserCompany" => {
@@ -200,7 +200,7 @@ RSpec.configure do |config|
 ]
       }.to_json, headers: {})
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user").
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
           {
           "UserCompany" => {
@@ -401,8 +401,8 @@ RSpec.configure do |config|
           }
       }.to_json, headers: {})
 
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device/43").
-      to_return(status: 200, :body => {
+    stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/device\/.*/).
+      to_return(status: 200, body: {
         "Response" => [
           {
             "DeviceServer" => {
@@ -417,7 +417,7 @@ RSpec.configure do |config|
         ]
       }.to_json, headers: {})
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device").
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
           {
             "DeviceServer" => {
@@ -437,7 +437,7 @@ RSpec.configure do |config|
         }
       }.to_json, headers: {})
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/credential-password-ip/3088/ip").
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
           {
             "PermittedIp" => {
@@ -452,7 +452,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     stub_request(:put, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/credential-password-ip\/.*\/ip\/.*/).
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
           {
             "Id" => {
@@ -463,7 +463,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
     # PermittedIp GET
     stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/credential-password-ip\/.*\/ip\/.*/).
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
           {
             "PermittedIp" => {
@@ -479,7 +479,7 @@ RSpec.configure do |config|
 
     # PermittedIp POST
     stub_request(:post, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/credential-password-ip\/.*\/ip/).
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
           {
             "Id" => {
@@ -489,8 +489,8 @@ RSpec.configure do |config|
         ]
       }.to_json, headers: {})
     # Installation GET
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/installation/42").
-      to_return(status: 200, :body => {
+    stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/installation\/.*/).
+      to_return(status: 200, body: {
         "Response" => [
           {
             "Id" => {
@@ -501,7 +501,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
     # Installation LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/installation").
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
           {
             "Id" => {
@@ -534,7 +534,7 @@ RSpec.configure do |config|
         ]
       }.to_json)
     stub_request(:post, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/monetary-account\/.*\/request-inquiry/).
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
           {
             "Id" => {
@@ -544,7 +544,7 @@ RSpec.configure do |config|
         ]
       }.to_json, headers: {})
     stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/monetary-account\/.*\/request-inquiry\/.*/).
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
           {
             "RequestInquiry" => {
@@ -679,7 +679,7 @@ RSpec.configure do |config|
 ]
       }.to_json, headers: {})
     stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/installation\/.*\/server-public-key/).
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
           {
             "ServerPublicKey" => {
@@ -689,7 +689,7 @@ RSpec.configure do |config|
         ]
       }.to_json, headers: {})
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account").
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
         {
         "MonetaryAccountBank" => {
@@ -775,8 +775,48 @@ RSpec.configure do |config|
         }
 
       }.to_json, headers: {})
+
+    # DeviceServer LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device-server")
+      .to_return(status: 200, body: {
+        "Response" => [
+          {
+            "DeviceServer" => {
+              "id" => 2348,
+              "created" => "2017-03-15 01:11:16.865607",
+              "updated" => "2017-03-15 01:11:16.865607",
+              "ip" => "10.8.0.51",
+              "description" => "Generated device",
+              "status" => "ACTIVE"
+            }
+          }
+        ],
+        "Pagination" => {
+          "future_url" => "/v1/device-server?newer_id=2348",
+          "newer_url" => nil,
+          "older_url" => nil
+        }
+      }.to_json, headers: {})
+
+    # DeviceServer GET
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device-server/1913")
+      .to_return(status: 200, body: {
+        "Response" => [
+          {
+            "DeviceServer" => {
+              "id" => 2348,
+              "created" => "2017-03-15 01:11:16.865607",
+              "updated" => "2017-03-15 01:11:16.865607",
+              "ip" => "10.8.0.51",
+              "description" => "Generated device",
+              "status" => "ACTIVE"
+            }
+          }
+        ]
+      }.to_json, headers: {})
+
     stub_request(:post, "https://sandbox.public.api.bunq.com/v1/device-server").
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
         "Response" => [
           {
             "Id" => {
@@ -787,7 +827,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     stub_request(:post, "https://sandbox.public.api.bunq.com/v1/session-server").
-      to_return(status: 200, :body => {
+      to_return(status: 200, body: {
 "Response" => [
 {
 "Id" => {
