@@ -27,6 +27,11 @@ module BunqRb
               response = Client.send_method(:get, uri)
               response.map { |resp| new(resp.values.first) }
             end
+          when :post
+            define_singleton_method(:create) do |*args|
+              response = Client.send_method(:post, uri, args)
+              new(response[0]["Id"])
+            end
           else
             puts "ERROR"
           end
