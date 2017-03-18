@@ -1,6 +1,9 @@
 require "spec_helper"
 
 RSpec.describe BunqRb::Installation, active_session: true do
+  it_behaves_like "get"
+  it_behaves_like "list"
+
   describe "POST /v1/installation" do
     it "returns an :id" do
       expect(@installation.id).not_to be_nil
@@ -12,20 +15,6 @@ RSpec.describe BunqRb::Installation, active_session: true do
 
     it "returns a :server_public_key object" do
       expect(@server_public_key).not_to be_nil
-    end
-  end
-
-  describe "GET /v1/installation/:id" do
-    it "returns an :id" do
-      installation = described_class.find(42)
-      expect(installation.id).not_to be_nil
-    end
-  end
-
-  describe "GET /v1/installation" do
-    it "returns an array of :id's" do
-      installations = described_class.all
-      expect(installations.count).not_to eq(0)
     end
   end
 

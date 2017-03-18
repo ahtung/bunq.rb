@@ -401,7 +401,7 @@ RSpec.configure do |config|
           }
       }.to_json, headers: {})
 
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device/43").
+    stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/device\/.*/).
       to_return(status: 200, body: {
         "Response" => [
           {
@@ -489,7 +489,7 @@ RSpec.configure do |config|
         ]
       }.to_json, headers: {})
     # Installation GET
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/installation/42").
+    stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/installation\/.*/).
       to_return(status: 200, body: {
         "Response" => [
           {
