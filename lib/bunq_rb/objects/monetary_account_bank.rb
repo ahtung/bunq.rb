@@ -3,7 +3,7 @@ module BunqRb
   class MonetaryAccountBank
     include BunqRb::Shared
 
-    implements :get, :list, :post#, :put
+    implements :get, :list#, :post, :put
 
     attr_reader :id
     attr_reader :user_id
