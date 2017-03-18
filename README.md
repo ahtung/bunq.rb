@@ -108,8 +108,21 @@ end
 - SESSION
   - Session
   - ~~SessionServer~~
+
 - USER
-  - User
+  - ~~User~~
+    - GET
+
+    ```ruby
+    user = BunqRb::User.find(1913)
+    ```
+
+    - LIST
+
+    ```ruby
+    users = BunqRb::User.all
+    ```
+
   - User person
   - User company
   - Schedule user

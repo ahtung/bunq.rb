@@ -3,6 +3,404 @@ WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   config.before(:each) do
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913").
+      to_return(:status => 200, :body => {
+        "Response": [
+{
+"UserCompany": {
+"id": 1913,
+"created": "2017-03-15 01:11:12.838718",
+"updated": "2017-03-18 10:55:15.347224",
+"alias": [
+{
+"type": "PHONE_NUMBER",
+"value": "+31682890601",
+"name": "+31682890601"
+},
+{
+"type": "EMAIL",
+"value": "bell-vof@bunq.nl",
+"name": "bell-vof@bunq.nl"
+}
+],
+"avatar": {
+"uuid": "646d3802-881e-415c-96f9-35397ce7cc9a",
+"image": [
+{
+"attachment_public_uuid": "0d10b1c4-b249-4c49-a442-5379bae0a030",
+"height": 640,
+"width": 640,
+"content_type": "image/png"
+}
+],
+"anchor_uuid": "4d505093-2270-4638-b9b6-ac1389195e6b"
+},
+"status": "ACTIVE",
+"sub_status": "NONE",
+"public_uuid": "4d505093-2270-4638-b9b6-ac1389195e6b",
+"display_name": "Stevens B.V.",
+"public_nick_name": "Stevens B.V.",
+"language": "nl_NL",
+"region": "nl_NL",
+"session_timeout": 604800,
+"daily_limit_without_confirmation_login": {
+"currency": "EUR",
+"value": "25"
+},
+"notification_filters": [
+{
+"notification_delivery_method": "PUSH",
+"category": "BILLING"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "CARD_TRANSACTION_FAILED"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "CARD_TRANSACTION_SUCCESSFUL"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "CHAT"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "DRAFT_PAYMENT"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "FRIEND_SIGN_UP"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "IDEAL"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "SOFORT"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "MONETARY_ACCOUNT_PROFILE"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "PAYMENT"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "PROMOTION"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "REQUEST"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "SCHEDULE_RESULT"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "SCHEDULE_STATUS"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "SHARE"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "SUPPORT"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "TAB_RESULT"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "USE_RESPONSE"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "USER_APPROVAL"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "WHITELIST"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "WHITELIST_RESULT"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "SLICE_CHAT"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "SLICE_REGISTRY_ENTRY"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "SLICE_REGISTRY_MEMBERSHIP"
+},
+{
+"notification_delivery_method": "PUSH",
+"category": "SLICE_REGISTRY_SETTLEMENT"
+}
+],
+"address_main": {
+"street": "Mason Cul de Sac",
+"house_number": "24",
+"postal_code": "3652 DD",
+"city": "'s-Hertogenbosch",
+"country": "NL",
+"province": nil
+},
+"address_postal": {
+"street": "Mason Cul de Sac",
+"house_number": "24",
+"postal_code": "3652 DD",
+"city": "'s-Hertogenbosch",
+"country": "NL",
+"province": nil
+},
+"counter_bank_iban": "NL91ABNA0417164300",
+"name": "Stevens B.V.",
+"chamber_of_commerce_number": "55209548",
+"director_alias": {
+"uuid": "28c29d6a-2300-4d9c-bccf-612ee5e40581",
+"display_name": "Niels (nickname)",
+"country": "000",
+"avatar": {
+"uuid": "6d945e1a-a7a0-4720-9c7a-1aaa1faa8737",
+"image": [
+{
+"attachment_public_uuid": "be8fc1b0-d35a-42c1-bb24-5c6c488ab8d4",
+"height": 480,
+"width": 480,
+"content_type": "image/jpeg"
+}
+],
+"anchor_uuid": "28c29d6a-2300-4d9c-bccf-612ee5e40581"
+},
+"public_nick_name": "Niels (nickname)"
+},
+"ubo": [
+{
+"name": "Anne Olsen",
+"date_of_birth": "1947-11-23",
+"nationality": "NL"
+}
+],
+"version_terms_of_service": "1.0",
+"country": "NL"
+}
+}
+]
+      }.to_json, :headers => {})
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user").
+      to_return(:status => 200, :body => {
+        "Response": [
+          {
+          "UserCompany": {
+          "id": 1913,
+          "created": "2017-03-15 01:11:12.838718",
+          "updated": "2017-03-18 10:55:15.347224",
+          "alias": [
+          {
+          "type": "PHONE_NUMBER",
+          "value": "+31682890601",
+          "name": "+31682890601"
+          },
+          {
+          "type": "EMAIL",
+          "value": "bell-vof@bunq.nl",
+          "name": "bell-vof@bunq.nl"
+          }
+          ],
+          "avatar": {
+          "uuid": "646d3802-881e-415c-96f9-35397ce7cc9a",
+          "image": [
+          {
+          "attachment_public_uuid": "0d10b1c4-b249-4c49-a442-5379bae0a030",
+          "height": 640,
+          "width": 640,
+          "content_type": "image/png"
+          }
+          ],
+          "anchor_uuid": "4d505093-2270-4638-b9b6-ac1389195e6b"
+          },
+          "status": "ACTIVE",
+          "sub_status": "NONE",
+          "public_uuid": "4d505093-2270-4638-b9b6-ac1389195e6b",
+          "display_name": "Stevens B.V.",
+          "public_nick_name": "Stevens B.V.",
+          "language": "nl_NL",
+          "region": "nl_NL",
+          "session_timeout": 604800,
+          "daily_limit_without_confirmation_login": {
+          "currency": "EUR",
+          "value": "25"
+          },
+          "notification_filters": [
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "BILLING"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "CARD_TRANSACTION_FAILED"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "CARD_TRANSACTION_SUCCESSFUL"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "CHAT"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "DRAFT_PAYMENT"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "FRIEND_SIGN_UP"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "IDEAL"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "SOFORT"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "MONETARY_ACCOUNT_PROFILE"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "PAYMENT"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "PROMOTION"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "REQUEST"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "SCHEDULE_RESULT"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "SCHEDULE_STATUS"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "SHARE"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "SUPPORT"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "TAB_RESULT"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "USE_RESPONSE"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "USER_APPROVAL"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "WHITELIST"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "WHITELIST_RESULT"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "SLICE_CHAT"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "SLICE_REGISTRY_ENTRY"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "SLICE_REGISTRY_MEMBERSHIP"
+          },
+          {
+          "notification_delivery_method": "PUSH",
+          "category": "SLICE_REGISTRY_SETTLEMENT"
+          }
+          ],
+          "address_main": {
+          "street": "Mason Cul de Sac",
+          "house_number": "24",
+          "postal_code": "3652 DD",
+          "city": "'s-Hertogenbosch",
+          "country": "NL",
+          "province": nil
+          },
+          "address_postal": {
+          "street": "Mason Cul de Sac",
+          "house_number": "24",
+          "postal_code": "3652 DD",
+          "city": "'s-Hertogenbosch",
+          "country": "NL",
+          "province": nil
+          },
+          "counter_bank_iban": "NL91ABNA0417164300",
+          "name": "Stevens B.V.",
+          "chamber_of_commerce_number": "55209548",
+          "director_alias": {
+          "uuid": "28c29d6a-2300-4d9c-bccf-612ee5e40581",
+          "display_name": "Niels (nickname)",
+          "country": "000",
+          "avatar": {
+          "uuid": "6d945e1a-a7a0-4720-9c7a-1aaa1faa8737",
+          "image": [
+          {
+          "attachment_public_uuid": "be8fc1b0-d35a-42c1-bb24-5c6c488ab8d4",
+          "height": 480,
+          "width": 480,
+          "content_type": "image/jpeg"
+          }
+          ],
+          "anchor_uuid": "28c29d6a-2300-4d9c-bccf-612ee5e40581"
+          },
+          "public_nick_name": "Niels (nickname)"
+          },
+          "ubo": [
+          {
+          "name": "Anne Olsen",
+          "date_of_birth": "1947-11-23",
+          "nationality": "NL"
+          }
+          ],
+          "version_terms_of_service": "1.0",
+          "country": "NL"
+          }
+          }
+          ],
+          "Pagination": {
+          "future_url": "/v1/user?newer_id=1913",
+          "newer_url": nil,
+          "older_url": nil
+          }
+      }.to_json, :headers => {})
+
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device/43").
       to_return(:status => 200, :body => {
         "Response": [
