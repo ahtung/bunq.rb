@@ -12,5 +12,9 @@ module BunqRb
     def self.uri
       "/v1/user/#{@user_id}/monetary-account/#{@monetary_account_id}/payment"
     end
+
+    def monetary_account
+      BunqRb::MonetaryAccount.find(monetary_account_profile["id"])
+    end
   end
 end

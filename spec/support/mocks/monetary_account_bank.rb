@@ -1,6 +1,6 @@
 RSpec.configure do |config|
   config.before(:each) do
-    stub_request(:put, /\Ahttps:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*monetary-account-bank\z/)
+    stub_request(:put, /\Ahttps:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/?monetary-account-bank\z/)
       .to_return(status: 200, body: {
         "Response" => [
           {
@@ -11,7 +11,7 @@ RSpec.configure do |config|
         ]
       }.to_json, headers: {})
 
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/monetary-account-bank/1913")
+    stub_request(:get, /\Ahttps:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/?monetary-account-bank\/.*\z/)
       .to_return(status: 200, body: {
         "Response": [
           {
@@ -92,9 +92,6 @@ RSpec.configure do |config|
           }
           ]
       }.to_json, headers: {})
-
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/monetary-account-bank").
-      to_return(:status => 200, :body => "", :headers => {})
 
     stub_request(:post, /\Ahttps:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*monetary-account-bank\z/)
       .to_return(status: 200, body: {
