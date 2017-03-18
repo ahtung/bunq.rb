@@ -1,12 +1,9 @@
 module BunqRb
   # RequestInquiry
   class RequestInquiry
-    attr_reader :id, :status
+    include ActiveModel::Model
 
-    def initialize(hsh = {})
-      @id = hsh["id"]
-      @status = hsh["status"]
-    end
+    attr_accessor :id, :status
 
     def self.url(user_id, monetary_account_id, id = nil)
       "/v1/user/#{user_id}/monetary-account/#{monetary_account_id}/request-inquiry/#{id}"
