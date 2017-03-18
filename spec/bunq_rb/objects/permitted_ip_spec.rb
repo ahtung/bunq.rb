@@ -6,40 +6,30 @@ RSpec.describe BunqRb::PermittedIp, active_session: true do
 
   describe "GET /v1/user/:user_id/credential-password-ip/:credential_password_id/ip" do
     it "returns an array of :id's" do
-      VCR.use_cassette "v1/list_permitted_ips" do
-        permitted_ips = described_class.all(user_id, credential_password_id)
-        expect(permitted_ips.count).to be(2)
-      end
+      permitted_ips = described_class.all(user_id, credential_password_id)
+      expect(permitted_ips.count).not_to eq(0)
     end
   end
 
   describe "GET /v1/user/:user_id/credential-password-ip/:credential_password_id/ip/:id" do
     it "returns an PermittedIp" do
-      VCR.use_cassette "v1/get_permitted_ip" do
-        permitted_ip = described_class.find(906, user_id, credential_password_id)
-        expect(permitted_ip.status).to eq("ACTIVE")
-      end
+      permitted_ip = described_class.find(906, user_id, credential_password_id)
+      expect(permitted_ip.status).to eq("ACTIVE")
     end
   end
 
   describe "PUT /v1/user/:user_id/credential-password-ip/:credential_password_id/ip/:id" do
     it "returns PermittedIp hash" do
-      VCR.insert_cassette "v1/get_permitted_ip"
-      permitted_ip = described_class.find(877, user_id, credential_password_id)
-      VCR.eject_cassette
-      VCR.insert_cassette "v1/put_permitted_ip"
-      response = permitted_ip.update({ status: 'INACTIVE' }, user_id, credential_password_id)
-      expect(response["id"]).to eq(877)
-      VCR.eject_cassette
+      permitted_ip = described_class.find(927, user_id, credential_password_id)
+      response = permitted_ip.update({ status: "INACTIVE" }, user_id, credential_password_id)
+      expect(response["id"]).to eq(927)
     end
   end
 
   describe "POST /v1/user/:user_id/credential-password-ip/:credential_password_id/ip" do
     it "returns PermittedIp hash" do
-      VCR.use_cassette "v1/post_permitted_ip" do
-        response = described_class.create({ ip: "84.168.43.28", status: 'INACTIVE' }, user_id, credential_password_id)
-        expect(response["id"]).to eq(925)
-      end
+      response = described_class.create({ ip: "84.168.43.29", status: "INACTIVE" }, user_id, credential_password_id)
+      expect(response["id"]).not_to be_nil
     end
   end
 end

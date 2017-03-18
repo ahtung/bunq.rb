@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ahtung/bunq_rb.svg?branch=master)](https://travis-ci.org/ahtung/bunq_rb)
+
 # BunqRb
 
 - [Documentation](https://doc.bunq.com/)
@@ -29,6 +31,170 @@ BunqRb.configure do |config|
 end
 ```
 
+## ToDo
+
+- Use Cases
+  - ~~Create Session~~
+  - Making a payment request
+  - Creating a tab payment
+
+---
+
+- INSTALLATION
+  - ~~Installation~~
+    - POST
+
+    ```ruby
+    installation, token, server_public_key = BunqRb::Installation.create(client_public_key: BunqRb.configuration.key.public_key)
+    ```
+
+    - GET
+
+    ```ruby
+    installation = BunqRb::Installation.find(2348)
+    ```
+
+    - LIST
+
+    ```ruby
+    installations = BunqRb::Installation.all
+    ```
+
+  - ~~Installation server public key~~
+
+    - LIST
+
+    ```ruby
+    installation = BunqRb::Installation.find(2348)
+    server_public_key = installation.server_public_key
+    ```
+
+  - ~~Device~~
+
+    - GET
+
+    ```ruby
+    device = BunqRb::Device.find(2348)
+    ```
+
+    - LIST
+
+    ```ruby
+    devices = BunqRb::Device.all
+    ```
+
+  - Device server
+
+    - GET
+    - LIST
+    - POST
+
+    ```ruby
+    device_server = BunqRb::DeviceServer.create(
+      description: "Dunya",
+      secret: BunqRb.configuration.api_key,
+      permitted_ips: []
+    )
+    ```
+
+  - ~~Permitted IP~~
+    - GET
+    - LIST
+    - POST
+    - PUT
+
+  - User credential password IP
+    - GET
+    - LIST
+
+- SESSION
+  - Session
+  - ~~SessionServer~~
+
+- USER
+  - ~~User~~
+    - GET
+
+    ```ruby
+    user = BunqRb::User.find(1913)
+    ```
+
+    - LIST
+
+    ```ruby
+    users = BunqRb::User.all
+    ```
+
+  - User person
+  - User company
+  - Schedule user
+- MONETARY ACCOUNTS
+  - Monetary account
+  - Monetary account bank
+- PAYMENTS
+  - Payment
+  - Draft payment
+  - Payment batch
+  - Request inquiry
+  - Request inquiry batch
+  - Request response
+  - Schedule instance
+  - Schedule payment
+  - Schedule payment batch
+  - Schedule
+  - Payment chat
+  - Request inquiry chat
+  - Request response chat
+- TABS
+  - Cash register
+  - Cash register qr code
+  - Cash register qr code content
+  - Tab
+  - Tab item
+  - Tab item batch
+  - Tab usage single
+  - Tab usage multiple
+  - Tab qr code content
+  - Tab result inquiry
+  - Tab result response
+- CARDS
+  - Card
+  - Card debit
+  - Card name
+  - Master card action
+- CONNECT
+  - Share invite bank inquiry
+  - Share invite bank response
+  - Share invite bank amount used
+  - Draft share invite bank
+  - Draft share invite bank qr code content
+- CHAT
+  - Chat conversation
+  - Chat message
+  - Chat message attachment
+  - Chat message text
+- INVOICES
+  - Invoice
+  - Invoice by user
+- EXPORTS
+  - Customer statement export
+  - Customer statement export content
+  - Export annual overview
+  - Export annual overview content
+- CALLBACKS
+  - Certificate pinned
+- ATTACHMENTS
+  - Avatar
+  - Attachment public
+  - Attachment public content
+  - ~~Attachment monetary account~~
+  - Attachment tab
+  - Attachment tab content
+  - Tab attachment tab
+  - Tab attachment tab content
+  - Attachment conversation
+  - Attachment conversation content
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -37,7 +203,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bunq_rb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ahtung/bunq_rb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

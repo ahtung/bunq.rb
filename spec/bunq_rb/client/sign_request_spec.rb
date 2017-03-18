@@ -15,7 +15,9 @@ RSpec.describe SignRequest do
     middleware.call(env)
   end
 
-  def request_headers() result[:request_headers] end
+  def request_headers()
+    result[:request_headers]
+  end
 
   context "sing? = true" do
     let(:result) { process(:get, "v1/installation", {}) }
