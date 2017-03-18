@@ -16,7 +16,7 @@ RSpec.configure do |config|
             }
           }
         ]
-      }.to_json, :headers => {})
+      }.to_json, headers: {})
 
     stub_request(:put, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/credential-password-ip\/.*\/ip\/.*/).
       to_return(status: 200, :body => {
@@ -27,7 +27,7 @@ RSpec.configure do |config|
             }
           }
         ]
-      }.to_json, :headers => {})
+      }.to_json, headers: {})
     # PermittedIp GET
     stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/credential-password-ip\/.*\/ip\/.*/).
       to_return(status: 200, :body => {
@@ -42,7 +42,7 @@ RSpec.configure do |config|
             }
           }
         ]
-      }.to_json, :headers => {})
+      }.to_json, headers: {})
 
     # PermittedIp POST
     stub_request(:post, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/credential-password-ip\/.*\/ip/).
@@ -54,7 +54,7 @@ RSpec.configure do |config|
             }
           }
         ]
-      }.to_json, :headers => {})
+      }.to_json, headers: {})
     # Installation GET
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/installation/42").
       to_return(status: 200, :body => {
@@ -65,7 +65,7 @@ RSpec.configure do |config|
             }
           }
         ]
-      }.to_json, :headers => {})
+      }.to_json, headers: {})
     # Installation LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/installation").
       to_return(status: 200, :body => {
@@ -76,7 +76,7 @@ RSpec.configure do |config|
             }
           }
         ]
-      }.to_json, :headers => {})
+      }.to_json, headers: {})
     stub_request(:post, "https://sandbox.public.api.bunq.com/v1/installation")
       .to_return(status: 200, body: {
         "Response" => [
@@ -109,7 +109,7 @@ RSpec.configure do |config|
             }
           }
         ]
-      }.to_json, :headers => {})
+      }.to_json, headers: {})
     stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/monetary-account\/.*\/request-inquiry\/.*/).
       to_return(status: 200, :body => {
         "Response" => [
@@ -244,7 +244,7 @@ RSpec.configure do |config|
 }
 }
 ]
-      }.to_json, :headers => {})
+      }.to_json, headers: {})
     stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/installation\/.*\/server-public-key/).
       to_return(status: 200, :body => {
         "Response" => [
@@ -254,7 +254,7 @@ RSpec.configure do |config|
             }
           }
         ]
-      }.to_json, :headers => {})
+      }.to_json, headers: {})
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account").
       to_return(status: 200, :body => {
         "Response" => [
@@ -341,7 +341,7 @@ RSpec.configure do |config|
         "older_url": nil
         }
 
-      }.to_json, :headers => {})
+      }.to_json, headers: {})
     stub_request(:post, "https://sandbox.public.api.bunq.com/v1/device-server").
       to_return(status: 200, :body => {
         "Response": [
