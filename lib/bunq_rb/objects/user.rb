@@ -4,8 +4,6 @@ module BunqRb
     include ActiveModel::Model
     include BunqRb::Shared
     implements :get, :list
-    # has_many :monetary_accounts
-    # has_many :monetary_account_banks
 
     attr_accessor :id, :created, :updated, :alias, :avatar, :status, :sub_status, :public_uuid, :display_name, :public_nick_name, :language, :region,
                   :session_timeout, :daily_limit_without_confirmation_login, :notification_filters, :address_main, :address_postal,
@@ -13,6 +11,14 @@ module BunqRb
 
     def self.uri
       "/v1/user"
+    end
+
+    def monetary_accounts
+      BunqRb::MonetaryAccount.for_user(id)
+    end
+
+    def monetary_account_banks
+      BunqRb::MonetaryAccountBank.for_user(id)
     end
   end
 end
