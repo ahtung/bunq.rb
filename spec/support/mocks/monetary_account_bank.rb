@@ -2,10 +2,10 @@ RSpec.configure do |config|
   config.before(:each) do
     stub_request(:put, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*monetary-account-bank/)
       .to_return(status: 200, body: {
-        "Response": [
+        "Response" => [
           {
-            "Id": {
-              "id": 2800
+            "Id" => {
+              "id" =>2800
             }
           }
         ]
