@@ -74,6 +74,8 @@ end
 
   - Device server
 
+    - GET
+    - LIST
     - POST
 
     ```ruby
@@ -85,7 +87,15 @@ end
     ```
 
   - ~~Permitted IP~~
+    - GET
+    - LIST
+    - POST
+    - PUT
+
   - User credential password IP
+    - GET
+    - LIST
+
 - SESSION
   - Session
   - ~~SessionServer~~
