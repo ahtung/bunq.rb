@@ -32,7 +32,7 @@ module BunqRb
               response = Client.send_method(:post, uri, args)
               new(response[0]["Id"])
             end
-          else
+          when :put
             define_method(:update) do |*args|
               response = Client.send_method(:put, self.class.uri, args)
               self.class.new(response[0]["Id"])
