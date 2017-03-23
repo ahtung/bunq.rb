@@ -1,15 +1,12 @@
 module BunqRb
   # DeviceServer
   class DeviceServer
+    include ActiveModel::Model
     include BunqRb::Shared
 
     implements :post, :get, :list
 
-    attr_reader :id
-
-    def initialize(hsh = {})
-      @id = hsh["id"]
-    end
+    attr_accessor :id, :created, :updated, :ip, :description, :status
 
     def self.uri
       "/v1/device-server"

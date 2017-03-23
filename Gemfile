@@ -6,6 +6,7 @@ gemspec
 group :development, :test do
   gem "bundler", "~> 1.13"
   gem "rake", "~> 10.0"
+  gem "foreman"
 end
 
 group :development do

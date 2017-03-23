@@ -1,15 +1,6 @@
 require "spec_helper"
 
-describe "Scenario" do
-  let(:key) { OpenSSL::PKey::RSA.new 2048 }
-
-  before :each do
-    BunqRb.configure do |config|
-      config.api_key = "c08bbdb62e1d1795ae7e933bc833452fda9c317b4b9d717baeabbc17f8190df9"
-      config.key = key
-    end
-  end
-
+describe "Scenario", configured: true do
   it "Create Session" do
     # 1. POST installation
     _installation, token, _server_public_key = BunqRb::Installation.create(

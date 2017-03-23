@@ -1,20 +1,29 @@
 module BunqRb
   # MonetaryAccount
   class MonetaryAccount
-    attr_reader :id, :currency
+    include ActiveModel::Model
+    include BunqRb::Shared
+    implements :get, :list
 
-    def initialize(hsh = {})
-      @id = hsh["id"]
-      @currency = hsh["currency"]
+    attr_accessor :id, :currency, :created, :updated, :alias, :avatar, :balance, :country, :daily_limit, :daily_spent, :description, :public_uuid,
+                  :status, :sub_status, :timezone, :user_id, :monetary_account_profile, :notification_filters, :setting, :overdraft_limit
+
+    def self.uri
+      "/v1/user/#{@user_id}/monetary-account"
     end
 
-    def self.url(user_id)
-      "/v1/user/#{user_id}/monetary-account"
+    def self.for_user(user_id)
+      full_uri = "/v1/user/#{user_id}/monetary-account"
+      response = Client.send_method(:get, full_uri)
+      response.map { |resp| new(resp.values.first) }
     end
 
-    def self.all
-      response = Client.send_method(:get, url(1913))
-      response.map { |resp| new(resp["MonetaryAccountBank"]) }
+    def user
+      BunqRb::User.find(user_id)
+    end
+
+    def request_inquiries
+      BunqRb::RequestInquiry.for_monetary_account(user_id, id)
     end
   end
 end

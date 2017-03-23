@@ -1,16 +1,7 @@
 require "spec_helper"
 
-describe "Scenario" do
-  let(:key) { OpenSSL::PKey::RSA.new 2048 }
-
-  before :each do
-    BunqRb.configure do |config|
-      config.api_key = "c08bbdb62e1d1795ae7e933bc833452fda9c317b4b9d717baeabbc17f8190df9"
-      config.key = key
-    end
-  end
-
-  it "Making a payment request" do
+describe "Scenario", configured: true do
+  xit "Making a payment request" do
     # 1. POST installation
     _installation, token, _server_public_key = BunqRb::Installation.create(
       client_public_key: BunqRb.configuration.key.public_key
@@ -33,8 +24,12 @@ describe "Scenario" do
 
     BunqRb.configuration.session_token = @token["token"]
 
+    user = BunqRb::User.find(1913)
+
     # 4. LIST monetary-account
-    puts BunqRb::MonetaryAccount.all.inspect
+    monetary_accounts = user.monetary_accounts
+
+    a_account = monetary_accounts.sample
 
     # 5. POST monetary-account attachment (optional)
     # config_path = File.expand_path(File.join(File.dirname(__FILE__), "../fixtures/images/baz.jpg"))
@@ -42,7 +37,7 @@ describe "Scenario" do
     # attachment = BunqRb::AttachmentMonetaryAccount.create(image)
 
     # 6. POST request-inquiry
-    request_inqury = BunqRb::RequestInquiry.create(
+    request_inqury = a_account.request_inquiries.first.class.create(
       allow_bunqme: false,
       amount_inquired: {
         value: "9.95",
@@ -58,7 +53,9 @@ describe "Scenario" do
       ]
     )
 
-    request_inqury = BunqRb::RequestInquiry.find(request_inqury.id)
+    puts request_inqury.inspect
+
+    request_inqury = a_account.request_inquiries.find(request_inqury.id)
 
     expect(request_inqury.status).to eq("PENDING")
   end
