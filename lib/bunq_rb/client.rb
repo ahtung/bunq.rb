@@ -49,10 +49,8 @@ Dir[File.dirname(__FILE__) + "/objects/**/*.rb"].each { |f| require f }
 module BunqRb
   # Client
   class Client
-    BASE_URL = "https://sandbox.public.api.bunq.com".freeze
-
     def self.connection
-      @connection ||= Faraday.new(url: BASE_URL) do |config|
+      @connection ||= Faraday.new(url: BunqRb.configuration.url) do |config|
         config.use Headers
         config.use SignRequest
         config.request :json

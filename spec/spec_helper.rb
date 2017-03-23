@@ -22,6 +22,7 @@ RSpec.configure do |config|
     BunqRb.configure do |bunqrb_config|
       bunqrb_config.api_key = ENV.fetch("API_KEY")
       bunqrb_config.key = OpenSSL::PKey::RSA.new 2048
+      bunqrb_config.url = "https://sandbox.public.api.bunq.com"
     end
 
     @installation, @token, @server_public_key = BunqRb::Installation.create(
