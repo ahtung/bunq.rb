@@ -27,7 +27,7 @@ First configure the gem
 ```
 BunqRb.configure do |config|
   config.api_key = ENV.fetch("API_KEY")
-  config.url = 'https://sandbox.public.api.bunq.com'
+  config.url = "https://sandbox.public.api.bunq.com"
 end
 ```
 
