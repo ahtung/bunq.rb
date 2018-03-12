@@ -6,8 +6,8 @@ require 'bunq_rb/version'
 Gem::Specification.new do |spec|
   spec.name          = "bunq_rb"
   spec.version       = BunqRb::VERSION
-  spec.authors       = ["Dunya Kirkali"]
-  spec.email         = ["dunyakirkali@gmail.com"]
+  spec.authors       = ["Dunya Kirkali", "Onur Kucukkece"]
+  spec.email         = ["dunyakirkali@gmail.com", "onurkucukkece@gmail.com"]
 
   spec.summary       = %q{Bunq API Client}
   spec.description   = %q{Bunq API Client}
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata['allowed_push_host'] = "https://rubygems.org"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
