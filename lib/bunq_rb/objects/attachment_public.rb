@@ -3,15 +3,15 @@ module BunqRb
   class AttachmentPublic
     URI = "/v1/attachment-public".freeze
 
-    attr_reader :id
+    attr_reader :uuid
 
     def initialize(hsh = {})
-      @id = hsh["id"]
+      @uuid = hsh["uuid"]
     end
 
     def self.create(hash = {})
       response = Client.send_method(:post, URI, hash)
-      [new(response[0]["Id"]), response[1]["Token"], response[2]["ServerPublicKey"]]
+      new(response[0]["Uuid"])
     end
 
     def self.find(id)
