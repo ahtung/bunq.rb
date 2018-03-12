@@ -49,7 +49,8 @@ class SignRequest < Faraday::Middleware
   end
 
   def image?
-    @env[:url].to_s.match(%r{v1\/user\/.*\/monetary-account\/.*\/attachment})
+    @env[:url].to_s.match(%r{v1\/user\/.*\/monetary-account\/.*\/attachment}) ||
+    @env[:url].to_s.match(%r{v1\/attachment-public})
   end
 
   def request_string
