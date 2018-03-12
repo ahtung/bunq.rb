@@ -10,7 +10,7 @@ RSpec.describe "Scenario" do
     end
   end
 
-  fit "Create a Tab Payment" do
+  xit "Create a Tab Payment" do
     # 1. POST installation
     _installation, token, _server_public_key = BunqRb::Installation.create(
       client_public_key: BunqRb.configuration.key.public_key
