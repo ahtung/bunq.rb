@@ -6,8 +6,8 @@ require 'bunq_rb/version'
 Gem::Specification.new do |spec|
   spec.name          = "bunq_rb"
   spec.version       = BunqRb::VERSION
-  spec.authors       = ["Dunya Kirkali"]
-  spec.email         = ["dunyakirkali@gmail.com"]
+  spec.authors       = ["Dunya Kirkali", "Onur Kucukkece"]
+  spec.email         = ["dunyakirkali@gmail.com", "onurkucukkece@gmail.com"]
 
   spec.summary       = %q{Bunq API Client}
   spec.description   = %q{Bunq API Client}
