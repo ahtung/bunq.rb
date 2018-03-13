@@ -47,6 +47,33 @@ RSpec.describe "Scenario" do
     # 7a. POST cash-register
     _cash_register = BunqRb::CashRegister.create({name: "Test", status: "PENDING_APPROVAL", avatar_uuid: "d93e07e3-d420-45e5-8684-fc0c09a63686"}, 1913, 11)
 
-    expect(nil).not_to be_nil
+    # 7b. Wait for approval
+
+    # 8. POST tab-usage-single
+    tab = BunqRb::TabUsageSingle.create({
+      merchant_reference: "Table 24, Payment 1",
+      status: "OPEN",
+      amount_total: {
+        value: "12.50",
+        currency: "EUR"
+      },
+      want_tip: true
+    }, 3, 12, 25)
+
+    # 9. POST tab-item (optional)
+    # TODO
+
+    # 10. PUT tab-usage-single
+    tab.update({
+      status: "WAITING_FOR_PAYMENT",
+      amount_total: {
+        value: "5.20",
+        currency: "EUR"
+      },
+      visibility: {
+        cash_register_qr_code: true,
+        tab_qr_code: true
+      }
+    }, 3, 12, 25)
   end
 end
