@@ -32,8 +32,13 @@ module BunqRb
               response = Client.send_method(:post, uri, args)
               new(response[0]["Id"])
             end
+          when :put
+            define_singleton_method(:update) do |*args|
+              response = Client.send_method(:post, uri, args)
+              new(response[0]["Id"])
+            end
           else
-            puts "ERROR"
+            puts "ERROR for: #{call}"
           end
         end
       end
