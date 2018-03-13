@@ -1,0 +1,14 @@
+{
+   "Response":[
+      {
+         "DeviceServer":{
+            "id":2348,
+            "created":"2017-03-15 01:11:16.865607",
+            "updated":"2017-03-15 01:11:16.865607",
+            "ip":"10.8.0.51",
+            "description":"Generated device",
+            "status":"ACTIVE"
+         }
+      }
+   ]
+}

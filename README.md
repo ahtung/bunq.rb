@@ -141,6 +141,8 @@ end
   - Schedule user
 - MONETARY ACCOUNTS
   - Monetary account
+    - ~~LIST~~
+    - GET
   - Monetary account bank
 - PAYMENTS
   - Payment
@@ -195,8 +197,12 @@ end
 - CALLBACKS
   - Certificate pinned
 - ATTACHMENTS
-  - Avatar
-  - Attachment public
+  - ~~Avatar~~
+    - POST
+    - GET
+  - ~~Attachment public~~
+    - POST
+    - GET
   - Attachment public content
   - ~~Attachment monetary account~~
   - Attachment tab
