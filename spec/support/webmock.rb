@@ -36,6 +36,11 @@ RSpec.configure do |config|
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/attachment-public/b07faaa7-003a-4cdf-a2c1-434e71d42fca").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/get_attachment_public.json"))
 
+    # CASH REGISTER
+    ## POST
+    stub_request(:post, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/11/cash-register").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/post_cash_register.json"))
+
     # PERMITTED IP
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/credential-password-ip/3088/ip").

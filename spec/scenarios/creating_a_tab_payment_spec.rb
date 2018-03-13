@@ -10,7 +10,7 @@ RSpec.describe "Scenario" do
     end
   end
 
-  xit "Create a Tab Payment" do
+  it "Create a Tab Payment" do
     # 1. POST installation
     _installation, token, _server_public_key = BunqRb::Installation.create(
       client_public_key: BunqRb.configuration.key.public_key
@@ -43,6 +43,9 @@ RSpec.describe "Scenario" do
 
     # 6. LIST monetary-account
     puts BunqRb::MonetaryAccount.all.inspect
+
+    # 7a. POST cash-register
+    _cash_register = BunqRb::CashRegister.create({name: "Test", status: "PENDING_APPROVAL", avatar_uuid: "d93e07e3-d420-45e5-8684-fc0c09a63686"}, 1913, 11)
 
     expect(nil).not_to be_nil
   end
