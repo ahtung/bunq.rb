@@ -37,8 +37,8 @@ end
 
 - Use Cases
   - ~~Create Session~~
-  - Making a payment request
-  - Creating a tab payment
+  - ~~Making a payment request~~
+  - ~~Creating a tab payment~~
 
 ---
 
@@ -147,6 +147,8 @@ end
   - Monetary account bank
 - PAYMENTS
   - Payment
+    - ~~LIST~~
+    - GET
   - Draft payment
   - Payment batch
   - Request inquiry
