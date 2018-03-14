@@ -5,6 +5,7 @@ module BunqRb
 
     def initialize(hsh = {})
       @id = hsh["id"]
+      @user_id = hsh["user_id"]
       @currency = hsh["currency"]
       @description = hsh["description"]
     end
@@ -16,6 +17,10 @@ module BunqRb
     def self.all(user_id)
       response = Client.send_method(:get, url(user_id))
       response.map { |resp| new(resp["MonetaryAccountBank"]) }
+    end
+
+    def payments
+      BunqRb::Payment.all(@user_id, @id)
     end
   end
 end

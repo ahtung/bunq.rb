@@ -4,6 +4,11 @@ WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.before(:each) do
 
+    # PAYMENT
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/11/payment").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_payments.json"))
+
     # TAB USAGE SINGLE
     ## POST
     stub_request(:post, "https://sandbox.public.api.bunq.com/v1/user/3/monetary-account/12/cash-register/25/tab-usage-single").
