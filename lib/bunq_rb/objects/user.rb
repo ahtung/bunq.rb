@@ -15,5 +15,9 @@ module BunqRb
     def self.uri
       "/v1/user"
     end
+
+    def monetary_accounts
+      BunqRb::MonetaryAccount.all(@id)
+    end
   end
 end
