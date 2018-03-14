@@ -7,6 +7,7 @@ RSpec.describe "Scenario" do
     BunqRb.configure do |config|
       config.api_key = "c08bbdb62e1d1795ae7e933bc833452fda9c317b4b9d717baeabbc17f8190df9"
       config.key = key
+      config.url = "https://sandbox.public.api.bunq.com"
     end
   end
 
