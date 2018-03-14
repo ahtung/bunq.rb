@@ -1,11 +1,12 @@
 module BunqRb
   # Payment
   class Payment
-    attr_reader :id, :description
+    attr_reader :id, :description, :amount
 
     def initialize(hsh = {})
       @id = hsh["id"]
       @description = hsh["description"]
+      @amount = Money.new(hsh["amount"]["value"].to_f * 100, hsh["amount"]["currency"])
     end
 
     def self.url(user_id, monetary_account_id)
