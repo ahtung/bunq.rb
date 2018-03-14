@@ -46,30 +46,13 @@ module BunqRb
   end
 end
 
-require_relative "objects/device"
-require_relative "objects/device_server"
-require_relative "objects/installation"
-require_relative "objects/installation_server_public_key"
-require_relative "objects/session_server"
-require_relative "objects/user"
-require_relative "objects/permitted_ip"
-require_relative "objects/monetary_account"
-require_relative "objects/attachment_monetary_account"
-require_relative "objects/request_inquiry"
-require_relative "objects/avatar"
-require_relative "objects/permitted_ip"
-require_relative "objects/attachment_public"
-require_relative "objects/avatar"
-require_relative "objects/cash_register"
-require_relative "objects/tab_usage_single"
+Dir[File.dirname(__FILE__) + "/objects/**/*.rb"].each { |f| require f }
 
 module BunqRb
   # Client
   class Client
-    BASE_URL = "https://sandbox.public.api.bunq.com".freeze
-
     def self.connection
-      @connection ||= Faraday.new(url: BASE_URL) do |config|
+      @connection ||= Faraday.new(url: BunqRb.configuration.url) do |config|
         config.use Headers
         config.use SignRequest
         config.request :json
