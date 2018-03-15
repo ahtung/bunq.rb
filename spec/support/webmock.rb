@@ -9,6 +9,10 @@ RSpec.configure do |config|
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/list_cards.json"))
 
+    ## GET
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card/11").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/get_card.json"))
+
     # PAYMENT
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/11/payment").

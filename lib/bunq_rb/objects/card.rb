@@ -17,5 +17,11 @@ module BunqRb
     def self.url(user_id)
       "/v1/user/#{user_id}/card"
     end
+
+    def self.find(user_id, id)
+      uri = [url(user_id), id].join("/")
+      response = Client.send_method(:get, uri)
+      new(response[0]["CardDebit"])
+    end
   end
 end
