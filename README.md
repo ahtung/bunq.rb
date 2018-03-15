@@ -175,6 +175,9 @@ end
   - Tab result response
 - CARDS
   - Card
+    - ~~GET~~
+    - ~~LIST~~
+    - PUT
   - Card debit
   - Card name
   - Master card action
