@@ -19,5 +19,9 @@ module BunqRb
     def monetary_accounts
       BunqRb::MonetaryAccount.all(@id)
     end
+
+    def cards
+      BunqRb::Card.all(@id)
+    end
   end
 end
