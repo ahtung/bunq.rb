@@ -1,5 +1,5 @@
-shared_examples_for "get" do
-  let(:item) { described_class.find(1913) }
+shared_examples_for "get" do |attrs|
+  let(:item) { described_class.find(*attrs) }
 
   it "returns an instance of #{described_class}" do
     expect(item).to be_instance_of(described_class)
@@ -10,8 +10,8 @@ shared_examples_for "get" do
   end
 end
 
-shared_examples_for "list" do
-  let(:collection) { described_class.all }
+shared_examples_for "list" do |attrs|
+  let(:collection) { described_class.all(*attrs) }
 
   it "returns instances of #{described_class}" do
     expect(collection.first).to be_instance_of(described_class)
