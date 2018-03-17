@@ -144,6 +144,11 @@ end
 - MONETARY ACCOUNTS
   - Monetary account
     - ~~LIST~~
+    ```ruby
+    user = BunqRb::User.find(1913)
+    monetary_accounts = user.monetary_accounts
+    # [#<BunqRb::MonetaryAccount:0x00007f852938f5a8 @id=301148, @user_id=1913, @currency="EUR", @description="...">, #<BunqRb::MonetaryAccount:0x00007f852938f580 @id=301172, @user_id=1913, @currency="EUR", @description="...">]
+    ```
     - GET
   - Monetary account bank
 - PAYMENTS
