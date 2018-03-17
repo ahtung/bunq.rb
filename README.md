@@ -78,12 +78,14 @@ end
 
     ```ruby
     device = BunqRb::Device.find(2348)
+    #<BunqRb::Device:0x00007fd1b2ae9148 @id=2348>
     ```
 
     - LIST
 
     ```ruby
     devices = BunqRb::Device.all
+    [#<BunqRb::Device:0x00007f95b93d6138 @id=1493997>]
     ```
 
   - ~~Device server~~
@@ -91,13 +93,15 @@ end
     - GET
 
     ```ruby
-    device_server = BunqRb::DeviceServer.find(1913)
+    device_server = BunqRb::DeviceServer.find(1434035)
+    #<BunqRb::DeviceServer:0x00007f88af94f7c0 @id=1434035>
     ```
 
     - LIST
 
     ```ruby
     device_servers = BunqRb::DeviceServer.all
+    [#<BunqRb::DeviceServer:0x00007ffcde0d72e8 @id=1434035>]
     ```
 
     - POST
@@ -108,6 +112,7 @@ end
       secret: BunqRb.configuration.api_key,
       permitted_ips: []
     )
+    #<BunqRb::DeviceServer:0x00007ffe1daf86b0 @id=1794019>
     ```
 
   - ~~Permitted IP~~
