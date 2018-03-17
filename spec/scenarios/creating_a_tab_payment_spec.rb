@@ -43,7 +43,7 @@ RSpec.describe "Scenario" do
     )
 
     # 6. LIST monetary-account
-    puts BunqRb::MonetaryAccount.all(1913).inspect
+    # puts BunqRb::MonetaryAccount.all(1913).inspect
 
     # 7a. POST cash-register
     _cash_register = BunqRb::CashRegister.create({name: "Test", status: "PENDING_APPROVAL", avatar_uuid: "d93e07e3-d420-45e5-8684-fc0c09a63686"}, 1913, 11)

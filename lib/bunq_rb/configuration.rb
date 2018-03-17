@@ -1,16 +1,14 @@
 module BunqRb
   # Configuration
   class Configuration
-    attr_accessor :api_key
-    attr_accessor :key
-    attr_accessor :session_token
-    attr_accessor :url
+    attr_accessor :api_key, :key, :session_token, :url, :page_size
 
     def initialize
       @api_key = ""
       @key = nil
       @session_token = nil
       @url = ""
+      @page_size = 10
     end
   end
 end

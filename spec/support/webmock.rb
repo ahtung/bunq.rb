@@ -6,7 +6,7 @@ RSpec.configure do |config|
 
     # CARD
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card?count=10").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/list_cards.json"))
 
     ## GET
@@ -15,7 +15,7 @@ RSpec.configure do |config|
 
     # PAYMENT
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/11/payment").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/11/payment?count=10").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/list_payments.json"))
 
     # TAB USAGE SINGLE
@@ -30,7 +30,7 @@ RSpec.configure do |config|
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913")
       .to_return(status: 200, body: File.new("spec/support/mocks/v1/get_user.json"))
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user?count=10").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/list_users.json"))
 
     # DEVICE SERVER
@@ -38,7 +38,7 @@ RSpec.configure do |config|
     stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/device\/.*/).
       to_return(status: 200, body: File.new("spec/support/mocks/v1/get_device_server.json"))
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device?count=10").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/list_device_servers.json"))
 
     # AVATAR
@@ -128,7 +128,7 @@ RSpec.configure do |config|
         ]
       }.to_json, headers: {})
     # Installation LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/installation").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/installation?count=10").
       to_return(status: 200, body: {
         "Response" => [
           {
@@ -400,7 +400,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # DeviceServer LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device-server")
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device-server?count=10")
       .to_return(status: 200, body: {
         "Response" => [
           {
