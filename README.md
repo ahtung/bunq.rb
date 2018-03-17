@@ -91,7 +91,7 @@ end
     - GET
 
     ```ruby
-    device_server = BunqRb::DeviceServer.find(1913)
+    device_server = BunqRb::DeviceServer.find(1434035)
     ```
 
     - LIST
@@ -144,11 +144,20 @@ end
 - MONETARY ACCOUNTS
   - Monetary account
     - ~~LIST~~
+    ```ruby
+    user = BunqRb::User.find(1913)
+    monetary_accounts = user.monetary_accounts
+    ```
     - GET
   - Monetary account bank
 - PAYMENTS
   - Payment
     - ~~LIST~~
+    ```ruby
+    user = BunqRb::User.find(1913)
+    monetary_account = user.monetary_accounts.first
+    payments = monetary_account.payments
+    ```
     - GET
   - Draft payment
   - Payment batch
@@ -177,7 +186,21 @@ end
 - CARDS
   - Card
     - ~~GET~~
+    ```ruby
+    user_id = 1913
+    card_id = 82082
+    card = BunqRb::Card.find(user_id, card_id)
+    ```
     - ~~LIST~~
+    ```ruby
+    user_id = 1913
+    cards = BunqRb::Card.all(user_id)
+
+    # OR
+
+    user = BunqRb::User.find(1913)
+    cards = user.cards
+    ```
     - PUT
   - Card debit
   - Card name
