@@ -78,14 +78,12 @@ end
 
     ```ruby
     device = BunqRb::Device.find(2348)
-    #<BunqRb::Device:0x00007fd1b2ae9148 @id=2348>
     ```
 
     - LIST
 
     ```ruby
     devices = BunqRb::Device.all
-    [#<BunqRb::Device:0x00007f95b93d6138 @id=1493997>]
     ```
 
   - ~~Device server~~
@@ -94,14 +92,12 @@ end
 
     ```ruby
     device_server = BunqRb::DeviceServer.find(1434035)
-    #<BunqRb::DeviceServer:0x00007f88af94f7c0 @id=1434035>
     ```
 
     - LIST
 
     ```ruby
     device_servers = BunqRb::DeviceServer.all
-    [#<BunqRb::DeviceServer:0x00007ffcde0d72e8 @id=1434035>]
     ```
 
     - POST
@@ -112,7 +108,6 @@ end
       secret: BunqRb.configuration.api_key,
       permitted_ips: []
     )
-    #<BunqRb::DeviceServer:0x00007ffe1daf86b0 @id=1794019>
     ```
 
   - ~~Permitted IP~~
@@ -152,7 +147,6 @@ end
     ```ruby
     user = BunqRb::User.find(1913)
     monetary_accounts = user.monetary_accounts
-    [#<BunqRb::MonetaryAccount:0x00007f852938f5a8 @id=301148, @user_id=1913, @currency="EUR", @description="...">, #<BunqRb::MonetaryAccount:0x00007f852938f580 @id=301172, @user_id=1913, @currency="EUR", @description="...">]
     ```
     - GET
   - Monetary account bank
@@ -163,10 +157,6 @@ end
     user = BunqRb::User.find(1913)
     monetary_account = user.monetary_accounts.first
     payments = monetary_account.payments
-    [
-      #<BunqRb::Payment:0x00007fbed72c4370 @id=74613069, @description="...", @amount=#<Money fractional:-11500 currency:EUR>, @created=2018-03-16 18:54:37 +0300, @updated=2018-03-17 05:39:56 +0300>,
-      #<BunqRb::Payment:0x00007fbed72bdc28 @id=74555845, @description="...", @amount=#<Money fractional:-807 currency:EUR>, @created=2018-03-16 11:28:43 +0300, @updated=2018-03-16 11:28:43 +0300>
-    ]
     ```
     - GET
   - Draft payment
@@ -200,13 +190,16 @@ end
     user_id = 1913
     card_id = 82082
     card = BunqRb::Card.find(user_id, card_id)
-    #<BunqRb::Card:0x00007f9c969bb538 @id=82082>
     ```
     - ~~LIST~~
     ```ruby
     user_id = 1913
     cards = BunqRb::Card.all(user_id)
-    [#<BunqRb::Card:0x00007faf4db07f58 @id=162139>, #<BunqRb::Card:0x00007faf4db07f30 @id=82082>]
+
+    # OR
+
+    user = BunqRb::User.find(1913)
+    cards = user.cards
     ```
     - PUT
   - Card debit
