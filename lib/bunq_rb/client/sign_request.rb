@@ -55,7 +55,8 @@ class SignRequest < Faraday::Middleware
 
   def request_string
     uri = Addressable::URI.parse(@env[:url])
-    "#{@env[:method].upcase} #{uri.path}\n"
+    path = uri.query ? "#{uri.path}?#{uri.query}" : uri.path
+    "#{@env[:method].upcase} #{path}\n"
   end
 
   def sign?

@@ -22,5 +22,9 @@ module BunqRb
     def payments
       BunqRb::Payment.all(@user_id, @id)
     end
+
+    def to_s
+      "#{id} => #{description}"
+    end
   end
 end

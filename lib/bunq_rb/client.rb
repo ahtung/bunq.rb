@@ -24,7 +24,8 @@ module BunqRb
             end
           when :list
             define_singleton_method(:all) do
-              response = Client.send_method(:get, uri)
+              page_size = BunqRb.configuration.page_size
+              response = Client.send_method(:get, "#{uri}?count=#{page_size}")
               response.map { |resp| new(resp.values.first) }
             end
           when :post

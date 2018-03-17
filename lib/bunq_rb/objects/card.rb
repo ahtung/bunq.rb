@@ -10,7 +10,8 @@ module BunqRb
     end
 
     def self.all(user_id)
-      response = Client.send_method(:get, url(user_id))
+      page_size = BunqRb.configuration.page_size
+      response = Client.send_method(:get, "#{url(user_id)}?count=#{page_size}")
       response.map { |resp| new(resp["CardDebit"]) }
     end
 
