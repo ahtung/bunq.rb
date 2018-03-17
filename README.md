@@ -194,7 +194,18 @@ end
 - CARDS
   - Card
     - ~~GET~~
+    ```ruby
+    user_id = 1913
+    card_id = 85082
+    card = BunqRb::Card.find(user_id, card_id)
+    # { id: 85082 }
+    ```
     - ~~LIST~~
+    ```ruby
+    user_id = 1913
+    cards = BunqRb::Card.all(user_id)
+    # [{ id: 85082 }, { id: 169139 }]
+    ```
     - PUT
   - Card debit
   - Card name
