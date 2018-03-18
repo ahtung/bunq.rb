@@ -285,6 +285,74 @@ TODO
 
 TODO
 
+### SCHEDULED PAYMENTS
+
+#### Schedule Payment
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+##### DELETE
+
+TODO
+
+#### Schedule Payment Batch
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### DELETE
+
+TODO
+
+#### Schedule Instance
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Schedule
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Schedule User
+
+##### LIST
+
+TODO
+
 ---
 
 - USER
@@ -303,7 +371,6 @@ TODO
 
   - User person
   - User company
-  - Schedule user
 - MONETARY ACCOUNTS
   - Monetary account
     - ~~LIST~~
@@ -313,19 +380,6 @@ TODO
     ```
     - GET
   - Monetary account bank
-- PAYMENTS
-  - Draft payment
-  - Payment batch
-  - Request inquiry
-  - Request inquiry batch
-  - Request response
-  - Schedule instance
-  - Schedule payment
-  - Schedule payment batch
-  - Schedule
-  - Payment chat
-  - Request inquiry chat
-  - Request response chat
 - TABS
   - Cash register
   - Cash register qr code
