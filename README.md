@@ -148,6 +148,42 @@ TODO
 
 TODO
 
+### PAYMENTS
+
+#### Payment
+
+##### POST
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+```ruby
+user = BunqRb::User.find(1913)
+monetary_account = user.monetary_accounts.first
+payments = monetary_account.payments
+```
+
+#### Payment Batch
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
 ---
 
 - USER
@@ -177,14 +213,6 @@ TODO
     - GET
   - Monetary account bank
 - PAYMENTS
-  - Payment
-    - ~~LIST~~
-    ```ruby
-    user = BunqRb::User.find(1913)
-    monetary_account = user.monetary_accounts.first
-    payments = monetary_account.payments
-    ```
-    - GET
   - Draft payment
   - Payment batch
   - Request inquiry
