@@ -34,8 +34,6 @@ BunqRb.configure do |config|
 end
 ```
 
-## ToDo
-
 - Use Cases
   - ~~Create Session~~
   - ~~Making a payment request~~
@@ -43,86 +41,114 @@ end
 
 ---
 
-- INSTALLATION
-  - ~~Installation~~
-    - POST
+### SETUP
 
-    ```ruby
-    installation, token, server_public_key = BunqRb::Installation.create(client_public_key: BunqRb.configuration.key.public_key)
-    ```
+#### Installation
 
-    - GET
+##### POST
 
-    ```ruby
-    installation = BunqRb::Installation.find(2348)
-    ```
+```ruby
+installation, token, server_public_key = BunqRb::Installation.create(client_public_key: BunqRb.configuration.key.public_key)
+```
 
-    - LIST
+##### GET
 
-    ```ruby
-    installations = BunqRb::Installation.all
-    ```
+```ruby
+installation = BunqRb::Installation.find(2348)
+```
 
-  - ~~Installation server public key~~
+##### LIST
 
-    - LIST
+```ruby
+installations = BunqRb::Installation.all
+```
 
-    ```ruby
-    installation = BunqRb::Installation.find(2348)
-    server_public_key = installation.server_public_key
-    ```
+#### Installation server public key
 
-  - ~~Device~~
+##### LIST
 
-    - GET
+```ruby
+installation = BunqRb::Installation.find(2348)
+server_public_key = installation.server_public_key
+```
 
-    ```ruby
-    device = BunqRb::Device.find(2348)
-    ```
+#### Device
 
-    - LIST
+##### GET
 
-    ```ruby
-    devices = BunqRb::Device.all
-    ```
+```ruby
+device = BunqRb::Device.find(2348)
+```
 
-  - ~~Device server~~
+##### LIST
 
-    - GET
+```ruby
+devices = BunqRb::Device.all
+```
 
-    ```ruby
-    device_server = BunqRb::DeviceServer.find(1434035)
-    ```
+#### Device server
 
-    - LIST
+##### POST
 
-    ```ruby
-    device_servers = BunqRb::DeviceServer.all
-    ```
+```ruby
+device_server = BunqRb::DeviceServer.create(
+  description: "Dunya",
+  secret: BunqRb.configuration.api_key,
+  permitted_ips: []
+)
+```
 
-    - POST
+##### GET
 
-    ```ruby
-    device_server = BunqRb::DeviceServer.create(
-      description: "Dunya",
-      secret: BunqRb.configuration.api_key,
-      permitted_ips: []
-    )
-    ```
+```ruby
+device_server = BunqRb::DeviceServer.find(1434035)
+```
 
-  - ~~Permitted IP~~
-    - GET
-    - LIST
-    - POST
-    - PUT
+##### LIST
 
-  - User credential password IP
-    - GET
-    - LIST
+```ruby
+device_servers = BunqRb::DeviceServer.all
+```
 
-- SESSION
-  - Session
-  - ~~SessionServer~~
+#### Permitted IP
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+##### POST
+
+TODO
+
+##### PUT
+
+#### User credential password IP
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Session
+
+##### DELETE
+
+TODO
+
+#### SessionServer
+
+##### POST
+
+TODO
+
+---
 
 - USER
   - ~~User~~
