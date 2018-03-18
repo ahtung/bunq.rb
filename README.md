@@ -184,6 +184,98 @@ TODO
 
 ##### LIST
 
+TODO
+
+### REQUESTS
+
+#### Request Inquiry
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Request Inquiry Batch
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Request Response
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### bunq.me Tab
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+### DRAFT PAYMENTS
+
+#### Draft Payment
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
 ---
 
 - USER
