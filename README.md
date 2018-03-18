@@ -34,12 +34,21 @@ BunqRb.configure do |config|
 end
 ```
 
-- Use Cases
-  - ~~Create Session~~
-  - ~~Making a payment request~~
-  - ~~Creating a tab payment~~
+## Quickstart
 
----
+### Openning a session
+
+https://github.com/ahtung/bunq_rb/blob/feature/readme/spec/scenarios/create_session_spec.rb
+
+### Making apayment request
+
+https://github.com/ahtung/bunq_rb/blob/feature/readme/spec/scenarios/make_a_payment_request_spec.rb
+
+### Creating a tab payment
+
+https://github.com/ahtung/bunq_rb/blob/feature/readme/spec/scenarios/creating_a_tab_payment_spec.rb
+
+## Calls
 
 ### SETUP
 
