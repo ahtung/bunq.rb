@@ -353,33 +353,207 @@ TODO
 
 TODO
 
+### TAB PAYMENTS
+
+#### Tab Usage Single
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+##### DELETE
+
+TODO
+
+#### Tab Usage Multiple
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+##### DELETE
+
+TODO
+
+#### Tab Item
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+##### DELETE
+
+TODO
+
+#### Tab Item Batch
+
+##### POST
+
+TODO
+
+#### Tab
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Tab QR Code Content
+
+##### LIST
+
+TODO
+
+#### Tab Result Inquiry
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Tab Result Response
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+### CARD PAYMENTS
+
+#### Mastercard Action
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+### IDEAL PAYMENTS
+
+#### Token QR Request Ideal
+
+##### POST
+
+TODO
+
+### USER
+
+#### User
+
+##### GET
+
+```ruby
+user = BunqRb::User.find(1913)
+```
+
+##### LIST
+
+```ruby
+users = BunqRb::User.all
+```
+
+#### User Person
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+#### User Company
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+### MONETARY ACCOUNTS
+
+#### Monetary Account
+
+##### GET
+
+TODO
+
+##### LIST
+
+```ruby
+user = BunqRb::User.find(1913)
+monetary_accounts = user.monetary_accounts
+```
+
+#### Monetary Account Bank
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
 ---
 
-- USER
-  - ~~User~~
-    - GET
-
-    ```ruby
-    user = BunqRb::User.find(1913)
-    ```
-
-    - LIST
-
-    ```ruby
-    users = BunqRb::User.all
-    ```
-
-  - User person
-  - User company
-- MONETARY ACCOUNTS
-  - Monetary account
-    - ~~LIST~~
-    ```ruby
-    user = BunqRb::User.find(1913)
-    monetary_accounts = user.monetary_accounts
-    ```
-    - GET
-  - Monetary account bank
 - TABS
   - Cash register
   - Cash register qr code
