@@ -840,7 +840,11 @@ TODO
 
 ##### POST
 
-TODO
+```ruby
+image_path = File.expand_path(File.join(File.dirname(__FILE__), "../fixtures/images/baz.jpg"))
+image = Faraday::UploadIO.new(image_path, 'image/jpeg')
+attachment = BunqRb::AttachmentMonetaryAccount.create(image)
+```
 
 #### Attachment Tab
 
