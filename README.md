@@ -836,6 +836,124 @@ avatar = BunqRb::AttachmentPublic.find(1019)
 
 TODO
 
+#### Attachment Monetary Account
+
+##### POST
+
+TODO
+
+#### Attachment Tab
+
+##### POST
+
+TODO
+
+##### GET
+
+TODO
+
+#### Attachment Tab Content
+
+##### LIST
+
+TODO
+
+#### Tab Attachment Tab
+
+##### GET
+
+TODO
+
+#### Tab Attachment Tab Content
+
+##### LIST
+
+TODO
+
+#### Attachment Conversation
+
+##### POST
+
+TODO
+
+##### GET
+
+TODO
+
+#### Attachment Conversation Content
+
+##### LIST
+
+TODO
+
+### INVOICES
+
+#### Invoice
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Invoice By User
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+### EXPORT STATEMENTS
+
+#### Customer Statement Export
+
+##### POST
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+##### DELETE
+
+TODO
+
+#### Customer Statement Export Content
+
+##### LIST
+
+TODO
+
+#### Export Annual Overview
+
+##### POST
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Export Annual Overview Content
+
+##### LIST
+
+TODO
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
