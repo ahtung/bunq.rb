@@ -552,78 +552,239 @@ TODO
 
 TODO
 
----
+### CASH REGISTERS
 
-- TABS
-  - Cash register
-  - Cash register qr code
-  - Cash register qr code content
-  - Tab
-  - Tab item
-  - Tab item batch
-  - Tab usage single
-  - Tab usage multiple
-  - Tab qr code content
-  - Tab result inquiry
-  - Tab result response
-- CARDS
-  - Card
-    - ~~GET~~
-    ```ruby
-    user_id = 1913
-    card_id = 82082
-    card = BunqRb::Card.find(user_id, card_id)
-    ```
-    - ~~LIST~~
-    ```ruby
-    user_id = 1913
-    cards = BunqRb::Card.all(user_id)
+#### Cash Register
 
-    # OR
+##### POST
 
-    user = BunqRb::User.find(1913)
-    cards = user.cards
-    ```
-    - PUT
-  - Card debit
-  - Card name
-  - Master card action
-- CONNECT
-  - Share invite bank inquiry
-  - Share invite bank response
-  - Share invite bank amount used
-  - Draft share invite bank
-  - Draft share invite bank qr code content
-- CHAT
-  - Chat conversation
-  - Chat message
-  - Chat message attachment
-  - Chat message text
-- INVOICES
-  - Invoice
-  - Invoice by user
-- EXPORTS
-  - Customer statement export
-  - Customer statement export content
-  - Export annual overview
-  - Export annual overview content
-- CALLBACKS
-  - Certificate pinned
-- ATTACHMENTS
-  - ~~Avatar~~
-    - POST
-    - GET
-  - ~~Attachment public~~
-    - POST
-    - GET
-  - Attachment public content
-  - ~~Attachment monetary account~~
-  - Attachment tab
-  - Attachment tab content
-  - Tab attachment tab
-  - Tab attachment tab content
-  - Attachment conversation
-  - Attachment conversation content
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Cash Register QR Code
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Cash Register QR Code Content
+
+##### LIST
+
+TODO
+
+### CONNECTS
+
+#### Share Invite Bank Inquiry
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Share Invite Bank Response
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Share Invite Bank Amount Used
+
+##### DELETE
+
+TODO
+
+#### Draft Share Invite Bank
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Draft Share Invite Bank QR Code Content
+
+##### LIST
+
+TODO
+
+### CARDS
+
+#### Card
+
+##### PUT
+
+TODO
+
+##### GET
+
+```ruby
+user_id = 1913
+card_id = 82082
+card = BunqRb::Card.find(user_id, card_id)
+```
+
+##### LIST
+
+```ruby
+user_id = 1913
+cards = BunqRb::Card.all(user_id)
+
+# OR
+
+user = BunqRb::User.find(1913)
+cards = user.cards
+```
+
+#### Card Debit
+
+##### POST
+
+TODO
+
+#### Card Name
+
+##### LIST
+
+TODO
+
+#### Card Generated CVC2
+
+##### POST
+
+TODO
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+### CHAT
+
+#### Payment Chat
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Request Inquiry Chat
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Request Response Chat
+
+##### POST
+
+TODO
+
+##### PUT
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Chat Conversation
+
+##### GET
+
+TODO
+
+##### LIST
+
+TODO
+
+#### Chat Message
+
+##### LIST
+
+TODO
+
+#### Chat Message Attachment
+
+##### POST
+
+TODO
+
+#### Chat Message Text
+
+##### POST
+
+TODO
 
 ## Development
 
