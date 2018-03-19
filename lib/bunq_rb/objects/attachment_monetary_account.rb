@@ -9,7 +9,7 @@ module BunqRb
 
     def self.create(image)
       response = Client.send_method(:post, url(1913, 1933), image)
-      response.map { |resp| new(resp["MonetaryAccountBank"]) }
+      response.map { |resp| new(resp["Id"]) }
     end
 
     def self.url(user_id, monetary_account_id)
