@@ -16,8 +16,13 @@ module BunqRb
     end
 
     def self.all(user_id, monetary_account_id)
-      response = Client.send_method(:get, url(user_id, monetary_account_id))
+      page_size = BunqRb.configuration.page_size
+      response = Client.send_method(:get, "#{url(user_id, monetary_account_id)}?count=#{page_size}")
       response.map { |resp| new(resp["Payment"]) }
+    end
+
+    def to_s
+      "#{id} => €#{amount} on #{created} for #{description}"
     end
   end
 end

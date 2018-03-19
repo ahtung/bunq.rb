@@ -28,9 +28,10 @@ First configure the gem
 
 ```
 BunqRb.configure do |config|
-  config.api_key = ENV.fetch("API_KEY")
-  config.key     = key                  # OpenSSL::PKey::RSA.new 2048
-  config.url     = "https://sandbox.public.api.bunq.com"
+  config.api_key    = ENV.fetch("API_KEY")
+  config.key        = key # OpenSSL::PKey::RSA.new 2048
+  config.url        = "https://sandbox.public.api.bunq.com"
+  config.page_size  = 200
 end
 ```
 
