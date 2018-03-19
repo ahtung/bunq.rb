@@ -786,6 +786,54 @@ TODO
 
 TODO
 
+### CALLBACKS
+
+#### Certificate Pinned
+
+##### POST
+
+TODO
+
+### ATTACHMENTS
+
+#### Avatar
+
+##### POST
+
+```ruby
+avatar = BunqRb::Avatar.create(
+  attachment_public_uuid: "d93e07e3-d420-45e5-8684-fc0c09a63686"
+)
+```
+
+##### GET
+
+```ruby
+avatar = BunqRb::Avatar.find(1019)
+```
+
+#### Attachment Public
+
+##### POST
+
+```ruby
+image_path = File.expand_path(File.join(File.dirname(__FILE__), "../fixtures/images/baz.jpg"))
+image = Faraday::UploadIO.new(image_path, 'image/jpeg')
+attachment = BunqRb::AttachmentPublic.create(image)
+```
+
+##### GET
+
+```ruby
+avatar = BunqRb::AttachmentPublic.find(1019)
+```
+
+#### Attachment Public Content
+
+##### LIST
+
+TODO
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
