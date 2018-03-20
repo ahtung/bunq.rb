@@ -3,7 +3,7 @@ module BunqRb
   class CashRegister
     include BunqRb::Shared
 
-    implements :post, :put, :get, :list
+    implements :put, :list
 
     attr_reader :id, :name, :status
 
@@ -11,6 +11,13 @@ module BunqRb
       @id = hsh["id"]
       @name = hsh["name"]
       @status = hsh["status"]
+    end
+
+    def self.find(id, user_id, monetary_account_id)
+      url = uri(user_id, monetary_account_id)
+      full_path = [url, id].join("/")
+      response = Client.send_method(:get, full_path)
+      new(response[0]["CashRegister"])
     end
 
     def self.create(hsh = {}, user_id, monetary_account_id)

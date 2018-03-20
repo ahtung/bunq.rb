@@ -4,6 +4,11 @@ WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.before(:each) do
 
+    # Attachment Monetary Account
+    ## POST
+    stub_request(:post, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/1933/attachment").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/post_monetary_account.json"))
+
     # CARD
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card?count=10").
@@ -61,6 +66,10 @@ RSpec.configure do |config|
     ## POST
     stub_request(:post, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/11/cash-register").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/post_cash_register.json"))
+
+    ## GET
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/11/cash-register/1913").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/get_cash_register.json"))
 
     # PERMITTED IP
     ## LIST
