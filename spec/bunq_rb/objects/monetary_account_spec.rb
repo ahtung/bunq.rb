@@ -7,4 +7,30 @@ RSpec.describe BunqRb::MonetaryAccount do
       expect(installations.count).to be(1)
     end
   end
+
+  describe "payments" do
+    let(:monetary_account) { described_class.all(1913).first }
+
+    it "return some payments" do
+      expect(monetary_account.payments.count).to be > 0
+    end
+
+    it "returns a BunqRb::Payment object" do
+      payment = monetary_account.payments.first
+      expect(payment).to be_instance_of(BunqRb::Payment)
+    end
+  end
+
+  describe "bunqme_tabs" do
+    let(:monetary_account) { described_class.all(1913).first }
+
+    it "return some bunqme_tabs" do
+      expect(monetary_account.payments.count).to be > 0
+    end
+
+    it "returns a BunqRb::BunqMeTab object" do
+      bunqme_tab = monetary_account.bunqme_tabs.first
+      expect(bunqme_tab).to be_instance_of(BunqRb::BunqMeTab)
+    end
+  end
 end

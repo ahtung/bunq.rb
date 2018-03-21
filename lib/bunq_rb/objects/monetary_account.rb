@@ -22,5 +22,9 @@ module BunqRb
     def payments
       BunqRb::Payment.all(@user_id, @id)
     end
+
+    def bunqme_tabs
+      BunqRb::BunqMeTab.all(@user_id, @id)
+    end
   end
 end
