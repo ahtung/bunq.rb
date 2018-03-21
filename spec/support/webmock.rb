@@ -7,7 +7,7 @@ RSpec.configure do |config|
     # BUNQ ME TAB
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/1933/bunqme-tab?count=10").
-      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_bunqme_tabs.json"))
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_bunq_me_tabs.json"))
 
     # Attachment Monetary Account
     ## POST

@@ -265,7 +265,17 @@ TODO
 
 ##### LIST
 
-TODO
+```ruby
+user_id = 1913
+monetary_account_id = 1933
+bunq_me_tabs = BunqRb::BunqMeTab.all(user_id, monetary_account_id)
+
+# OR
+
+user = BunqRb::User.find(1913)
+monetary_accounts = user.monetary_accounts
+bunq_me_tabs = monetary_accounts.first.bunq_me_tabs
+```
 
 ### DRAFT PAYMENTS
 

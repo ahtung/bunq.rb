@@ -21,15 +21,15 @@ RSpec.describe BunqRb::MonetaryAccount do
     end
   end
 
-  describe "bunqme_tabs" do
+  describe "bunq_me_tabs" do
     let(:monetary_account) { described_class.all(1913).first }
 
-    it "return some bunqme_tabs" do
+    it "return some bunq_me_tabs" do
       expect(monetary_account.payments.count).to be > 0
     end
 
     it "returns a BunqRb::BunqMeTab object" do
-      bunqme_tab = monetary_account.bunqme_tabs.first
+      bunqme_tab = monetary_account.bunq_me_tabs.first
       expect(bunqme_tab).to be_instance_of(BunqRb::BunqMeTab)
     end
   end
