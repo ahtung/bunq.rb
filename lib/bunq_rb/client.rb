@@ -12,39 +12,6 @@ module BunqRb
     extend ActiveSupport::Concern
 
     module ClassMethods
-      def implements_get
-        define_singleton_method(:find) do |*args|
-          id = args.pop
-          full_uri = [url(*args), id].join("/")
-          response = Client.send_method(:get, full_uri)
-          new(response[0].values.first)
-        end
-      end
-
-      def implements_list
-        define_singleton_method(:all) do |*args|
-          page_size = BunqRb.configuration.page_size
-          Enumerator.new do |yielder|
-            older_id = nil
-            loop do
-              older_url = Addressable::Template.new("#{url(*args)}{?query*}")
-              params = {}
-              params.merge!({ count: page_size }) if page_size != 10
-              params.merge!({ older_id: older_id }) unless older_id.nil?
-              older_url = older_url.expand(query: params).to_s
-              results = Client.raw_send_method(:get, older_url)
-              json_response = JSON.parse(results.body)
-              items = json_response["Response"]
-              raise StopIteration if items.empty?
-              items.map { |item| yielder << new(item.values.first) }
-              raise StopIteration if json_response["Pagination"].nil?
-              raise StopIteration if json_response["Pagination"]["older_url"].nil?
-              older_id = items.last.values.first["id"]
-            end
-          end.lazy
-        end
-      end
-
       def implements(*calls)
         calls.each do |call|
           case call
@@ -56,6 +23,41 @@ module BunqRb
             puts "ERROR for: #{call}"
           end
         end
+      end
+
+      private
+
+      def implements_get
+        define_singleton_method(:find) do |*args|
+          id = args.pop
+          full_uri = [url(*args), id].join("/")
+          response = Client.send_method(:get, full_uri)
+          new(response[0].values.first)
+        end
+      end
+
+      def implements_list
+        define_singleton_method(:all) do |*args|
+          Enumerator.new do |yielder|
+            older_url = counted_url(args)
+            loop do
+              results = Client.raw_send_method(:get, older_url)
+              json_response = JSON.parse(results.body)
+              items = json_response["Response"]
+              items.map { |item| yielder << new(item.values.first) }
+              raise StopIteration if json_response["Pagination"].nil?
+              raise StopIteration if json_response["Pagination"]["older_url"].nil?
+              older_url = json_response["Pagination"]["older_url"]
+            end
+          end.lazy
+        end
+      end
+
+      def counted_url(args)
+        page_size = BunqRb.configuration.page_size
+        arged_url = Addressable::Template.new("#{url(*args)}{?query*}")
+        params = page_size == 10 ? {} : { count: page_size }
+        arged_url.expand(query: params).to_s
       end
     end
   end
