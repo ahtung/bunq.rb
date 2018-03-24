@@ -1,0 +1,8 @@
+{
+	"Response": [{
+		"PermittedIp": {
+			"ip": "37.139.140.6",
+			"status": "ACTIVE"
+		}
+	}]
+}

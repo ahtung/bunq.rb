@@ -1,7 +1,9 @@
 module BunqRb
   # Avatar
   class Avatar
-    URI = "/v1/avatar".freeze
+    include BunqRb::Shared
+
+    implements :get
 
     attr_reader :uuid
 
@@ -9,15 +11,13 @@ module BunqRb
       @uuid = hsh["uuid"]
     end
 
-    def self.create(hash = {})
-      response = Client.send_method(:post, URI, hash)
-      new(response[0]["Uuid"])
+    def self.url
+      "/v1/avatar"
     end
 
-    def self.find(id)
-      uri = [URI, id].join("/")
-      response = Client.send_method(:get, uri)
-      new(response[0]["Avatar"])
+    def self.create(hash = {})
+      response = Client.send_method(:post, url, hash)
+      new(response[0]["Uuid"])
     end
   end
 end

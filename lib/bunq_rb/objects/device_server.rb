@@ -11,12 +11,12 @@ module BunqRb
       @id = hsh["id"]
     end
 
-    def self.uri
+    def self.url
       "/v1/device-server"
     end
 
     def self.create(hash = {})
-      response = Client.send_method(:post, uri, hash)
+      response = Client.send_method(:post, url, hash)
       new(response[0]["Id"])
     end
   end

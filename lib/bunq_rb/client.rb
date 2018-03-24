@@ -1,4 +1,3 @@
-require "addressable/uri"
 require "securerandom"
 require "faraday"
 require "faraday_middleware"
@@ -17,31 +16,46 @@ module BunqRb
         calls.each do |call|
           case call
           when :get
-            define_singleton_method(:find) do |*args|
-              full_uri = [uri, args.first].join("/")
-              response = Client.send_method(:get, full_uri)
-              new(response[0].values.first)
-            end
+            implements_get
           when :list
-            define_singleton_method(:all) do
-              page_size = BunqRb.configuration.page_size
-              response = Client.send_method(:get, "#{uri}?count=#{page_size}")
-              response.map { |resp| new(resp.values.first) }
-            end
-          when :post
-            define_singleton_method(:create) do |*args|
-              response = Client.send_method(:post, uri, args)
-              new(response[0]["Id"])
-            end
-          when :put
-            define_singleton_method(:update) do |*args|
-              response = Client.send_method(:post, uri, args)
-              new(response[0]["Id"])
-            end
+            implements_list
           else
             puts "ERROR for: #{call}"
           end
         end
+      end
+
+      private
+
+      def implements_get
+        define_singleton_method(:find) do |*args|
+          id = args.pop
+          full_uri = [url(*args), id].join("/")
+          response = Client.send_method(:get, full_uri)
+          new(response[0].values.first)
+        end
+      end
+
+      def implements_list
+        define_singleton_method(:all) do |*args|
+          Enumerator.new do |yielder|
+            older_url = counted_url(args)
+            loop do
+              results = Client.raw_send_method(:get, older_url)
+              json = JSON.parse(results.body)
+              json["Response"].map { |item| yielder << new(item.values.first) }
+              raise StopIteration if json["Pagination"].nil? || json["Pagination"]["older_url"].nil?
+              older_url = json["Pagination"]["older_url"]
+            end
+          end.lazy
+        end
+      end
+
+      def counted_url(args)
+        page_size = BunqRb.configuration.page_size
+        arged_url = Addressable::Template.new("#{url(*args)}{?query*}")
+        params = page_size == 10 ? {} : { count: page_size }
+        arged_url.expand(query: params).to_s
       end
     end
   end
@@ -63,10 +77,16 @@ module BunqRb
     end
 
     def self.send_method(method, url, payload = {})
+      BunqRb.logger.debug "#{method.upcase} #{url}"
       faraday_response = connection.send(method, url, payload)
       json_response = JSON.parse(faraday_response.body)
       raise json_response["Error"].first["error_description"] if json_response.key?("Error")
       json_response["Response"]
+    end
+
+    def self.raw_send_method(method, url, payload = {})
+      BunqRb.logger.debug "#{method.upcase} #{url}"
+      connection.send(method, url, payload)
     end
   end
 end

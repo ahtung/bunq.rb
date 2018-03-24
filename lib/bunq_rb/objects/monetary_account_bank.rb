@@ -1,9 +1,14 @@
 module BunqRb
-  # MonetaryAccount
-  class MonetaryAccount
+  # MonetaryAccountBank
+  class MonetaryAccountBank
+    include BunqRb::Shared
+
+    implements :list
+
     attr_reader :id, :currency, :description
 
     def initialize(hsh = {})
+      # puts hsh
       @id = hsh["id"]
       @user_id = hsh["user_id"]
       @currency = hsh["currency"]
@@ -11,12 +16,7 @@ module BunqRb
     end
 
     def self.url(user_id)
-      "/v1/user/#{user_id}/monetary-account"
-    end
-
-    def self.all(user_id)
-      response = Client.send_method(:get, url(user_id))
-      response.map { |resp| new(resp["MonetaryAccountBank"]) }
+      "/v1/user/#{user_id}/monetary-account-bank"
     end
 
     def payments

@@ -6,7 +6,8 @@ shared_examples_for "get" do |attrs|
   end
 
   it "returns an :id" do
-    expect(item.id).not_to be_nil
+    attribute = item.try(:id) || item.uuid
+    expect(attribute).not_to be_nil
   end
 end
 
@@ -30,6 +31,7 @@ shared_examples_for "post" do |attrs|
   end
 
   it "returns an :id" do
-    expect(item.id).not_to eq(0)
+    attribute = item.try(:id) || item.uuid
+    expect(attribute).not_to be_nil
   end
 end
