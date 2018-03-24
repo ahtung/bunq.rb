@@ -79,6 +79,7 @@ module BunqRb
     end
 
     def self.send_method(method, url, payload = {})
+      BunqRb.logger.debug "#{method.upcase} #{url}"
       faraday_response = connection.send(method, url, payload)
       json_response = JSON.parse(faraday_response.body)
       raise json_response["Error"].first["error_description"] if json_response.key?("Error")
@@ -86,6 +87,7 @@ module BunqRb
     end
 
     def self.raw_send_method(method, url, payload = {})
+      BunqRb.logger.debug "#{method.upcase} #{url}"
       connection.send(method, url, payload)
     end
   end

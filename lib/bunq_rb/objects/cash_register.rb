@@ -3,7 +3,7 @@ module BunqRb
   class CashRegister
     include BunqRb::Shared
 
-    implements :put, :list, :get
+    implements :list, :get
 
     attr_reader :id, :name, :status
 
