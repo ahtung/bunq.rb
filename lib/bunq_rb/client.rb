@@ -1,4 +1,3 @@
-require "addressable/uri"
 require "securerandom"
 require "faraday"
 require "faraday_middleware"

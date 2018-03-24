@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "spyke"
   spec.add_dependency "money"
+  spec.add_dependency "addressable"
 end
