@@ -24,9 +24,9 @@ RSpec.describe BunqRb::User, active_session: true do
       expect(user.monetary_accounts.count).to be > 0
     end
 
-    it "returns a BunqRb::MonetaryAccount object" do
+    it "returns a BunqRb::MonetaryAccountBank object" do
       monetary_account = user.monetary_accounts.first
-      expect(monetary_account).to be_instance_of(BunqRb::MonetaryAccount)
+      expect(monetary_account).to be_instance_of(BunqRb::MonetaryAccountBank)
     end
   end
 end

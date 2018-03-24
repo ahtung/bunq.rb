@@ -1,5 +1,6 @@
 require "active_support/all"
 require "money"
+require "addressable"
 
 require_relative "bunq_rb/version"
 require_relative "bunq_rb/configuration"

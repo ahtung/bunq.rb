@@ -59,7 +59,7 @@ describe "Scenario" do
       ]
     )
 
-    request_inqury = BunqRb::RequestInquiry.find(request_inqury.id)
+    request_inqury = BunqRb::RequestInquiry.find(1913, 42, request_inqury.id)
 
     expect(request_inqury.status).to eq("PENDING")
   end

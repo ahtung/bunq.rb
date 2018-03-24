@@ -1,7 +1,9 @@
 module BunqRb
   # AttachmentPublic
   class AttachmentPublic
-    URI = "/v1/attachment-public".freeze
+    include BunqRb::Shared
+
+    implements :get
 
     attr_reader :uuid
 
@@ -10,14 +12,12 @@ module BunqRb
     end
 
     def self.create(hash = {})
-      response = Client.send_method(:post, URI, hash)
+      response = Client.send_method(:post, url, hash)
       new(response[0]["Uuid"])
     end
 
-    def self.find(id)
-      uri = [URI, id].join("/")
-      response = Client.send_method(:get, uri)
-      new(response[0]["AttachmentPublic"])
+    def self.url
+      "/v1/attachment-public"
     end
   end
 end

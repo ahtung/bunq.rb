@@ -12,12 +12,12 @@ module BunqRb
       @display_name = hsh["display_name"]
     end
 
-    def self.uri
+    def self.url
       "/v1/user"
     end
 
     def monetary_accounts
-      BunqRb::MonetaryAccount.all(@id)
+      BunqRb::MonetaryAccountBank.all(@id)
     end
 
     def cards

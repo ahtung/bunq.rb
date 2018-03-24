@@ -3,7 +3,7 @@ module BunqRb
   class Device
     include BunqRb::Shared
 
-    implements :get, :list
+    implements :list
 
     attr_reader :id
 
@@ -11,7 +11,7 @@ module BunqRb
       @id = hsh["id"]
     end
 
-    def self.uri
+    def self.url
       "/v1/device"
     end
   end

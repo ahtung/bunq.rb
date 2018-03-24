@@ -18,15 +18,40 @@ module BunqRb
           case call
           when :get
             define_singleton_method(:find) do |*args|
-              full_uri = [uri, args.first].join("/")
+              id = args.pop
+              full_uri = [url(*args), id].join("/")
               response = Client.send_method(:get, full_uri)
               new(response[0].values.first)
             end
           when :list
-            define_singleton_method(:all) do
+            define_singleton_method(:all) do |*args|
               page_size = BunqRb.configuration.page_size
-              response = Client.send_method(:get, "#{uri}?count=#{page_size}")
-              response.map { |resp| new(resp.values.first) }
+
+              Enumerator.new do |yielder|
+                older_id = nil
+
+                loop do
+                  older_url = Addressable::Template.new("#{url(*args)}{?query*}")
+                  params = {}
+                  params.merge!({ count: page_size }) if page_size != 10
+                  params.merge!({ older_id: older_id }) unless older_id.nil?
+                  older_url = older_url.expand(query: params).to_s
+
+                  results = Client.raw_send_method(:get, older_url)
+
+                  if results.success?
+                    json_response = JSON.parse(results.body)
+                    items = json_response["Response"]
+                    raise StopIteration if items.empty?
+                    items.map { |item| yielder << new(item.values.first) }
+                    raise StopIteration if items.last.values.first["id"].nil?
+                    older_id = items.last.values.first["id"]
+                  else
+                    raise StopIteration
+                  end
+                end
+              end.lazy
+
             end
           when :post
             define_singleton_method(:create) do |*args|
@@ -63,10 +88,16 @@ module BunqRb
     end
 
     def self.send_method(method, url, payload = {})
+      # puts "===> #{url}"
       faraday_response = connection.send(method, url, payload)
       json_response = JSON.parse(faraday_response.body)
       raise json_response["Error"].first["error_description"] if json_response.key?("Error")
       json_response["Response"]
+    end
+
+    def self.raw_send_method(method, url, payload = {})
+      # puts "===> #{url}"
+      connection.send(method, url, payload)
     end
   end
 end

@@ -1,0 +1,14 @@
+{
+	"Response": [{
+		"Device": {
+			"DeviceServer": {
+				"id": 42,
+				"created": "2015-06-13 23:19:16.215235",
+				"updated": "2015-06-30 09:12:31.981573",
+				"description": "Mainframe23 in Amsterdam",
+				"ip": "255.255.255.255",
+				"status": "ACTIVE"
+			}
+		}
+	}]
+}

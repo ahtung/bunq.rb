@@ -6,8 +6,10 @@ RSpec.configure do |config|
 
     # BUNQ ME TAB
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/1933/bunqme-tab?count=10").
-      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_bunq_me_tabs.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/42/bunqme-tab").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_bunq_me_tabs_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/42/bunqme-tab?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
 
     # Attachment Monetary Account
     ## POST
@@ -16,8 +18,10 @@ RSpec.configure do |config|
 
     # CARD
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card?count=10").
-      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_cards.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_cards_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
 
     ## GET
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card/11").
@@ -25,8 +29,10 @@ RSpec.configure do |config|
 
     # PAYMENT
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/1933/payment?count=10").
-      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_payments.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/42/payment").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_payments_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/42/payment?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
 
     # TAB USAGE SINGLE
     ## POST
@@ -40,16 +46,20 @@ RSpec.configure do |config|
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913")
       .to_return(status: 200, body: File.new("spec/support/mocks/v1/get_user.json"))
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user?count=10").
-      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_users.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_users_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user?older_id=1913").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
 
     # DEVICE SERVER
     ## GET
     stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/device\/.*/).
-      to_return(status: 200, body: File.new("spec/support/mocks/v1/get_device_server.json"))
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/get_device.json"))
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device?count=10").
-      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_device_servers.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_devices.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device?older_id=2348").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
 
     # AVATAR
     ## POST
@@ -73,25 +83,16 @@ RSpec.configure do |config|
       to_return(status: 200, body: File.new("spec/support/mocks/v1/post_cash_register.json"))
 
     ## GET
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/11/cash-register/1913").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/42/cash-register/42").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/get_cash_register.json"))
 
     # PERMITTED IP
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/credential-password-ip/3088/ip").
-      to_return(status: 200, body: {
-        "Response" => [
-          {
-            "PermittedIp" => {
-              "id" => 927,
-              "created" => "2017-03-18 12:56:56.046564",
-              "updated" => "2017-03-18 12:56:56.046564",
-              "ip" => "82.68.23.42",
-              "status" => "ACTIVE"
-            }
-          }
-        ]
-      }.to_json, headers: {})
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/credential-password-ip/42/ip").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_permitted_ips_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/credential-password-ip/42/ip?older_id=927").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
+
     ## GET
     stub_request(:put, /https:\/\/sandbox.public.api.bunq.com\/v1\/user\/.*\/credential-password-ip\/.*\/ip\/.*/).
       to_return(status: 200, body: {
@@ -130,7 +131,8 @@ RSpec.configure do |config|
           }
         ]
       }.to_json, headers: {})
-    # Installation GET
+    # INSTALLATION
+    ## GET
     stub_request(:get, /https:\/\/sandbox.public.api.bunq.com\/v1\/installation\/.*/).
       to_return(status: 200, body: {
         "Response" => [
@@ -141,17 +143,12 @@ RSpec.configure do |config|
           }
         ]
       }.to_json, headers: {})
-    # Installation LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/installation?count=10").
-      to_return(status: 200, body: {
-        "Response" => [
-          {
-            "Id" => {
-              "id" => 12
-            }
-          }
-        ]
-      }.to_json, headers: {})
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/installation").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_installation.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/installation?older_id=12").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
+
     stub_request(:post, "https://sandbox.public.api.bunq.com/v1/installation")
       .to_return(status: 200, body: {
         "Response" => [
@@ -325,133 +322,26 @@ RSpec.configure do |config|
           }
         ]
       }.to_json, headers: {})
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account").
-      to_return(status: 200, body: {
-        "Response" => [
-        {
-        "MonetaryAccountBank" => {
-        "id" => 1933,
-        "created" => "2016-03-15 01:11:13.101139",
-        "updated" => "2016-03-15 01:11:13.101139",
-        "alias" => [
-        {
-        "type" => "PHONE_NUMBER",
-        "value" => "+31682890601",
-        "name" => "+31682890601"
-        },
-        {
-        "type" => "EMAIL",
-        "value" => "bell-vof@bunq.nl",
-        "name" => "bell-vof@bunq.nl"
-        },
-        {
-        "type" => "IBAN",
-        "value" => "NL05BUNQ9900019407",
-        "name" => "Stevens B.V."
-        }
-        ],
-        "avatar" => {
-        "uuid" => "791c2995-85f8-4306-b92a-edc1ac2ba46f",
-        "image" => [
-        {
-        "attachment_public_uuid" => "52a45442-3dc0-41fb-801a-2511475613d2",
-        "height" => 1024,
-        "width" => 1024,
-        "content_type" => "image/png"
-        }
-        ],
-        "anchor_uuid" => "fb029135-8f58-4347-83cc-689e81d7daf5"
-        },
-        "balance" => {
-        "currency" => "EUR",
-        "value" => "2472.8"
-        },
-        "country" => "NL",
-        "currency" => "EUR",
-        "daily_limit" => {
-        "currency" => "EUR",
-        "value" => "1000"
-        },
-        "daily_spent" => {
-        "currency" => "EUR",
-        "value" => "0"
-        },
-        "description" => "bunq account",
-        "public_uuid" => "fb029135-8f58-4347-83cc-689e81d7daf5",
-        "status" => "ACTIVE",
-        "sub_status" => "NONE",
-        "timezone" => "europe/amsterdam",
-        "user_id" => 1913,
-        "monetary_account_profile" => {
-        "profile_fill" => nil,
-        "profile_drain" => nil,
-        "profile_action_required" => "NO_ACTION_NEEDED",
-        "profile_amount_required" => {
-        "currency" => "EUR",
-        "value" => "0"
-        }
-        },
-        "notification_filters" => [
-        ],
-        "setting" => {
-        "color" => "#54C7FC",
-        "default_avatar_status" => "AVATAR_DEFAULT",
-        "restriction_chat" => "ALLOW_INCOMING"
-        },
-        "overdraft_limit" => {
-        "currency" => "EUR",
-        "value" => "0"
-        }
-        }
-        }
-        ],
-        "Pagination" => {
-        "future_url" => nil,
-        "newer_url" => nil,
-        "older_url" => nil
-        }
 
-      }.to_json, headers: {})
+    # MONETARY ACCOUNT BANK
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account-bank").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_monetary_account_banks_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account-bank?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
 
-    # DeviceServer LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device-server?count=10")
-      .to_return(status: 200, body: {
-        "Response" => [
-          {
-            "DeviceServer" => {
-              "id" => 2348,
-              "created" => "2017-03-15 01:11:16.865607",
-              "updated" => "2017-03-15 01:11:16.865607",
-              "ip" => "10.8.0.51",
-              "description" => "Generated device",
-              "status" => "ACTIVE"
-            }
-          }
-        ],
-        "Pagination" => {
-          "future_url" => "/v1/device-server?newer_id=2348",
-          "newer_url" => nil,
-          "older_url" => nil
-        }
-      }.to_json, headers: {})
+    # DEVICE SERVER
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device-server").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_device_servers.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device-server?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
 
-    # DeviceServer GET
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device-server/1913")
-      .to_return(status: 200, body: {
-        "Response" => [
-          {
-            "DeviceServer" => {
-              "id" => 2348,
-              "created" => "2017-03-15 01:11:16.865607",
-              "updated" => "2017-03-15 01:11:16.865607",
-              "ip" => "10.8.0.51",
-              "description" => "Generated device",
-              "status" => "ACTIVE"
-            }
-          }
-        ]
-      }.to_json, headers: {})
+    ## GET
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/device-server/42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/get_device_server.json"))
 
+    ## POST
     stub_request(:post, "https://sandbox.public.api.bunq.com/v1/device-server").
       to_return(status: 200, body: {
         "Response" => [
