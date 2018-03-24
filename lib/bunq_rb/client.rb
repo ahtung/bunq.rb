@@ -25,43 +25,24 @@ module BunqRb
           when :list
             define_singleton_method(:all) do |*args|
               page_size = BunqRb.configuration.page_size
-
               Enumerator.new do |yielder|
                 older_id = nil
-
                 loop do
                   older_url = Addressable::Template.new("#{url(*args)}{?query*}")
                   params = {}
                   params.merge!({ count: page_size }) if page_size != 10
                   params.merge!({ older_id: older_id }) unless older_id.nil?
                   older_url = older_url.expand(query: params).to_s
-
                   results = Client.raw_send_method(:get, older_url)
-
-                  if results.success?
-                    json_response = JSON.parse(results.body)
-                    items = json_response["Response"]
-                    raise StopIteration if items.empty?
-                    items.map { |item| yielder << new(item.values.first) }
-                    raise StopIteration if json_response["Pagination"].nil?
-                    raise StopIteration if json_response["Pagination"]["older_url"].nil?
-                    older_id = items.last.values.first["id"]
-                  else
-                    raise StopIteration
-                  end
+                  json_response = JSON.parse(results.body)
+                  items = json_response["Response"]
+                  raise StopIteration if items.empty?
+                  items.map { |item| yielder << new(item.values.first) }
+                  raise StopIteration if json_response["Pagination"].nil?
+                  raise StopIteration if json_response["Pagination"]["older_url"].nil?
+                  older_id = items.last.values.first["id"]
                 end
               end.lazy
-
-            end
-          when :post
-            define_singleton_method(:create) do |*args|
-              response = Client.send_method(:post, uri, args)
-              new(response[0]["Id"])
-            end
-          when :put
-            define_singleton_method(:update) do |*args|
-              response = Client.send_method(:post, uri, args)
-              new(response[0]["Id"])
             end
           else
             puts "ERROR for: #{call}"
@@ -88,7 +69,7 @@ module BunqRb
     end
 
     def self.send_method(method, url, payload = {})
-      # puts "===> #{url}"
+      puts "===> #{url}"
       faraday_response = connection.send(method, url, payload)
       json_response = JSON.parse(faraday_response.body)
       raise json_response["Error"].first["error_description"] if json_response.key?("Error")
@@ -96,7 +77,7 @@ module BunqRb
     end
 
     def self.raw_send_method(method, url, payload = {})
-      # puts "===> #{url}"
+      puts "===> #{url}"
       connection.send(method, url, payload)
     end
   end
