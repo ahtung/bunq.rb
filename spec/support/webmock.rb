@@ -4,6 +4,17 @@ WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.before(:each) do
 
+    # SCHEDULE
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/schedule").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_schedules_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/schedule?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
+
+    ## GET
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/schedule/42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/get_schedule.json"))
+
     # BUNQ ME TAB
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/42/bunqme-tab").

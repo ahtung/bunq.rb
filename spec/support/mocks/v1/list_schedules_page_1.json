@@ -1,0 +1,11 @@
+{
+	"Response": [{
+		"Schedule": {
+			"time_start": "2015-08-25 09:00.00",
+			"time_end": "2015-08-25 23:00.00",
+			"recurrence_unit": "MONTHLY",
+			"recurrence_size": 1,
+			"status": "ACTIVE"
+		}
+	}]
+}
