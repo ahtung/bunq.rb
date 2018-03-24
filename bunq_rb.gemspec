@@ -30,7 +30,9 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "spyke"
+  spec.add_dependency "activesupport"
+  spec.add_dependency "faraday"
+  spec.add_dependency "faraday_middleware"
   spec.add_dependency "money"
   spec.add_dependency "addressable"
 end
