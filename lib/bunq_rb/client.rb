@@ -42,12 +42,10 @@ module BunqRb
             older_url = counted_url(args)
             loop do
               results = Client.raw_send_method(:get, older_url)
-              json_response = JSON.parse(results.body)
-              items = json_response["Response"]
-              items.map { |item| yielder << new(item.values.first) }
-              raise StopIteration if json_response["Pagination"].nil?
-              raise StopIteration if json_response["Pagination"]["older_url"].nil?
-              older_url = json_response["Pagination"]["older_url"]
+              json = JSON.parse(results.body)
+              json["Response"].map { |item| yielder << new(item.values.first) }
+              raise StopIteration if json["Pagination"].nil? || json["Pagination"]["older_url"].nil?
+              older_url = json["Pagination"]["older_url"]
             end
           end.lazy
         end
