@@ -43,7 +43,8 @@ module BunqRb
                     items = json_response["Response"]
                     raise StopIteration if items.empty?
                     items.map { |item| yielder << new(item.values.first) }
-                    raise StopIteration if items.last.values.first["id"].nil?
+                    raise StopIteration if json_response["Pagination"].nil?
+                    raise StopIteration if json_response["Pagination"]["older_url"].nil?
                     older_id = items.last.values.first["id"]
                   else
                     raise StopIteration
