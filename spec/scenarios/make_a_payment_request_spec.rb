@@ -35,7 +35,7 @@ describe "Scenario" do
     BunqRb.configuration.session_token = @token["token"]
 
     # 4. LIST monetary-account
-    # puts BunqRb::MonetaryAccount.all(1913).inspect
+    # puts BunqRb::MonetaryAccount.all(1).inspect
 
     # 5. POST monetary-account attachment (optional)
     # config_path = File.expand_path(File.join(File.dirname(__FILE__), "../fixtures/images/baz.jpg"))
@@ -59,7 +59,7 @@ describe "Scenario" do
       ]
     )
 
-    request_inqury = BunqRb::RequestInquiry.find(1913, 42, request_inqury.id)
+    request_inqury = BunqRb::RequestInquiry.find(1, 42, request_inqury.id)
 
     expect(request_inqury.status).to eq("PENDING")
   end

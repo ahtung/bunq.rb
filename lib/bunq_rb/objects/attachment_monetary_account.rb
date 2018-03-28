@@ -8,7 +8,7 @@ module BunqRb
     end
 
     def self.create(image)
-      response = Client.send_method(:post, url(1913, 1933), image)
+      response = Client.send_method(:post, url(1, 1933), image)
       response.map { |resp| new(resp["Id"]) }
     end
 
