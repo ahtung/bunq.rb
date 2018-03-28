@@ -4,6 +4,24 @@ WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.before(:each) do
 
+    # INVOICE
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/invoice").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_invoices_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/invoice?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
+
+    ## GET
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/invoice/42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/get_invoice.json"))
+
+    # CARD NAME
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/card-name").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_card_name_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/card-name?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
+
     # REQUEST RESPONSE
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/request-response").
