@@ -914,7 +914,11 @@ TODO
 
 ##### GET
 
-TODO
+```ruby
+user_id = 1
+monetary_account_id = 11
+invoice = BunqRb::Invoice.find(user_id, monetary_account_id, 42)
+```
 
 ##### LIST
 
@@ -928,11 +932,17 @@ invoices = BunqRb::Invoice.all(user_id, monetary_account_id)
 
 ##### GET
 
-TODO
+```ruby
+user_id = 1
+invoice = BunqRb::InvoiceByUser.find(user_id, 42)
+```
 
 ##### LIST
 
-TODO
+```ruby
+user_id = 1
+invoices = BunqRb::InvoiceByUser.all(user_id)
+```
 
 ### EXPORT STATEMENTS
 

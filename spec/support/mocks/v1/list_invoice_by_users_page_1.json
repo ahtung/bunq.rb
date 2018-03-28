@@ -1,0 +1,159 @@
+{
+	"Response": [{
+		"Invoice": {
+			"id": 42,
+			"created": "2015-06-13 23:19:16.215235",
+			"updated": "2015-06-30 09:12:31.981573",
+			"invoice_date": "2015-06-13 23:19:16.215235",
+			"invoice_number": "42",
+			"status": "CREDITED",
+			"group": [{
+				"type": "MONETARY_ACCOUNT_BANK",
+				"type_description": "Bank account.",
+				"type_description_translated": "Bank account.",
+				"instance_description": "NL32XXXX2025603565",
+				"product_vat_exclusive": {
+					"value": "12.50",
+					"currency": "EUR"
+				},
+				"product_vat_inclusive": {
+					"value": "12.50",
+					"currency": "EUR"
+				},
+				"item": {
+					"billing_date": "2016-02-25",
+					"type_description": "Bank account.",
+					"type_description_translated": "Bank account.",
+					"unit_vat_exclusive": {
+						"value": "12.50",
+						"currency": "EUR"
+					},
+					"unit_vat_inclusive": {
+						"value": "12.50",
+						"currency": "EUR"
+					},
+					"vat": 0,
+					"quantity": 1,
+					"total_vat_exclusive": {
+						"value": "12.50",
+						"currency": "EUR"
+					},
+					"total_vat_inclusive": {
+						"value": "12.50",
+						"currency": "EUR"
+					}
+				}
+			}],
+			"total_vat_inclusive": {
+				"value": "12.50",
+				"currency": "EUR"
+			},
+			"total_vat_exclusive": {
+				"value": "12.50",
+				"currency": "EUR"
+			},
+			"total_vat": {
+				"value": "12.50",
+				"currency": "EUR"
+			},
+			"alias": {
+				"iban": "NL12BUNQ0300065264",
+				"display_name": "Mary",
+				"avatar": {
+					"uuid": "5a442bed-3d43-4a85-b532-dbb251052f4a",
+					"anchor_uuid": "f0de919f-8c36-46ee-acb7-ea9c35c1b231",
+					"image": [{
+						"attachment_public_uuid": "d93e07e3-d420-45e5-8684-fc0c09a63686",
+						"content_type": "image/jpeg",
+						"height": 380,
+						"width": 520
+					}]
+				},
+				"label_user": {
+					"uuid": "252e-fb1e-04b74214-b9e9467c3-c6d2fbf",
+					"avatar": {
+						"uuid": "5a442bed-3d43-4a85-b532-dbb251052f4a",
+						"anchor_uuid": "f0de919f-8c36-46ee-acb7-ea9c35c1b231",
+						"image": [{
+							"attachment_public_uuid": "d93e07e3-d420-45e5-8684-fc0c09a63686",
+							"content_type": "image/jpeg",
+							"height": 380,
+							"width": 520
+						}]
+					},
+					"public_nick_name": "Mary",
+					"display_name": "Mary",
+					"country": "NL"
+				},
+				"country": "NL",
+				"bunq_me": {
+					"type": "EMAIL",
+					"value": "bravo@bunq.com",
+					"name": ""
+				},
+				"is_light": false,
+				"swift_bic": "BUNQNL2A",
+				"swift_account_number": "123456789"
+			},
+			"address": {
+				"street": "Example Boulevard",
+				"house_number": "123a",
+				"po_box": "09392",
+				"postal_code": "1234AA",
+				"city": "Amsterdam",
+				"country": "NL",
+				"province": "IT_NA"
+			},
+			"counterparty_alias": {
+				"iban": "NL12BUNQ0300065264",
+				"display_name": "Mary",
+				"avatar": {
+					"uuid": "5a442bed-3d43-4a85-b532-dbb251052f4a",
+					"anchor_uuid": "f0de919f-8c36-46ee-acb7-ea9c35c1b231",
+					"image": [{
+						"attachment_public_uuid": "d93e07e3-d420-45e5-8684-fc0c09a63686",
+						"content_type": "image/jpeg",
+						"height": 380,
+						"width": 520
+					}]
+				},
+				"label_user": {
+					"uuid": "252e-fb1e-04b74214-b9e9467c3-c6d2fbf",
+					"avatar": {
+						"uuid": "5a442bed-3d43-4a85-b532-dbb251052f4a",
+						"anchor_uuid": "f0de919f-8c36-46ee-acb7-ea9c35c1b231",
+						"image": [{
+							"attachment_public_uuid": "d93e07e3-d420-45e5-8684-fc0c09a63686",
+							"content_type": "image/jpeg",
+							"height": 380,
+							"width": 520
+						}]
+					},
+					"public_nick_name": "Mary",
+					"display_name": "Mary",
+					"country": "NL"
+				},
+				"country": "NL",
+				"bunq_me": {
+					"type": "EMAIL",
+					"value": "bravo@bunq.com",
+					"name": ""
+				},
+				"is_light": false,
+				"swift_bic": "BUNQNL2A",
+				"swift_account_number": "123456789"
+			},
+			"counterparty_address": {
+				"street": "Example Boulevard",
+				"house_number": "123a",
+				"po_box": "09392",
+				"postal_code": "1234AA",
+				"city": "Amsterdam",
+				"country": "NL",
+				"province": "IT_NA"
+			},
+			"chamber_of_commerce_number": "NL123456789B12",
+			"vat_number": "01234567"
+		}
+	}]
+}
