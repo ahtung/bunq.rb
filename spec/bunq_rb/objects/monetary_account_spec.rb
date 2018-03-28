@@ -16,6 +16,19 @@ RSpec.describe BunqRb::MonetaryAccountBank, active_session: true do
     end
   end
 
+  describe "invoices" do
+    let(:monetary_account) { described_class.all(1).first }
+
+    it "return some invoices" do
+      expect(monetary_account.invoices.count).to be > 0
+    end
+
+    it "returns a BunqRb::Invoice object" do
+      invoice = monetary_account.invoices.first
+      expect(invoice).to be_instance_of(BunqRb::Invoice)
+    end
+  end
+
   describe "bunq_me_tabs" do
     let(:monetary_account) { described_class.all(1).first }
 
