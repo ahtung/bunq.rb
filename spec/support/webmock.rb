@@ -4,6 +4,28 @@ WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.before(:each) do
 
+    # INVOICE BY USER
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/invoice").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_invoice_by_users_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/invoice?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
+
+    ## GET
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/invoice/42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/get_invoice_by_user.json"))
+
+    # INVOICE
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/invoice").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_invoices_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/invoice?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
+
+    ## GET
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/invoice/42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/get_invoice.json"))
+
     # CARD NAME
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/card-name").
