@@ -4,6 +4,13 @@ WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.before(:each) do
 
+    # CARD NAME
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/card-name").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_card_name_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/card-name?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
+
     # REQUEST RESPONSE
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/request-response").
@@ -24,18 +31,18 @@ RSpec.configure do |config|
 
     # Attachment Monetary Account
     ## POST
-    stub_request(:post, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/1933/attachment").
+    stub_request(:post, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/1933/attachment").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/post_monetary_account.json"))
 
     # CARD
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/card").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/list_cards_page_1.json"))
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card?older_id=42").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/card?older_id=42").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
 
     ## GET
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/card/11").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/card/11").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/get_card.json"))
 
     # PAYMENT
@@ -54,12 +61,12 @@ RSpec.configure do |config|
 
     # USER
     ## GET
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913")
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1")
       .to_return(status: 200, body: File.new("spec/support/mocks/v1/get_user.json"))
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/list_users_page_1.json"))
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user?older_id=1913").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user?older_id=1").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
 
     # DEVICE SERVER
@@ -90,7 +97,7 @@ RSpec.configure do |config|
 
     # CASH REGISTER
     ## POST
-    stub_request(:post, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account/11/cash-register").
+    stub_request(:post, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/cash-register").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/post_cash_register.json"))
 
     ## GET
@@ -336,9 +343,9 @@ RSpec.configure do |config|
 
     # MONETARY ACCOUNT BANK
     ## LIST
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account-bank").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account-bank").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/list_monetary_account_banks_page_1.json"))
-    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1913/monetary-account-bank?older_id=42").
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account-bank?older_id=42").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
 
     # DEVICE SERVER

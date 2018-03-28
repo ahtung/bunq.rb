@@ -2,7 +2,7 @@
    "Response":[
       {
          "UserCompany":{
-            "id":1913,
+            "id":1,
             "created":"2017-03-15 01:11:12.838718",
             "updated":"2017-03-18 10:55:15.347224",
             "alias":[
@@ -193,7 +193,7 @@
       }
    ],
    "Pagination":{
-      "future_url":"/v1/user?newer_id=1913",
+      "future_url":"/v1/user?newer_id=1",
       "newer_url":null,
       "older_url":null
    }

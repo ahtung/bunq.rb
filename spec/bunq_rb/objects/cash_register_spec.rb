@@ -3,7 +3,7 @@ require "spec_helper"
 describe BunqRb::CashRegister, active_session: true do
   it_behaves_like "get", [1, 42, 42]
 
-  let(:user_id) { 1913 }
+  let(:user_id) { 1 }
   let(:monetary_account_id) { 11 }
 
   describe "POST /v1/user/:user_id/monetary-account/:monetary_account_id/cash-register" do

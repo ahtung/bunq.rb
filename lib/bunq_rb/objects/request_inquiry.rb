@@ -17,7 +17,7 @@ module BunqRb
     end
 
     def self.create(hash = {})
-      response = Client.send_method(:post, url(1913, 1933), hash)
+      response = Client.send_method(:post, url(1, 1933), hash)
       new(response[0]["Id"])
     end
   end

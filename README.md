@@ -174,7 +174,7 @@ TODO
 ##### LIST
 
 ```ruby
-user = BunqRb::User.find(1913)
+user = BunqRb::User.find(1)
 monetary_account = user.monetary_accounts.first
 payments = monetary_account.payments
 ```
@@ -266,13 +266,13 @@ TODO
 ##### LIST
 
 ```ruby
-user_id = 1913
+user_id = 1
 monetary_account_id = 1933
 bunq_me_tabs = BunqRb::BunqMeTab.all(user_id, monetary_account_id)
 
 # OR
 
-user = BunqRb::User.find(1913)
+user = BunqRb::User.find(1)
 monetary_accounts = user.monetary_accounts
 bunq_me_tabs = monetary_accounts.first.bunq_me_tabs
 ```
@@ -502,7 +502,7 @@ TODO
 ##### GET
 
 ```ruby
-user = BunqRb::User.find(1913)
+user = BunqRb::User.find(1)
 ```
 
 ##### LIST
@@ -542,7 +542,7 @@ TODO
 ##### LIST
 
 ```ruby
-user = BunqRb::User.find(1913)
+user = BunqRb::User.find(1)
 monetary_accounts = user.monetary_accounts
 ```
 
@@ -683,7 +683,7 @@ TODO
 ##### GET
 
 ```ruby
-user_id = 1913
+user_id = 1
 card_id = 82082
 card = BunqRb::Card.find(user_id, card_id)
 ```
@@ -691,12 +691,12 @@ card = BunqRb::Card.find(user_id, card_id)
 ##### LIST
 
 ```ruby
-user_id = 1913
+user_id = 1
 cards = BunqRb::Card.all(user_id)
 
 # OR
 
-user = BunqRb::User.find(1913)
+user = BunqRb::User.find(1)
 cards = user.cards
 ```
 
@@ -710,7 +710,15 @@ TODO
 
 ##### LIST
 
-TODO
+```ruby
+user_id = 1
+cards = BunqRb::CardName.all(user_id)
+
+# OR
+
+user = BunqRb::User.find(1)
+cards = user.card_names
+```
 
 #### Card Generated CVC2
 
