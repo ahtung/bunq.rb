@@ -4,7 +4,7 @@ RSpec.describe BunqRb::PermittedIp, active_session: true do
   it_behaves_like "list", [1, 42]
   it_behaves_like "get", [1, 42, 42]
 
-  let(:user_id) { 1913 }
+  let(:user_id) { 1 }
   let(:credential_password_id) { 3088 }
 
   describe "PUT /v1/user/:user_id/credential-password-ip/:credential_password_id/ip/:id" do

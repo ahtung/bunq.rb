@@ -23,5 +23,9 @@ module BunqRb
     def cards
       BunqRb::Card.all(@id)
     end
+
+    def card_names
+      BunqRb::CardName.all(@id)
+    end
   end
 end

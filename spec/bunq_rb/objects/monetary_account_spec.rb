@@ -1,10 +1,10 @@
 require "spec_helper"
 
 RSpec.describe BunqRb::MonetaryAccountBank, active_session: true do
-  it_behaves_like "list", [1913]
+  it_behaves_like "list", [1]
 
   describe "payments" do
-    let(:monetary_account) { described_class.all(1913).first }
+    let(:monetary_account) { described_class.all(1).first }
 
     it "return some payments" do
       expect(monetary_account.payments.count).to be > 0
@@ -17,7 +17,7 @@ RSpec.describe BunqRb::MonetaryAccountBank, active_session: true do
   end
 
   describe "bunq_me_tabs" do
-    let(:monetary_account) { described_class.all(1913).first }
+    let(:monetary_account) { described_class.all(1).first }
 
     it "return some bunq_me_tabs" do
       expect(monetary_account.payments.count).to be > 0
