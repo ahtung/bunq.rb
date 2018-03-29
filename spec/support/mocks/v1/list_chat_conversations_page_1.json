@@ -1,0 +1,195 @@
+{
+	"Response": [{
+		"ChatConversation": {
+			"SupportConversationExternal": {
+				"id": 42,
+				"created": "2016-06-13 23:19:16.215235",
+				"updated": "2016-06-30 09:12:31.981573",
+				"last_message": {
+					"ChatMessageAnnouncement": {
+						"id": 42,
+						"created": "2016-06-13 23:19:16.215235",
+						"updated": "2016-06-30 09:12:31.981573",
+						"conversation_id": 42,
+						"creator": {
+							"uuid": "252e-fb1e-04b74214-b9e9467c3-c6d2fbf",
+							"avatar": {
+								"uuid": "5a442bed-3d43-4a85-b532-dbb251052f4a",
+								"anchor_uuid": "f0de919f-8c36-46ee-acb7-ea9c35c1b231",
+								"image": [{
+									"attachment_public_uuid": "d93e07e3-d420-45e5-8684-fc0c09a63686",
+									"content_type": "image/jpeg",
+									"height": 380,
+									"width": 520
+								}]
+							},
+							"public_nick_name": "Mary",
+							"display_name": "Mary",
+							"country": "NL"
+						},
+						"content": {}
+					},
+					"ChatMessageStatus": {
+						"id": 42,
+						"created": "2016-06-13 23:19:16.215235",
+						"updated": "2016-06-30 09:12:31.981573",
+						"conversation_id": 42,
+						"creator": {
+							"uuid": "252e-fb1e-04b74214-b9e9467c3-c6d2fbf",
+							"avatar": {
+								"uuid": "5a442bed-3d43-4a85-b532-dbb251052f4a",
+								"anchor_uuid": "f0de919f-8c36-46ee-acb7-ea9c35c1b231",
+								"image": [{
+									"attachment_public_uuid": "d93e07e3-d420-45e5-8684-fc0c09a63686",
+									"content_type": "image/jpeg",
+									"height": 380,
+									"width": 520
+								}]
+							},
+							"public_nick_name": "Mary",
+							"display_name": "Mary",
+							"country": "NL"
+						},
+						"content": {
+							"ChatMessageContentAnchorEvent": {
+								"anchored_object": {}
+							},
+							"ChatMessageContentAttachment": {
+								"attachment": {
+									"description": "My picture.",
+									"content_type": "image/jpeg"
+								}
+							},
+							"ChatMessageContentGeolocation": {
+								"geolocation": {
+									"latitude": 53.2,
+									"longitude": 4.89,
+									"altitude": 12,
+									"radius": 100
+								}
+							},
+							"ChatMessageContentStatusConversationTitle": {
+								"title": "Payment 123"
+							},
+							"ChatMessageContentStatusConversation": {
+								"action": "CONVERSATION_CREATED"
+							},
+							"ChatMessageContentStatusMembership": {
+								"action": "MEMBER_ADDED",
+								"member": {
+									"uuid": "252e-fb1e-04b74214-b9e9467c3-c6d2fbf",
+									"avatar": {
+										"uuid": "5a442bed-3d43-4a85-b532-dbb251052f4a",
+										"anchor_uuid": "f0de919f-8c36-46ee-acb7-ea9c35c1b231",
+										"image": [{
+											"attachment_public_uuid": "d93e07e3-d420-45e5-8684-fc0c09a63686",
+											"content_type": "image/jpeg",
+											"height": 380,
+											"width": 520
+										}]
+									},
+									"public_nick_name": "Mary",
+									"display_name": "Mary",
+									"country": "NL"
+								}
+							},
+							"ChatMessageContentText": {
+								"text": "Welcome to bunq!"
+							}
+						}
+					},
+					"ChatMessageUser": {
+						"id": 42,
+						"created": "2016-06-13 23:19:16.215235",
+						"updated": "2016-06-30 09:12:31.981573",
+						"conversation_id": 42,
+						"creator": {
+							"uuid": "252e-fb1e-04b74214-b9e9467c3-c6d2fbf",
+							"avatar": {
+								"uuid": "5a442bed-3d43-4a85-b532-dbb251052f4a",
+								"anchor_uuid": "f0de919f-8c36-46ee-acb7-ea9c35c1b231",
+								"image": [{
+									"attachment_public_uuid": "d93e07e3-d420-45e5-8684-fc0c09a63686",
+									"content_type": "image/jpeg",
+									"height": 380,
+									"width": 520
+								}]
+							},
+							"public_nick_name": "Mary",
+							"display_name": "Mary",
+							"country": "NL"
+						},
+						"displayed_sender": {
+							"uuid": "252e-fb1e-04b74214-b9e9467c3-c6d2fbf",
+							"avatar": {
+								"uuid": "5a442bed-3d43-4a85-b532-dbb251052f4a",
+								"anchor_uuid": "f0de919f-8c36-46ee-acb7-ea9c35c1b231",
+								"image": [{
+									"attachment_public_uuid": "d93e07e3-d420-45e5-8684-fc0c09a63686",
+									"content_type": "image/jpeg",
+									"height": 380,
+									"width": 520
+								}]
+							},
+							"public_nick_name": "Mary",
+							"display_name": "Mary",
+							"country": "NL"
+						},
+						"content": {
+							"ChatMessageContentAnchorEvent": {
+								"anchored_object": {}
+							},
+							"ChatMessageContentAttachment": {
+								"attachment": {
+									"description": "My picture.",
+									"content_type": "image/jpeg"
+								}
+							},
+							"ChatMessageContentGeolocation": {
+								"geolocation": {
+									"latitude": 53.2,
+									"longitude": 4.89,
+									"altitude": 12,
+									"radius": 100
+								}
+							},
+							"ChatMessageContentStatusConversationTitle": {
+								"title": "Payment 123"
+							},
+							"ChatMessageContentStatusConversation": {
+								"action": "CONVERSATION_CREATED"
+							},
+							"ChatMessageContentStatusMembership": {
+								"action": "MEMBER_ADDED",
+								"member": {
+									"uuid": "252e-fb1e-04b74214-b9e9467c3-c6d2fbf",
+									"avatar": {
+										"uuid": "5a442bed-3d43-4a85-b532-dbb251052f4a",
+										"anchor_uuid": "f0de919f-8c36-46ee-acb7-ea9c35c1b231",
+										"image": [{
+											"attachment_public_uuid": "d93e07e3-d420-45e5-8684-fc0c09a63686",
+											"content_type": "image/jpeg",
+											"height": 380,
+											"width": 520
+										}]
+									},
+									"public_nick_name": "Mary",
+									"display_name": "Mary",
+									"country": "NL"
+								}
+							},
+							"ChatMessageContentText": {
+								"text": "Welcome to bunq!"
+							}
+						}
+					}
+				}
+			},
+			"ChatConversationReference": {
+				"id": 42,
+				"created": "2016-06-13 23:19:16.215235",
+				"updated": "2016-06-30 09:12:31.981573"
+			}
+		}
+	}]
+}
