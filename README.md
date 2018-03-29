@@ -978,11 +978,17 @@ TODO
 
 ##### GET
 
-TODO
+```ruby
+user_id = 1
+invoice = BunqRb::ExportAnnualOverview.find(user_id, 42)
+```
 
 ##### LIST
 
-TODO
+```ruby
+user_id = 1
+invoices = BunqRb::ExportAnnualOverview.all(user_id)
+```
 
 #### Export Annual Overview Content
 
