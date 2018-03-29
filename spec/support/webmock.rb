@@ -19,6 +19,17 @@ RSpec.configure do |config|
     stub_request(:delete, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/customer-statement/42").
       to_return(status: 200, body: File.new("spec/support/mocks/v1/delete_customer_statement_export.json"))
 
+    # EXPORT ANNUAL OVERVIEW
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/export-annual-overview").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_export_annual_overviews_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/export-annual-overview?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
+
+    ## GET
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/export-annual-overview/42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/get_export_annual_overview.json"))
+
     # INVOICE BY USER
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/invoice").
