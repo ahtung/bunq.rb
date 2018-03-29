@@ -19,6 +19,8 @@ module BunqRb
             implements_get
           when :list
             implements_list
+          when :delete
+            implements_delete
           else
             puts "ERROR for: #{call}"
           end
@@ -26,6 +28,15 @@ module BunqRb
       end
 
       private
+
+      def implements_delete
+        define_singleton_method(:delete) do |*args|
+          id = args.pop
+          full_uri = [url(*args), id].join("/")
+          response = Client.send_method(:delete, full_uri)
+          []
+        end
+      end
 
       def implements_get
         define_singleton_method(:find) do |*args|
