@@ -35,3 +35,11 @@ shared_examples_for "post" do |attrs|
     expect(attribute).not_to be_nil
   end
 end
+
+shared_examples_for "delete" do |attrs|
+  let(:item) { described_class.delete(*attrs) }
+
+  it "returns an empty array" do
+    expect(item).to be_empty
+  end
+end

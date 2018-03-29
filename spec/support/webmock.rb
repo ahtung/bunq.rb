@@ -4,6 +4,21 @@ WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.before(:each) do
 
+    # CUSTOMER STATEMENT EXPORT
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/customer-statement").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_customer_statement_exports_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/customer-statement?older_id=42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
+
+    ## GET
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/customer-statement/42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/get_customer_statement_export.json"))
+
+    ## DELETE
+    stub_request(:delete, "https://sandbox.public.api.bunq.com/v1/user/1/monetary-account/11/customer-statement/42").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/delete_customer_statement_export.json"))
+
     # INVOICE BY USER
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/invoice").

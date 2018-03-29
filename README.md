@@ -954,15 +954,27 @@ TODO
 
 ##### GET
 
-TODO
+```ruby
+user_id = 1
+monetary_account_id = 11
+invoice = BunqRb::CustomerStatementExport.find(user_id, monetary_account_id, 42)
+```
 
 ##### LIST
 
-TODO
+```ruby
+user_id = 1
+monetary_account_id = 11
+invoices = BunqRb::CustomerStatementExport.all(user_id, monetary_account_id)
+```
 
 ##### DELETE
 
-TODO
+```ruby
+user_id = 1
+monetary_account_id = 11
+invoice = BunqRb::CustomerStatementExport.delete(user_id, monetary_account_id, 42)
+```
 
 #### Customer Statement Export Content
 
