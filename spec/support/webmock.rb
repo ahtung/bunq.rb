@@ -4,6 +4,13 @@ WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.before(:each) do
 
+    # EXPORT ANNUAL OVERVIEW CONTENT
+    ## LIST
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/export-annual-overview/24/content").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_export_annual_overview_contents_page_1.json"))
+    stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/export-annual-overview/24/content?older_id=24").
+      to_return(status: 200, body: File.new("spec/support/mocks/v1/list_page_2.json"))
+
     # INVOICE BY USER
     ## LIST
     stub_request(:get, "https://sandbox.public.api.bunq.com/v1/user/1/invoice").
