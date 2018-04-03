@@ -125,11 +125,21 @@ device_servers = BunqRb::DeviceServer.all
 
 ##### GET
 
-TODO
+```ruby
+user_id = 1
+credential_password_id = 11
+permitted_ip_id = 42
+device_servers = BunqRb::PermittedIp.find(user_id, credential_password_id, permitted_ip_id)
+```
 
 ##### LIST
 
-TODO
+
+```ruby
+user_id = 1
+credential_password_id = 11
+device_servers = BunqRb::PermittedIp.all(user_id, credential_password_id)
+```
 
 ##### POST
 
