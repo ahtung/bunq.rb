@@ -578,11 +578,21 @@ TODO
 
 ##### GET
 
-TODO
+
+```ruby
+user_id = 1
+monetary_account_id = 11
+cash_register_id = 42
+cash_registers = BunqRb::CashRegister.find(user_id, monetary_account_id, cash_register_id)
+```
 
 ##### LIST
 
-TODO
+```ruby
+user_id = 1
+monetary_account_id = 11
+cash_registers = BunqRb::CashRegister.all(user_id, monetary_account_id)
+```
 
 #### Cash Register QR Code
 
