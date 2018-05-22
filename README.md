@@ -1,11 +1,11 @@
 # BunqRb
 
-[![Build Status](https://travis-ci.org/ahtung/bunq_rb.svg?branch=master)](https://travis-ci.org/ahtung/bunq_rb)
-[![Gem Version](https://badge.fury.io/rb/bunq_rb.svg)](https://badge.fury.io/rb/bunq_rb)
-[![Maintainability](https://api.codeclimate.com/v1/badges/8e9c963093297534c4bb/maintainability)](https://codeclimate.com/github/ahtung/bunq_rb/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/ahtung/bunq_rb/badge.svg?branch=master)](https://coveralls.io/github/ahtung/bunq_rb?branch=master)
+[![Build Status](https://travis-ci.org/ahtung/tink.rb.svg?branch=master)](https://travis-ci.org/ahtung/tink.rb)
+[![Gem Version](https://badge.fury.io/rb/tink.rb.svg)](https://badge.fury.io/rb/tink.rb)
+[![Maintainability](https://api.codeclimate.com/v1/badges/8e9c963093297534c4bb/maintainability)](https://codeclimate.com/github/ahtung/tink.rb/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/ahtung/tink.rb/badge.svg?branch=master)](https://coveralls.io/github/ahtung/tink.rb?branch=master)
 
-- [Documentation](https://doc.bunq.com/)
+- [Documentation](https://docs.tink.se/)
 
 ## Installation
 
